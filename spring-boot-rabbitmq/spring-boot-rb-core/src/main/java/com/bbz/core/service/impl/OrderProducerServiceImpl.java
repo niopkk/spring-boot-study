@@ -45,6 +45,9 @@ public class OrderProducerServiceImpl implements OrderProducerService {
     public void send(OrderDTO order) {
         CorrelationData correlationData = new CorrelationData();
         correlationData.setId(order.getMessageId());
+        /**
+         * 如果发送的数据是类必须用Serializable进行修饰,否则不能进行序列化
+         */
         rabbitTemplate.convertAndSend("order-exchange",
                 "order.www",
                 order,
