@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+
+    <bean id="helloWorldService" class="com.lesson3.HelloWorldService">
+        <property name="helloWord" ref="strureHelloWorld"></property>
+        <!--<property name="helloWord" ref="springHelloWorld"></property>-->
+    </bean>
+
+
+    <bean id="springHelloWorld" class="com.lesson3.SpringHelloWorld">
+        <property name="message" value="spring 输出"/>
+    </bean>
+    <bean id="strureHelloWorld" class="com.lesson3.StrureHelloWorld">
+        <property name="message"  value="strure 输出消息"/>
+    </bean>
+</beans>
