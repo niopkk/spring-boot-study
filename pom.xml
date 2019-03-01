@@ -19,6 +19,7 @@
         <module>spring-study</module>
         <module>java-thread</module>
         <module>spring-aop-study</module>
+        <module>spring-boot-elasticsearch</module>
     </modules>
 
     <properties>
