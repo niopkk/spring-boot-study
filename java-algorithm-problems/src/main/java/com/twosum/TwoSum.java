@@ -26,8 +26,6 @@ public class TwoSum {
         System.out.println(Arrays.toString(getTwoSumOneMap(nums, taget)));
 
 
-
-
 //        System.out.println(System.getSecurityManager());
     }
 
@@ -73,4 +71,19 @@ public class TwoSum {
         }
         throw new IllegalArgumentException("No two sum solution");
     }
+
+
+    //复写
+//    private static int[] conpy(int[] ints, int tager) {
+//        Map<Integer, Integer> result = new HashMap<>();
+//        for (int i = 0; i < ints.length; i++) {
+//            int complement = tager - ints[i];
+//
+//            if (result.containsKey(complement)) {
+//                return new int[]{result.get(complement), i};
+//            }
+//            result.put(ints[i], i);
+//        }
+//        return null;
+//    }
 }
