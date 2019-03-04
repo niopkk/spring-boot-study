@@ -37,6 +37,10 @@ public class ArticleController extends BaseController {
     @RequestMapping("/save")
     @ResponseBody
     public ResultView save() {
+
+//
+//        GoodsInfo goodsInfo=new GoodsInfo();
+
         Article article = new Article();
         article.setId(UUID.randomUUID().toString());
         article.setArticleId("XHDK-A-1293-#fJ4");

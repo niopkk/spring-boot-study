@@ -24,8 +24,6 @@ public class TwoSum {
         System.out.println(Arrays.toString(getTwoSum(nums, taget)));
         System.out.println(Arrays.toString(getTwoSumMap(nums, taget)));
         System.out.println(Arrays.toString(getTwoSumOneMap(nums, taget)));
-
-
 //        System.out.println(System.getSecurityManager());
     }
 
