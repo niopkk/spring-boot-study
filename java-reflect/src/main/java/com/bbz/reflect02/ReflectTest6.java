@@ -28,10 +28,10 @@ public class ReflectTest6 {
 
 
         //反射实例化
-//        Class<?> c = Class.forName("reflect02.Book");
-//        Object o = c.newInstance();
-//        Book book = (Book) o;
-//        System.out.println(book);
+        Class<?> c = Class.forName("com.bbz.reflect02.Book");
+        Object o = c.newInstance();
+        Book book = (Book) o;
+        System.out.println(book);
 
 
         System.out.println(11000 - 1312);
