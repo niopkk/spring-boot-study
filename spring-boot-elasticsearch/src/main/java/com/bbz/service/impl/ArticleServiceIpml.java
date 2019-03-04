@@ -13,32 +13,11 @@ import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilde
 import org.springframework.data.elasticsearch.core.query.SearchQuery;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class ArticleServiceIpml implements ArticleService {
 
     @Autowired
     private ArticleRepository articleRepository;
-
-
-    /**
-     * 构建查询条件
-     *
-     * @param seach
-     * @return
-     */
-    private BoolQueryBuilder createQuery(ArticleSeachTerm seach) {
-        BoolQueryBuilder builder = QueryBuilders.boolQuery();
-//        builder.must(QueryBuilders.termQuery("userId", seach.getUserId()));
-//        builder.must(QueryBuilders.termQuery("articleId", seach.getArticleId()));
-//        builder.must(QueryBuilders.rangeQuery("view_cnt").gte(30).lt(50));
-//        builder.must(QueryBuilders.multiMatchQuery("书", "title", "content"));
-//        builder.must(QueryBuilders.rangeQuery("viewCnt").gte(20).lt(50));
-
-
-        return builder;
-    }
 
 
     @Override
@@ -54,4 +33,27 @@ public class ArticleServiceIpml implements ArticleService {
     public Article save(Article article) {
         return articleRepository.save(article);
     }
+
+
+    /**
+     * 构建查询条件 (5.X以上版本 传入参数不能为 null)
+     *
+     * @param term
+     * @return
+     */
+    private BoolQueryBuilder createQuery(ArticleSeachTerm term) {
+        BoolQueryBuilder builder = QueryBuilders.boolQuery();
+        if (term.getUserId() != null) {
+            builder.filter(QueryBuilders.termQuery("userId", term.getUserId()));
+        }
+        if (term.getHidden() != null) {
+            builder.filter(QueryBuilders.termQuery("hidden", term.getHidden()));
+        }
+        if (term.getPostDate() != null) {
+            builder.filter(QueryBuilders.termQuery("postDate", term.getPostDate()));
+        }
+
+        return builder;
+    }
+
 }

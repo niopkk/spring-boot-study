@@ -4,72 +4,39 @@ import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
-import java.util.Date;
-import java.util.Set;
-
 @Document(indexName = "article", type = "article")
 public class Article {
 
     /**
      * 自增
      */
-    @Field(type = FieldType.Text, index = false)
+    @Field(type = FieldType.Text)
     private String id;
 
     /**
      * 文章id
      */
-    @Field(type = FieldType.Text, index = false)
+    @Field(type = FieldType.Text)
     private String articleId;
 
     /**
      * 用户id
      */
-    @Field(type = FieldType.Text, index = false)
-    private String userId;
+    @Field(type = FieldType.Text)
+    private Long userId;
 
     /**
      * 是否隐藏
      */
-    @Field(type = FieldType.Boolean, index = false)
+    @Field(type = FieldType.Boolean)
     private Boolean hidden;
 
     /**
      * 文章时间
      */
-    @Field(type = FieldType.Long, index = false)
+    @Field(type = FieldType.Long)
     private Long postDate;
 
-    /**
-     * 文章标题
-     */
-    @Field(type = FieldType.Text, index = false)
-    private String title;
-
-    /**
-     * 文章内容
-     */
-    @Field(type = FieldType.Text, index = false)
-    private String content;
-
-    /**
-     * 浏览量
-     */
-    @Field(type = FieldType.Integer, index = false)
-    private Integer viewCnt;
-
-    /**
-     * 文章类型
-     */
-    @Field(type = FieldType.Text, index = false)
-    private Set<String> types;
-
-
-    /**
-     * 子标题
-     */
-    @Field(type = FieldType.Text, index = false)
-    private String subtitle;
 
     public String getId() {
         return id;
@@ -87,11 +54,11 @@ public class Article {
         this.articleId = articleId;
     }
 
-    public String getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
@@ -112,43 +79,4 @@ public class Article {
         this.postDate = postDate;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public Integer getViewCnt() {
-        return viewCnt;
-    }
-
-    public void setViewCnt(Integer viewCnt) {
-        this.viewCnt = viewCnt;
-    }
-
-    public Set<String> getTypes() {
-        return types;
-    }
-
-    public void setTypes(Set<String> types) {
-        this.types = types;
-    }
-
-    public String getSubtitle() {
-        return subtitle;
-    }
-
-    public void setSubtitle(String subtitle) {
-        this.subtitle = subtitle;
-    }
 }
