@@ -20,6 +20,8 @@
         <module>java-thread</module>
         <module>spring-aop-study</module>
         <module>spring-boot-elasticsearch</module>
+        <module>java-reflect</module>
+        <module>java-design-patterns</module>
     </modules>
 
     <properties>
