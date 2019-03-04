@@ -37,8 +37,8 @@ public class Article {
     /**
      * 文章时间
      */
-    @Field(type = FieldType.Date, index = false)
-    private Date postDate;
+    @Field(type = FieldType.Long, index = false)
+    private Long postDate;
 
     /**
      * 文章标题
@@ -103,11 +103,12 @@ public class Article {
         this.hidden = hidden;
     }
 
-    public Date getPostDate() {
+
+    public Long getPostDate() {
         return postDate;
     }
 
-    public void setPostDate(Date postDate) {
+    public void setPostDate(Long postDate) {
         this.postDate = postDate;
     }
 
