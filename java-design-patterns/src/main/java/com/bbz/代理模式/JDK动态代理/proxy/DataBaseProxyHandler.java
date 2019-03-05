@@ -26,7 +26,7 @@ public class DataBaseProxyHandler<T> implements InvocationHandler {
         this.params = v;
     }
 
-    public  T proxy(T tager, ProxyInterface proxyInterface) {
+    public T proxy(T tager, ProxyInterface proxyInterface) {
         this.tager = tager;
         this.proxyInterface = proxyInterface;
         return (T) Proxy.newProxyInstance(
@@ -39,6 +39,7 @@ public class DataBaseProxyHandler<T> implements InvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 
+        System.out.println(proxy.getClass().getName());
 
         Object obj = null;
         obj = method.invoke(this.tager, args);

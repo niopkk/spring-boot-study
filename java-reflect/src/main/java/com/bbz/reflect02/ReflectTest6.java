@@ -31,10 +31,9 @@ public class ReflectTest6 {
         Class<?> c = Class.forName("com.bbz.reflect02.Book");
         Object o = c.newInstance();
         Book book = (Book) o;
+//        book.setName("数");
         System.out.println(book);
 
-
-        System.out.println(11000 - 1312);
 
     }
 

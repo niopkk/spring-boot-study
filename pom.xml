@@ -22,6 +22,8 @@
         <module>spring-boot-elasticsearch</module>
         <module>java-reflect</module>
         <module>java-design-patterns</module>
+        <module>netty-rpc</module>
+        <module>spring-rpc</module>
     </modules>
 
     <properties>

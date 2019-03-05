@@ -12,4 +12,11 @@ public class ProjectServiceImpl implements ProjectService {
     public Project getProjectById(String id) {
         return new Project("123","假装从数据库中取出的项目");
     }
+
+    @Override
+    public Project getProjectByName(String name) {
+        return null;
+    }
+
+
 }

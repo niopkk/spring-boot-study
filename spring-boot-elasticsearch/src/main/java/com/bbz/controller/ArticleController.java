@@ -29,6 +29,7 @@ public class ArticleController extends BaseController {
     @ResponseBody
     public ResultView getArticleList(@ModelAttribute("term") ArticleSeachTerm term) {
         PageRequest request = PageRequest.of(0, 20);
+        term.setUserId(1L);
         Page<Article> page = articleService.findArticleList(term, request);
         return okResult("查询成功", page.getContent(), page.getTotalElements());
     }

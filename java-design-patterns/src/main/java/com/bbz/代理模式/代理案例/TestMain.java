@@ -11,9 +11,9 @@ public class TestMain {
 
         IUserManage proxyFactory = (IUserManage) new ProxyFactory().proxy(new UserManagerImpl());
 
-        proxyFactory.add();
+        proxyFactory.add("张三");
 
-        proxyFactory.del();
+        proxyFactory.del(2);
 
 //        String s = "test1 ";
 //

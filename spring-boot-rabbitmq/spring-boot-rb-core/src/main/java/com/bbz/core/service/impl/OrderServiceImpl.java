@@ -11,6 +11,7 @@ import com.bbz.pojo.dto.OrderDTO;
 
 import com.bbz.util.Dates;
 import com.bbz.util.Jsons;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -48,10 +49,12 @@ public class OrderServiceImpl implements OrderService {
         bml.setTryCount(0);//初始重试次数0
         brokerMessageLogService.saveBrokerMessageLog(bml);
 
-        OrderDTO dto = new OrderDTO();
-        dto.setId(order.getId());
-        dto.setMessageId(order.getMessageId());
-        dto.setName(order.getName());
+//        OrderDTO dto = new OrderDTO();
+//        dto.setId(order.getId());
+//        dto.setMessageId(order.getMessageId());
+//        dto.setName(order.getName());
+        OrderDTO dto= new OrderDTO();
+        BeanUtils.copyProperties(order,dto);
         try {
             orderProducerService.send(dto);
         } catch (Exception e) {

@@ -3,8 +3,9 @@ package com.bbz.代理模式.代理案例;
 public interface IUserManage {
 
 
-    String add();
+    String add(String name);
 
 
-    String del();
+    int del(int id);
+
 }

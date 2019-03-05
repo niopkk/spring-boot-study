@@ -3,6 +3,7 @@ package com.bbz.代理模式.代理案例;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.util.Arrays;
 
 public class ProxyFactory implements InvocationHandler {
 
@@ -21,12 +22,30 @@ public class ProxyFactory implements InvocationHandler {
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         Object result = null;
 
-        checkPopedom();
+//        checkPopedom();
+
+
+        System.out.println("proxy_Name:" + proxy.getClass().getName());
+
+        System.out.println("method:" + method.getName());
+
+        Class<?> returnType = method.getReturnType();
+
+        System.out.println("returnType:" + returnType.getName());
+
+        System.out.println("args:" + Arrays.toString(args));
+        Class<?>[] parameterTypes = method.getParameterTypes();//获取参数类型
+
+        for (Class classzz : parameterTypes) {
+            System.out.println("paramterType:" + classzz.getName());
+        }
+
+        System.out.println("..................................");
 
         result = method.invoke(tager, args);
 
 //        checkPopedom();
-        System.out.println("result=" + result);
+//        System.out.println("result=" + result);
 
 
         return result;
