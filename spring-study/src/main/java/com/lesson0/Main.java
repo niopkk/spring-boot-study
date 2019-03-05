@@ -23,12 +23,6 @@ public class Main {
         for (String s : strings) {
             System.out.println(s);
         }
-
-//        System.out.println(6389 + 488 + 1199+299);
-
-
-        System.out.println((9212 - 9052) * 1.3);
-
     }
 
 

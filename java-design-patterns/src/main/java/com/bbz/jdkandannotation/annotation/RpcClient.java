@@ -1,5 +1,7 @@
 package com.bbz.jdkandannotation.annotation;
 
+import org.springframework.context.event.EventListener;
+
 import java.lang.annotation.*;
 
 @Target(ElementType.TYPE)
