@@ -45,10 +45,9 @@ public class RpcProxyFacotry implements InvocationHandler {
             pw = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
             //用于接收Server端发来的信息
             br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            // for (int i = 0; i < 10; i++) {
-            //注意首先向服务端发送消息,再接收服务端返回的休息,不要写反了
+            //注意首先向服务端发送消息,再接收服务端返回的信息,不要写反了
             Request request = new Request();
-            request.setClassName(this.classType.getName());
+            request.setClassName(this.classType.getSimpleName());
             request.setMethodName(method.getName());
             request.setParamsType(method.getParameterTypes());
             request.setParams(args);
@@ -56,7 +55,6 @@ public class RpcProxyFacotry implements InvocationHandler {
             pw.println(Jsons.toJson(request));
             pw.flush(); //flush()一般用于处理中时需要将数据立即写出。将缓冲区的内容输出
             String str = br.readLine();
-//            System.out.println("拿到server返回的消息:" + str);
             return str;
 
         } catch (UnknownHostException e) {

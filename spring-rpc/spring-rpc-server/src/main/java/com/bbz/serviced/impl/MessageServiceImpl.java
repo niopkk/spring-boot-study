@@ -1,15 +1,15 @@
-package com.bbz.service.impl;
+package com.bbz.serviced.impl;
 
-import com.bbz.service.MessageService;
+import com.bbz.serviced.MessageService;
 
 public class MessageServiceImpl implements MessageService {
     @Override
     public String say() {
-        return "你好!";
+        return "dsdfsdf";
     }
 
     @Override
     public String say(String name) {
-        return "你好" + name;
+        return "dsfds" + name;
     }
 }

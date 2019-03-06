@@ -49,7 +49,7 @@ public class ServiceCenter implements RpcServer {
 
     @Override
     public void register(Class serviceInterface, Class impl) {
-        serviceRegistry.put(serviceInterface.getName(), impl);
+        serviceRegistry.put(serviceInterface.getSimpleName(), impl);
     }
 
     @Override

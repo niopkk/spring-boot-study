@@ -24,6 +24,7 @@
         <module>java-design-patterns</module>
         <module>netty-rpc</module>
         <module>spring-rpc</module>
+        <module>spring-ioc-study</module>
     </modules>
 
     <properties>

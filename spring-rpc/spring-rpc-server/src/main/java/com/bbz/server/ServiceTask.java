@@ -45,7 +45,7 @@ public class ServiceTask implements Runnable {
 
             Respone respone = invokeMethod(request);
 
-            pw.println(Jsons.toJson(respone.getResult()));
+            pw.println(Jsons.toJson(respone));
             pw.flush();
         } catch (Exception e) {
             try {
