@@ -13,9 +13,8 @@ public class ServiceCenter implements RpcServer {
     private static ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 
     //模拟一个简单ioc
-    private final static Map<String, Class> serviceRegistry = new HashMap<>();
+    private final static Map<String, Class<?>> serviceRegistry = new HashMap<>();
 
-    private static boolean isRunning = false;
 
     private static int port;
 
@@ -26,7 +25,6 @@ public class ServiceCenter implements RpcServer {
 
     @Override
     public void stop() {
-        isRunning = false;
         executor.shutdown();
     }
 
@@ -48,17 +46,8 @@ public class ServiceCenter implements RpcServer {
     }
 
     @Override
-    public void register(Class serviceInterface, Class impl) {
+    public void register(Class<?> serviceInterface, Class<?> impl) {
         serviceRegistry.put(serviceInterface.getSimpleName(), impl);
     }
 
-    @Override
-    public boolean isRunning() {
-        return isRunning;
-    }
-
-    @Override
-    public int getPort() {
-        return port;
-    }
 }

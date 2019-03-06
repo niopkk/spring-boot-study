@@ -23,10 +23,10 @@ public class ServiceTask implements Runnable {
 
     private Socket client;
 
-    private Map<String, Class> serviceRegistry;
+    private Map<String, Class<?>> serviceRegistry;
 
 
-    public ServiceTask(Socket socket, Map<String, Class> serviceRegistry) {
+    public ServiceTask(Socket socket, Map<String, Class<?>> serviceRegistry) {
         this.client = socket;
         this.serviceRegistry = serviceRegistry;
     }
