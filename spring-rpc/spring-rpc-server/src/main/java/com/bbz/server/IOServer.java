@@ -1,8 +1,6 @@
 package com.bbz.server;
 
 
-
-
 import com.bbz.serviced.MessageService;
 import com.bbz.serviced.impl.MessageServiceImpl;
 
@@ -13,8 +11,8 @@ public class IOServer {
 
     public static void main(String[] args) throws IOException {
 
-        new Thread(()->{
-            RpcServer serviceServer =new ServiceCenter(8088);
+        new Thread(() -> {
+            ServiceCenter serviceServer = new ServiceCenter(8088);
             serviceServer.register(MessageService.class, MessageServiceImpl.class);
             try {
                 serviceServer.start();

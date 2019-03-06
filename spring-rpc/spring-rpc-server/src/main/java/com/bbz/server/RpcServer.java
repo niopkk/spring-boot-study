@@ -10,7 +10,6 @@ public interface RpcServer {
 
     void start() throws IOException;
 
-    void register(Class<?> serviceInterface, Class<?> impl);
 
 
 
