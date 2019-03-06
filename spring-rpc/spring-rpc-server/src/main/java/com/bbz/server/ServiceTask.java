@@ -61,18 +61,15 @@ public class ServiceTask implements Runnable {
 
     private Respone invokeMethod(Request request) throws ClassNotFoundException {
         String serviceName = request.getClassName();
-        String methodName = request.getMethodName();
-        Class<?>[] parameterTypes = request.getParamsType();
-        Object[] arguments = request.getParams();
         Class<?> serviceClass = serviceRegistry.get(serviceName);
         if (serviceClass == null) {
             throw new ClassNotFoundException(serviceName + " not found");
         }
         Respone response = new Respone();
         try {
-//            Method method = serviceClass.getDeclaredMethod(methodName, parameterTypes);
-            Method method = serviceClass.getMethod(methodName, parameterTypes);
-            Object result = method.invoke(serviceClass.newInstance(), arguments);
+
+            Method method = serviceClass.getMethod(request.getMethodName(), request.getParamsType());
+            Object result = method.invoke(serviceClass.newInstance(), request.getParams());
             response.setResult(result);
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
