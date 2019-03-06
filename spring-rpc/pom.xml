@@ -10,7 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring-rpc</artifactId>
-
+    <packaging>pom</packaging>
+    <modules>
+        <module>spring-rpc-client</module>
+        <module>spring-rpc-server</module>
+        <module>spring-rpc-pojo</module>
+    </modules>
 
 
     <dependencies>

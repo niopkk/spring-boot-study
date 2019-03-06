@@ -4,12 +4,20 @@ package com.lesson0;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Target;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.CopyOnWriteArraySet;
 
 public class Main {
 
 
     public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         ApplicationContext context = new ClassPathXmlApplicationContext("lesson0.xml");
+
+//        constructor
+        Set<String> set=new CopyOnWriteArraySet<>();
 
 
         Student student = (Student) context.getBean("student");
