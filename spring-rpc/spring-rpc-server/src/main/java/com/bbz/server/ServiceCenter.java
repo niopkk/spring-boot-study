@@ -47,7 +47,10 @@ public class ServiceCenter implements RpcServer, RegistryBean {
 
     @Override
     public void register(Class<?> serviceInterface, Class<?> impl) {
-        serviceRegistry.put(serviceInterface.getSimpleName(), impl);
+//        已注入的bean不能重复注入
+        if (!serviceRegistry.containsKey(serviceInterface.getSimpleName())) {
+            serviceRegistry.put(serviceInterface.getSimpleName(), impl);
+        }
     }
 
 }
