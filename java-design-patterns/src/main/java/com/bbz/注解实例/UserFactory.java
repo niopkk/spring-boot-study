@@ -1,31 +1,25 @@
 package com.bbz.注解实例;
 
 
-
-import com.bbz.注解实例.model.User;
-
-import java.lang.reflect.Field;
-
 public class UserFactory {
 
 
-    public static User createUser() {
-
-        User user = new User();
-
-        Field[] fields = user.getClass().getDeclaredFields();
-        if (null != fields) {
-            for (Field field : fields) {
-                if (field.isAnnotationPresent(Init.class)) {
-                    Init init = field.getAnnotation(Init.class);
-
-                    user.setName(init.value());
+    public static void createUser(Class<?> classType) {
 
 
-                    return user;
-                }
-            }
+        Init init = classType.getAnnotation(Init.class);
+        if(init!=null){
+            System.out.println(init.name() + "：" + init.value());
         }
-        return null;
+//        if (null != fields) {
+//            for (Field field : fields) {
+//                if (field.isAnnotationPresent(Init.class)) {
+//                    Init init = field.getAnnotation(Init.class);
+//
+//                    System.out.println(init.name() + "：" + init.value());
+//
+//                }
+//            }
+//        }
     }
 }

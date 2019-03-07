@@ -2,14 +2,13 @@ package com.bbz.注解实例.model;
 
 import com.bbz.注解实例.Init;
 
+@Init(value = "tao",name = "李四")
 public class User {
 
 
-    @Init("tao")
     private String name;
 
 
-    @Init("900000")
     private String age;
 
     public String getName() {

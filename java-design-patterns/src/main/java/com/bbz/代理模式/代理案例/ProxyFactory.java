@@ -42,7 +42,7 @@ public class ProxyFactory implements InvocationHandler {
 
         System.out.println("..................................");
 
-        result = method.invoke(tager, args);
+        result = method.invoke(tager.getClass().newInstance(), args);
 
 //        checkPopedom();
 //        System.out.println("result=" + result);

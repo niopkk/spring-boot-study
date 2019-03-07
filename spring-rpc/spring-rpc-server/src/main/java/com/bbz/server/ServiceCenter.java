@@ -3,8 +3,8 @@ package com.bbz.server;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -13,7 +13,7 @@ public class ServiceCenter implements RpcServer, RegistryBean {
     private static ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 
     //模拟一个简单ioc
-    private final static Map<String, Class<?>> serviceRegistry = new HashMap<>();
+    private final static Map<String, Class<?>> serviceRegistry = new ConcurrentHashMap<>();
 
 
     private static int port;

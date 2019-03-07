@@ -67,9 +67,13 @@ public class ServiceTask implements Runnable {
         }
         Respone response = new Respone();
         try {
-
             Method method = serviceClass.getMethod(request.getMethodName(), request.getParamsType());
+
+            System.out.println("serviceClass:"+serviceClass);
+            System.out.println("serviceClassnewInstance:"+serviceClass.newInstance());
             Object result = method.invoke(serviceClass.newInstance(), request.getParams());
+
+
             response.setResult(result);
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
