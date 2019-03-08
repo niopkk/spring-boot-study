@@ -18,6 +18,7 @@ public class MainPrintFields {
         /**
          * 获取类中的所有字段
          */
+
         Class mClass = SonClass.class;
 
         System.out.println("获取类的名称:" + mClass.getName());
@@ -75,6 +76,8 @@ public class MainPrintFields {
             int modifiers = f.getModifiers();
 
             System.out.print(Modifier.toString(modifiers) + " :");
+
+
             //输出变量的类型及变量名
             System.out.println(f.getType().getName()
                     + " " + f.getName());

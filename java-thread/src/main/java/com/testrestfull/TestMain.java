@@ -1,7 +1,5 @@
 package com.testrestfull;
 
-import com.common.util.Https;
-
 import java.util.concurrent.CountDownLatch;
 
 public class TestMain implements Runnable {
@@ -24,8 +22,8 @@ public class TestMain implements Runnable {
         }
 
         //do
-        String ss = Https.getInstance().get("https://suggest.taobao.com/sug?code=utf-8&q=%E5%8D%AB%E8%A1%A3&callback=cb");
-        System.out.println(ss);
+//        String ss = Https.getInstance().get("https://suggest.taobao.com/sug?code=utf-8&q=%E5%8D%AB%E8%A1%A3&callback=cb");
+//        System.out.println(ss);
 
 
     }

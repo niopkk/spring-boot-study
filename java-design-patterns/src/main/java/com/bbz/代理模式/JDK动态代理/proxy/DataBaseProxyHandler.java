@@ -31,7 +31,7 @@ public class DataBaseProxyHandler<T> implements InvocationHandler {
         this.proxyInterface = proxyInterface;
         return (T) Proxy.newProxyInstance(
                 this.tager.getClass().getClassLoader()
-                , this.proxyInterface.getClass().getInterfaces()
+                , this.tager.getClass().getInterfaces()
                 , this);
     }
 
