@@ -1,5 +1,6 @@
 package com.bbz.serviced;
 
+
 public interface MessageService {
 
     String say();
