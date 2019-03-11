@@ -23,14 +23,14 @@ public class ProxyFactory implements InvocationHandler {
         System.out.println("rpcClient:" + rpcClient.value());
 
 
-//        if (annotation != null) {
-//            Method[] met = annotation.annotationType().getDeclaredMethods();
+//        if (annotationconfig != null) {
+//            Method[] met = annotationconfig.annotationType().getDeclaredMethods();
 //            for(Method me : met ){
 //                if(!me.isAccessible()){
 //                    me.setAccessible(true);
 //                }
 //                try {
-//                    System.out.println(me.invoke(annotation, args));
+//                    System.out.println(me.invoke(annotationconfig, args));
 //                } catch (IllegalAccessException e) {
 //                    e.printStackTrace();
 //                } catch (IllegalArgumentException e) {
