@@ -17,7 +17,7 @@ public abstract class Dates extends DateUtils {
      * @param localDate
      * @return
      */
-    static long localDateToDate(LocalDate localDate) {
+    public static long localDateToDate(LocalDate localDate) {
         ZoneId zoneId = ZoneId.systemDefault();
         ZonedDateTime zdt = localDate.atStartOfDay(zoneId);
         return Date.from(zdt.toInstant()).getTime();
@@ -29,11 +29,30 @@ public abstract class Dates extends DateUtils {
      * @param dateTime
      * @return
      */
-    static long localDateTimeToDate(LocalDateTime dateTime) {
+    public static long localDateTimeToDate(LocalDateTime dateTime) {
         ZoneId zoneId = ZoneId.systemDefault();
         ZonedDateTime zdt = dateTime.atZone(zoneId);
         return Date.from(zdt.toInstant()).getTime();
     }
+
+    /**
+     * 当天开始的时间戳
+     *
+     * @return
+     */
+    public static long localDateMinTime() {
+        return localDateTimeToDate(LocalDateTime.of(LocalDate.now(), LocalTime.MIN));
+    }
+
+    /**
+     * 当天结束的时间戳
+     *
+     * @return
+     */
+    public static long localDateMaxTime() {
+        return localDateTimeToDate(LocalDateTime.of(LocalDate.now(), LocalTime.MIN));
+    }
+
 
 
     /**
@@ -125,5 +144,17 @@ public abstract class Dates extends DateUtils {
         java.util.Date date = Date.from(instant);
         return date;
     }
+
+//
+//    public static void main(String[] args) {
+//        LocalDateTime today_end = LocalDateTime.of(LocalDate.now(), LocalTime.MIN);
+//
+//        localDateTimeToDate(today_end);
+//
+//        System.out.println(today_end);
+//
+//
+//        System.out.println(localDateToDate(LocalDate.now()));
+//    }
 
 }
