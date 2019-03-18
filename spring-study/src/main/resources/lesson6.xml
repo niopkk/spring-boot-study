@@ -2,16 +2,16 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="helloword" class="com.lesson6.HelloWord">
+    <bean id="helloword" class="com.xml_study.lesson6.HelloWord">
         <property name="name" value="张三"/>
         <property name="age" value="123"/>
     </bean>
-    <bean id="helloword1" class="com.lesson6.HelloWord1" parent="helloword">
+    <bean id="helloword1" class="com.xml_study.lesson6.HelloWord1" parent="helloword">
         <property name="name" value="子类重写父类属性：子张三"/>
         <property name="age" value="1555"/>
         <property name="read" value="有读的权限"/>
     </bean>
-    <bean id="helloword2" class="com.lesson6.HelloWord2" parent="helloword">
+    <bean id="helloword2" class="com.xml_study.lesson6.HelloWord2" parent="helloword">
         <property name="write" value="有写的权限"/>
     </bean>
 </beans>

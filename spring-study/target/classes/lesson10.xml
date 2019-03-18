@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="javaCollection" class="com.lesson10.JavaCollection">
+    <bean id="javaCollection" class="com.xml_study.lesson10.JavaCollection">
         <property name="list">
             <list>
                 <value>张三</value>
