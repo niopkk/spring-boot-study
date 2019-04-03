@@ -27,6 +27,7 @@
         <module>spring-ioc-study</module>
         <module>spring-boot-redis</module>
         <module>spring-boot-hazelcast</module>
+        <module>java8-new-features</module>
     </modules>
 
     <properties>
