@@ -12,7 +12,7 @@ public class MainTest {
 //
 //        fruit1.eat();
 //
-        Fruit fruit = Factory.getInstance("reflect02.demoFactory.Apple");
+        Fruit fruit = Factory.getInstance("com.bbz.reflect02.demoFactory.Apple");
         fruit.eat();
 
     }

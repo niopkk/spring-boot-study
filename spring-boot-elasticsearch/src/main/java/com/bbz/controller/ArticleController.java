@@ -6,6 +6,7 @@ import com.bbz.entity.index.Article;
 import com.bbz.serch.ArticleSeachTerm;
 import com.bbz.service.ArticleService;
 import com.bbz.util.Dates;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -15,7 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Stream;
 
 @Controller
 @RequestMapping("/article")
