@@ -1,5 +1,7 @@
 package com.ThreadLocal;
 
+import java.util.Arrays;
+
 public class TestMain {
 
     public static ThreadLocal<String> t1 = new ThreadLocal<>();
@@ -12,6 +14,18 @@ public class TestMain {
         }
 
         System.out.println(t1.get());
-        System.out.println(t1.get());
+
+        Student[] students = new Student[]{new Student("11"), new Student("212")};
+
+        Arrays.stream(students).forEach(student -> System.out.println(student.value));
+    }
+
+    static class Student {
+
+        private String value;
+
+        public Student(String value) {
+            this.value = value;
+        }
     }
 }
