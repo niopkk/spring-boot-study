@@ -17,6 +17,8 @@ public class SelectSort {
         System.out.print(Arrays.toString(ints));
         ddSort(ints);
         System.out.print(Arrays.toString(ints));
+
+
     }
 
 

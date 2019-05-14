@@ -1,8 +1,5 @@
 package com.数组中的重复数字;
 
-import com.bbz.util.Lists;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -27,6 +24,7 @@ public class RepeatMain {
 
     /**
      * todo 待优化
+     *
      * @param nums
      * @param length
      * @param duplication
