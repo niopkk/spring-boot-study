@@ -12,8 +12,11 @@ public class BubbleSortMain {
     public static void main(String[] args) {
 
         int[] ints = new int[]{8, 4, 9, 7, 5, 2, 6};
-        System.out.println(ints[ints.length-1]);
-        bubbleSort(ints);
+        System.out.println(ints[ints.length - 1]);
+//        bubbleSort(ints);
+//        System.out.print(Arrays.toString(ints));
+
+        sort(ints);
         System.out.print(Arrays.toString(ints));
     }
 
@@ -27,6 +30,20 @@ public class BubbleSortMain {
                     int temp = ints[j + 1];
                     ints[j + 1] = ints[j];
                     ints[j] = temp;
+                }
+            }
+        }
+    }
+
+    static void sort(int... array) {
+
+        int len = array.length;
+        for (int i = 0; i < len - 1; i++) {
+            for (int j = 0; j < len - i - 1; j++) {
+                if (array[j] > array[j + 1]) {
+                    int temp = array[j + 1];
+                    array[j + 1] = array[j];
+                    array[j] = temp;
                 }
             }
         }
