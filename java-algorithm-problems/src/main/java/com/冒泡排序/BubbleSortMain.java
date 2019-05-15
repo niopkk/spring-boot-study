@@ -16,8 +16,9 @@ public class BubbleSortMain {
 //        bubbleSort(ints);
 //        System.out.print(Arrays.toString(ints));
 
-        sort(ints);
-        System.out.print(Arrays.toString(ints));
+        int[] ints1 = {1, 9768, 545, 2343, 523, 32, 59897, 534};
+        sor(ints1);
+        System.out.print(Arrays.toString(ints1));
     }
 
     static void bubbleSort(int... ints) {
@@ -40,6 +41,21 @@ public class BubbleSortMain {
         int len = array.length;
         for (int i = 0; i < len - 1; i++) {
             for (int j = 0; j < len - i - 1; j++) {
+                if (array[j] > array[j + 1]) {
+                    int temp = array[j + 1];
+                    array[j + 1] = array[j];
+                    array[j] = temp;
+                }
+            }
+        }
+    }
+
+
+    static void sor(int... array) {
+        int len = array.length;
+        for (int i = 0; i < len - 1; i++) {
+            for (int j = 0; j < len - i - 1; j++) {
+
                 if (array[j] > array[j + 1]) {
                     int temp = array[j + 1];
                     array[j + 1] = array[j];

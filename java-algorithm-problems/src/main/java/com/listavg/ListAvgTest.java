@@ -23,12 +23,24 @@ public class ListAvgTest {
             }
             list.add(map);
         }
-
-
-
         System.out.println("排序后" + list);
 
 
+        int[] ints = new int[]{1, 3, 4, 2, 54, 23, 43};
+
+        int[] ints1={1,2,3};
+
+        System.out.println(ints[3]);
+        System.out.println(ints[3] = 89);
+
+
+        List<Integer> lists = new ArrayList<>();
+        lists.add(1);
+        lists.add(2);
+        lists.add(3);
+        lists.add(4);
+        lists.set(2,10);
+        System.out.println(lists);
     }
 
 
