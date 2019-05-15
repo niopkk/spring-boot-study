@@ -15,6 +15,14 @@ public class Singleton {
 
     public static Singleton getInstance() {
         if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+
+    //双唇检查锁模式
+    public static Singleton getInstanceLock() {
+        if (instance == null) {
             synchronized (Singleton.class) {
                 if (instance == null) {
                     instance = new Singleton();
