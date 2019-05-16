@@ -18,10 +18,24 @@ public class SelectSort {
 //        ddSort(ints);
 //        System.out.print(Arrays.toString(ints));
 
-        selectSorts(ints);
+//        selectSorts(ints);
+//        System.out.print(Arrays.toString(ints));
+
+        sort(ints);
         System.out.print(Arrays.toString(ints));
+
+//        int n = 2;
+//        System.out.println(sumOfSeries(n));
+
     }
 
+    static int sumOfSeries(int n) {
+        int sum = 0;
+        for (int i = 1; i <= n; i++)
+            for (int j = 1; j <= i; j++)
+                sum += j;
+        return sum;
+    }
 
     static void selectSort(int... ints) {
         int length = ints.length;
@@ -43,6 +57,21 @@ public class SelectSort {
             }
             // 打印每次循环结束之后数组的排序状态（方便理解）
             System.out.println("第" + (i + 1) + "次循环之后效果：" + Arrays.toString(ints));
+        }
+    }
+
+    static void sort(int... array) {
+        int len = array.length;
+        for (int i = 0; i < len - 1; i++) {
+            for (int j = 0; j < len - i - 1; j++) {
+                if (array[j] < array[j + 1]) {
+
+                    array[j + 1] = array[j + 1] ^ array[j];
+                    array[j] = array[j + 1] ^ array[j];
+                    array[j + 1] = array[j + 1] ^ array[j];
+
+                }
+            }
         }
     }
 
