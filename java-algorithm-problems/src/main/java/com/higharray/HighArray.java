@@ -32,6 +32,27 @@ public class HighArray {
         }
     }
 
+    //二分查找方法(数组必须是有序数组，否则查不出来)
+    public int finds(int seachKey) {
+        int lowerBound = 0;
+        int upperBound = elem - 1;
+        int curIndex;
+        while (true) {
+            curIndex = (lowerBound + upperBound) / 2;
+            if (array[curIndex] == seachKey) {
+                return curIndex;
+            } else if (lowerBound > upperBound) {
+                return elem;
+            } else {
+                if (array[curIndex] < seachKey) {
+                    lowerBound = curIndex + 1;
+                } else {
+                    upperBound = curIndex - 1;
+                }
+            }
+        }
+    }
+
     public void insert(long value) {
         array[elem] = value;
         elem++;

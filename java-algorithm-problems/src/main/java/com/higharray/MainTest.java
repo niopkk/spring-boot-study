@@ -31,12 +31,22 @@ public class MainTest {
         highArray.insert(00);
         highArray.insert(66);
         highArray.insert(33);
+//        highArray.insert(55);
+//        highArray.insert(66);
 
         highArray.display();
 
-        int seachKey = 35;
+        int seachKey = 66;
 
         if (highArray.find(seachKey)) {
+            System.out.println("found :" + seachKey);
+        } else {
+            System.out.println("can't  find: " + seachKey);
+        }
+
+        int finds = highArray.finds(seachKey);
+
+        if (finds != 10) {
             System.out.println("found :" + seachKey);
         } else {
             System.out.println("can't  find: " + seachKey);
