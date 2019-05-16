@@ -67,6 +67,32 @@ public class MainTest {
         nodups(2, oldArray);
         System.out.println(Arrays.toString(oldArray));
         System.out.println("后:" + oldArray.length);
+
+        int[] ins = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int i = BinarySearch(4, ins);
+        System.out.println("iii....." + i);
+    }
+
+    //二分查查找数组必须是有序数组
+    private static int BinarySearch(int searchKey, int... arrays) {
+        int len = arrays.length;
+        int lowerBound = 0;
+        int upperBound = len - 1;
+        int curIndex;
+        while (true) {
+            curIndex = (lowerBound + upperBound) / 2;
+            if (arrays[curIndex] == searchKey) {
+                return curIndex;
+            } else if (lowerBound > upperBound) {
+                return -1;
+            } else {
+                if (arrays[curIndex] < searchKey) {
+                    lowerBound = curIndex + 1;
+                } else {
+                    upperBound = curIndex - 1;
+                }
+            }
+        }
     }
 
     private static boolean nodups(int value, int... array) {

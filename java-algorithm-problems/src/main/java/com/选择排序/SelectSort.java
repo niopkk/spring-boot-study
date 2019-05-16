@@ -11,14 +11,15 @@ public class SelectSort {
     public static void main(String[] args) {
 
         int[] ints = new int[]{8, 4, 9, 7, 5, 2, 6};
-        selectSort(ints);
-        System.out.print(Arrays.toString(ints));
-        newSelectSort(ints);
-        System.out.print(Arrays.toString(ints));
-        ddSort(ints);
-        System.out.print(Arrays.toString(ints));
+//        selectSort(ints);
+//        System.out.print(Arrays.toString(ints));
+//        newSelectSort(ints);
+//        System.out.print(Arrays.toString(ints));
+//        ddSort(ints);
+//        System.out.print(Arrays.toString(ints));
 
-
+        selectSorts(ints);
+        System.out.print(Arrays.toString(ints));
     }
 
 
@@ -46,39 +47,18 @@ public class SelectSort {
     }
 
 
-    static void newSelectSort(int... ints) {
-        int len = ints.length;
-        for (int i = 0; i < len - 1; i++) {
-            int minIndex = i;
-            for (int j = i; j < len; j++) {
-                if (ints[minIndex] > ints[j]) {
-                    minIndex = j;
-                }
-            }
-            if (minIndex != i) {
-                int temp = ints[i];
-                ints[i] = ints[minIndex];
-                ints[minIndex] = temp;
-            }
-        }
-    }
-
-    static void ddSort(int... array) {
+    static void selectSorts(int... array) {
         int len = array.length;
-        for (int i = 0; i < len; i++) {
-
-            int minIndex = i;
-            for (int j = i; j < len; j++) {
-
-                if (array[minIndex] > array[j]) {
-                    minIndex = j;
+        for (int i = 0; i < len - 1; i++) {
+            int maxIndex = i;
+            for (int j = i + 1; j < len; j++) {
+                if (array[maxIndex] > array[j]) {
+                    maxIndex = j;
                 }
             }
-            if (minIndex != i) {
-                int temp = array[i];
-                array[i] = array[minIndex];
-                array[minIndex] = temp;
-            }
+            int temp = array[i];
+            array[i] = array[maxIndex];
+            array[maxIndex] = temp;
         }
     }
 
