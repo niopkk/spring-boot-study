@@ -16,6 +16,7 @@ public class Main {
     public static void main(String[] args) {
 
 
+        System.out.println(10/3);
         List<Camera> list = new ArrayList<>();
         Camera camera1 = new Camera();
         camera1.setName("测试1组");

@@ -4,27 +4,25 @@ import java.lang.reflect.Field;
 
 public class FruitInfoUtil {
 
-    public static void getFruitInfo(Class<?> clazz) {
-        String strFruitName = " 水果名称：";
-        String strFruitColor = " 水果颜色：";
-        String strFruitProvicer = "供应商信息：";
+    public static String getFruitInfo(Class<?> clazz) {
 
         Field[] fields = clazz.getDeclaredFields();
 
         for (Field field : fields) {
             if (field.isAnnotationPresent(FruitName.class)) {
                 FruitName fruitName = field.getAnnotation(FruitName.class);
-                strFruitName = strFruitName + fruitName.value();
-                System.out.println(strFruitName);
+                String value = fruitName.value();
+                return value;
             } else if (field.isAnnotationPresent(FruitColor.class)) {
                 FruitColor fruitColor = field.getAnnotation(FruitColor.class);
-                strFruitColor = strFruitColor + fruitColor.fruitColor().toString();
-                System.out.println(strFruitColor);
+
+                return fruitColor.fruitColor().toString();
             } else if (field.isAnnotationPresent(FruitProvider.class)) {
                 FruitProvider fruitProvider = field.getAnnotation(FruitProvider.class);
-                strFruitProvicer = strFruitProvicer + " 供应商编号：" + fruitProvider.id() + " 供应商名称：" + fruitProvider.name() + " 供应商地址：" + fruitProvider.address();
-                System.out.println(strFruitProvicer);
+                String strFruitProvicer = " 供应商编号：" + fruitProvider.id() + " 供应商名称：" + fruitProvider.name() + " 供应商地址：" + fruitProvider.address();
+                return strFruitProvicer;
             }
         }
+        return null;
     }
 }

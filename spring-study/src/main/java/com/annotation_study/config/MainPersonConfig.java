@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.util.ReflectionUtils;
 
 @Configuration
 @Import({Red.class, MyImportSelector.class, MyImportBeanDefinitionRegistrar.class})

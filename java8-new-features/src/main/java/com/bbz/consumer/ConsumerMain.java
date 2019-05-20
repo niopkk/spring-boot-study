@@ -66,6 +66,8 @@ public class ConsumerMain {
 
 
     interface JobBuild {
+
+
         JobBuild go(String var);
 
         JobBuild end(String var1);

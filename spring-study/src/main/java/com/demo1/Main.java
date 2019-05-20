@@ -12,7 +12,7 @@ public class Main {
         annotationConfigApplicationContext.register(MainConfig.class);
         annotationConfigApplicationContext.refresh();
         ScanClass1 injectClass = annotationConfigApplicationContext.getBean(ScanClass1.class);
-        injectClass.print();
+        injectClass.dsf();
 
 
         String[] beanDefinitionNames = annotationConfigApplicationContext.getBeanDefinitionNames();
