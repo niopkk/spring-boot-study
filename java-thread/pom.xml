@@ -18,6 +18,14 @@
             <artifactId>spring-boot-common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>java-spi</groupId>
+            <artifactId>java-spi</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/java-spi-1.0-SNAPSHOT.jar</systemPath>
+        </dependency>
     </dependencies>
+
 
 </project>

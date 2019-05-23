@@ -28,6 +28,8 @@
         <module>spring-boot-redis</module>
         <module>spring-boot-hazelcast</module>
         <module>java8-new-features</module>
+        <module>spirng-springmvc</module>
+        <module>java-spi</module>
     </modules>
 
     <properties>

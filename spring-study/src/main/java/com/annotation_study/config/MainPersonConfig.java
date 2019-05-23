@@ -34,4 +34,10 @@ public class MainPersonConfig {
     public Person liunxPerson() {
         return new Person("liunx", 30);
     }
+
+    @Bean("sd")
+    public Person li(){
+        return new Person("macos",3);
+    }
+
 }
