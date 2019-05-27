@@ -1,13 +1,22 @@
-package com.bbz.core.service;
+package com.bbz.core.repository;
 
 import com.bbz.core.entity.UserEntity;
+import com.github.pagehelper.Page;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
+@Repository
+@Mapper
+public interface UserMapper {
 
-public interface UserService {
 
-
-//    List<UserEntity> findUserList();
+//    /**
+//     * 查询用户数据列表
+//     *
+//     * @return
+//     */
+//    Page<UserEntity> findUserList();
+//
 //
 //    /**
 //     * 根据账号查询用户
@@ -24,7 +33,7 @@ public interface UserService {
 //     * @return
 //     */
 //    UserEntity findUserByUserId(String userId);
-
+//
 
     /**
      * 新增用户
@@ -49,4 +58,5 @@ public interface UserService {
 //     * @return
 //     */
 //    boolean deleteUserByUserId(String userId);
+
 }

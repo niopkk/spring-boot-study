@@ -1,34 +1,39 @@
 package com.bbz.controller;
 
+
+/**
+ * com.bbz.controller
+ * <p>
+ * Created by tianxin2 on 2019-05-27
+ */
+
 import com.bbz.core.entity.UserEntity;
 import com.bbz.core.service.UserService;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.Map;
-
-@RestController
-@RequestMapping("/user")
-public class UserController {
-
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class UserControllerTest {
 
     @Autowired
     private UserService userService;
 
+//    @Test
+//    public void getUserList() {
+//
+//    }
 
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public Map<String, Object> getUserList() {
-//        userService.findUserList();
-        return null;
-    }
+    @Test
+    public void  store(){
 
-    @RequestMapping(value = "/store", method = RequestMethod.GET)
-    public void store() {
         UserEntity userEntity = new UserEntity();
 
-        userEntity.setName("张三");
+
+        userEntity.setName("张三123");
         userEntity.setAccount("1333");
         userEntity.setCreateTime(System.currentTimeMillis());
         userEntity.setPassWord("123");
@@ -36,9 +41,6 @@ public class UserController {
         userEntity.setStatus(1);
         userEntity.setUpdateTime(System.currentTimeMillis());
 
-
         userService.insertUser(userEntity);
     }
-
-
 }
