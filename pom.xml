@@ -30,6 +30,7 @@
         <module>java8-new-features</module>
         <module>spirng-springmvc</module>
         <module>java-spi</module>
+        <module>sping-boot-shiro</module>
     </modules>
 
     <properties>

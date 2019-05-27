@@ -9,20 +9,22 @@ public class MainTest {
     public static void main(String[] args) {
 
 
-        Set set=new HashSet();
+        Set set = new HashSet();
         set.add("111");
         set.add("332");
         set.add("32");
 
 
-        Test test=new Test(set);
+        Test test = new Test(set);
 
-       test.getSets().add("2323");
+        test.getSets().add("2323");
 
         System.out.printf("");
+
+
     }
 
-    public static class Test{
+    public static class Test {
 
         public Test(Set<String> sets) {
             this.sets = sets;
