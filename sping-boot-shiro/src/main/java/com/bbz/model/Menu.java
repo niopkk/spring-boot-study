@@ -1,6 +1,6 @@
 package com.bbz.model;
 
-import cc.mrbird.common.annotation.ExportConfig;
+
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -21,37 +21,37 @@ public class Menu implements Serializable {
 	@Id
 	@GeneratedValue(generator = "JDBC")
 	@Column(name = "MENU_ID")
-	@ExportConfig(value = "编号")
+//	@ExportConfig(value = "编号")
 	private Long menuId;
 
 	@Column(name = "PARENT_ID")
 	private Long parentId;
 
 	@Column(name = "MENU_NAME")
-	@ExportConfig(value = "名称")
+//	@ExportConfig(value = "名称")
 	private String menuName;
 
 	@Column(name = "URL")
-	@ExportConfig(value = "地址")
+//	@ExportConfig(value = "地址")
 	private String url;
 
 	@Column(name = "PERMS")
-	@ExportConfig(value = "权限标识")
+//	@ExportConfig(value = "权限标识")
 	private String perms;
 
 	@Column(name = "ICON")
-	@ExportConfig(value = "图标")
+//	@ExportConfig(value = "图标")
 	private String icon;
 
 	@Column(name = "TYPE")
-	@ExportConfig(value = "类型", convert = "s:0=菜单,1=按钮")
+//	@ExportConfig(value = "类型", convert = "s:0=菜单,1=按钮")
 	private String type;
 
 	@Column(name = "ORDER_NUM")
 	private Long orderNum;
 
 	@Column(name = "CREATE_TIME")
-	@ExportConfig(value = "创建时间", convert = "c:cc.mrbird.common.util.poi.convert.TimeConvert")
+//	@ExportConfig(value = "创建时间", convert = "c:cc.mrbird.common.util.poi.convert.TimeConvert")
 	private Date createTime;
 
 	@Column(name = "MODIFY_TIME")

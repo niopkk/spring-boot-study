@@ -1,6 +1,6 @@
 package com.bbz.model;
 
-import cc.mrbird.common.annotation.ExportConfig;
+
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -17,21 +17,21 @@ public class Dept implements Serializable {
 	@Id
 	@GeneratedValue(generator = "JDBC")
 	@Column(name = "DEPT_ID")
-	@ExportConfig(value = "编号")
+//	@ExportConfig(value = "编号")
 	private Long deptId;
 
 	@Column(name = "PARENT_ID")
 	private Long parentId;
 
 	@Column(name = "DEPT_NAME")
-	@ExportConfig(value = "部门名称")
+//	@ExportConfig(value = "部门名称")
 	private String deptName;
 
 	@Column(name = "ORDER_NUM")
 	private Long orderNum;
 
 	@Column(name = "CREATE_TIME")
-	@ExportConfig(value = "创建时间", convert = "c:cc.mrbird.common.util.poi.convert.TimeConvert")
+//	@ExportConfig(value = "创建时间", convert = "c:cc.mrbird.common.util.poi.convert.TimeConvert")
 	private Date createTime;
 
 	/**

@@ -1,6 +1,6 @@
 package com.bbz.model;
 
-import cc.mrbird.common.annotation.ExportConfig;
+
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -20,15 +20,15 @@ public class Role implements Serializable {
 	private Long roleId;
 
 	@Column(name = "ROLE_NAME")
-	@ExportConfig(value = "角色")
+//	@ExportConfig(value = "角色")
 	private String roleName;
 
 	@Column(name = "REMARK")
-	@ExportConfig(value = "描述")
+//	@ExportConfig(value = "描述")
 	private String remark;
 
 	@Column(name = "CREATE_TIME")
-	@ExportConfig(value = "创建时间", convert = "c:cc.mrbird.common.util.poi.convert.TimeConvert")
+//	@ExportConfig(value = "创建时间", convert = "c:cc.mrbird.common.util.poi.convert.TimeConvert")
 	private Date createTime;
 
 	@Column(name = "MODIFY_TIME")
