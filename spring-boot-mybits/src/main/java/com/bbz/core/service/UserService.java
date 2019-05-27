@@ -7,23 +7,23 @@ import java.util.List;
 public interface UserService {
 
 
-//    List<UserEntity> findUserList();
-//
-//    /**
-//     * 根据账号查询用户
-//     *
-//     * @param account
-//     * @return
-//     */
-//    UserEntity findUserByAccount(String account);
-//
-//    /**
-//     * 根据用户id查询
-//     *
-//     * @param userId
-//     * @return
-//     */
-//    UserEntity findUserByUserId(String userId);
+    List<UserEntity> findUserList();
+
+    /**
+     * 根据账号查询用户
+     *
+     * @param account
+     * @return
+     */
+    UserEntity findUserByAccount(String account);
+
+    /**
+     * 根据用户id查询
+     *
+     * @param userId
+     * @return
+     */
+    UserEntity findUserByUserId(String userId);
 
 
     /**
@@ -34,19 +34,19 @@ public interface UserService {
      */
     boolean insertUser(UserEntity entity);
 
-//    /**
-//     * 修改用户
-//     *
-//     * @param
-//     * @return
-//     */
-//    boolean updateUser(UserEntity entity);
-//
-//    /**
-//     * 删除用户
-//     *
-//     * @param userId
-//     * @return
-//     */
-//    boolean deleteUserByUserId(String userId);
+    /**
+     * 修改用户
+     *
+     * @param
+     * @return
+     */
+    boolean updateUser(UserEntity entity);
+
+    /**
+     * 删除用户
+     *
+     * @param userId
+     * @return
+     */
+    boolean deleteUserByUserId(String userId);
 }

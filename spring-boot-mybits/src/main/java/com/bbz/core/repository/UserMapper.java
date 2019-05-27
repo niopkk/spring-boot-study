@@ -10,30 +10,30 @@ import org.springframework.stereotype.Repository;
 public interface UserMapper {
 
 
-//    /**
-//     * 查询用户数据列表
-//     *
-//     * @return
-//     */
-//    Page<UserEntity> findUserList();
-//
-//
-//    /**
-//     * 根据账号查询用户
-//     *
-//     * @param account
-//     * @return
-//     */
-//    UserEntity findUserByAccount(String account);
-//
-//    /**
-//     * 根据用户id查询
-//     *
-//     * @param userId
-//     * @return
-//     */
-//    UserEntity findUserByUserId(String userId);
-//
+    /**
+     * 查询用户数据列表
+     *
+     * @return
+     */
+    Page<UserEntity> findUserList();
+
+
+    /**
+     * 根据账号查询用户
+     *
+     * @param account
+     * @return
+     */
+    UserEntity findUserByAccount(String account);
+
+    /**
+     * 根据用户id查询
+     *
+     * @param userId
+     * @return
+     */
+    UserEntity findUserByUserId(String userId);
+
 
     /**
      * 新增用户
@@ -43,20 +43,20 @@ public interface UserMapper {
      */
     boolean insertUser(UserEntity entity);
 
-//    /**
-//     * 修改用户
-//     *
-//     * @param
-//     * @return
-//     */
-//    boolean updateUser(UserEntity entity);
-//
-//    /**
-//     * 删除用户
-//     *
-//     * @param userId
-//     * @return
-//     */
-//    boolean deleteUserByUserId(String userId);
+    /**
+     * 修改用户
+     *
+     * @param
+     * @return
+     */
+    boolean updateUser(UserEntity entity);
+
+    /**
+     * 删除用户
+     *
+     * @param userId
+     * @return
+     */
+    boolean deleteUserByUserId(String userId);
 
 }

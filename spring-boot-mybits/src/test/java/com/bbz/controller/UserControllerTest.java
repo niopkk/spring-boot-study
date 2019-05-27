@@ -22,10 +22,10 @@ public class UserControllerTest {
     @Autowired
     private UserService userService;
 
-//    @Test
-//    public void getUserList() {
-//
-//    }
+    @Test
+    public void getUserList() {
+        userService.findUserList();
+    }
 
     @Test
     public void  store(){
