@@ -19,9 +19,12 @@
     <select id="findUserList" resultMap="BaseResultMap">
             select id, name, account, status, pass_word, create_time, update_time, lastLogin_time, sex from sys_user
         </select>
-
     <insert id="insertUser" useGeneratedKeys="true" parameterType="com.bbz.core.entity.UserEntity">
         insert into sys_user(name, account, pass_word, create_time, update_time, lastLogin_time, sex)
         values (#{name},#{account},#{passWord},#{createTime},#{updateTime},#{lastLoginTime},#{sex})
     </insert>
+
+    <update id="updateUser" parameterType="com.bbz.core.entity.UserEntity">
+        update sys_user set name=#{name},account=#{account},status=#{status},update_time=#{updateTime},sex=#{sex} where id=#{id}
+    </update>
 </mapper>

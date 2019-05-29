@@ -29,10 +29,7 @@ public class UserControllerTest {
 
     @Test
     public void  store(){
-
         UserEntity userEntity = new UserEntity();
-
-
         userEntity.setName("张三123");
         userEntity.setAccount("1333");
         userEntity.setCreateTime(System.currentTimeMillis());
@@ -40,7 +37,20 @@ public class UserControllerTest {
         userEntity.setSex(1);
         userEntity.setStatus(1);
         userEntity.setUpdateTime(System.currentTimeMillis());
-
         userService.insertUser(userEntity);
+    }
+    @Test
+    public void update(){
+
+        UserEntity userEntity = new UserEntity();
+        userEntity.setId(2);
+        userEntity.setName("历史1");
+        userEntity.setAccount("1786888");
+        userEntity.setCreateTime(System.currentTimeMillis());
+        userEntity.setPassWord("4344");
+        userEntity.setSex(2);
+        userEntity.setStatus(2);
+        userEntity.setUpdateTime(System.currentTimeMillis());
+        userService.updateUser(userEntity);
     }
 }

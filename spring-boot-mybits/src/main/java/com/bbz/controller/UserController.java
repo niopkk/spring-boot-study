@@ -35,8 +35,6 @@ public class UserController {
         userEntity.setSex(1);
         userEntity.setStatus(1);
         userEntity.setUpdateTime(System.currentTimeMillis());
-
-
         userService.insertUser(userEntity);
     }
 
