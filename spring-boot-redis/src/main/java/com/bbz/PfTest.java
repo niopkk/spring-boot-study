@@ -7,10 +7,10 @@ public class PfTest {
     public static void main(String[] args) {
 
 
-        Jedis jedis = new Jedis("192.168.10.96");
+        Jedis jedis = new Jedis("104.224.176.144");
 
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 100000; i++) {
             jedis.pfadd("codehole", "user" + i);
 
             long total = jedis.pfcount("codehole");

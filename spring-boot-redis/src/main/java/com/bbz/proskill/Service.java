@@ -22,7 +22,7 @@ public class Service {
         // 在borrow一个jedis实例时，是否需要验证，若为true，则所有jedis实例均是可用的
         config.setTestOnBorrow(true);
 
-        pool = new JedisPool(config, "192.168.10.130", 6379, 3000);
+        pool = new JedisPool(config, "104.224.176.144", 6379, 6000);
     }
 
 
@@ -32,6 +32,11 @@ public class Service {
         System.out.println(Thread.currentThread().getName() + "获得了锁");
         System.out.println(--n);
         lock.unLock("resource", identifier);
+
+        if (n == 0) {
+            System.out.println("秒杀以结束");
+        }
+
     }
 
 
