@@ -27,4 +27,8 @@
     <update id="updateUser" parameterType="com.bbz.core.entity.UserEntity">
         update sys_user set name=#{name},account=#{account},status=#{status},update_time=#{updateTime},sex=#{sex} where id=#{id}
     </update>
+
+    <delete id="deleteUserByUserId" parameterType="java.lang.String">
+       delete from sys_user where id=#{id}
+    </delete>
 </mapper>

@@ -53,4 +53,8 @@ public class UserControllerTest {
         userEntity.setUpdateTime(System.currentTimeMillis());
         userService.updateUser(userEntity);
     }
+    @Test
+    public void del(){
+        userService.deleteUserByUserId("2");
+    }
 }
