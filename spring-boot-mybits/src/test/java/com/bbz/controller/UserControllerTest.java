@@ -51,7 +51,6 @@ public class UserControllerTest {
 
     @Test
     public void update() {
-
         UserEntity userEntity = new UserEntity();
         userEntity.setId(2);
         userEntity.setName("历史1");
