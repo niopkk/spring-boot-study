@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 @Mapper
@@ -39,6 +40,8 @@ public interface UserMapper {
      */
     UserEntity findUserByUserId(String userId);
 
+
+    Map findUserMapByUserId(String userId);
 
     /**
      * 新增用户

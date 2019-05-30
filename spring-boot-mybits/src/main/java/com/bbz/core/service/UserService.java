@@ -3,6 +3,7 @@ package com.bbz.core.service;
 import com.bbz.core.entity.UserEntity;
 
 import java.util.List;
+import java.util.Map;
 
 public interface UserService {
 
@@ -28,6 +29,9 @@ public interface UserService {
      * @return
      */
     UserEntity findUserByUserId(String userId);
+
+
+    Map findUserMapByUserId(String userId);
 
 
     /**

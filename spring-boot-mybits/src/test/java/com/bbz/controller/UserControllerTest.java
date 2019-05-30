@@ -42,11 +42,12 @@ public class UserControllerTest {
 
     @Test
     public void getById() {
+        userService.findUserByUserId("2");
+    }
 
-
-        UserEntity userByUserId = userService.findUserByUserId("2");
-
-
+    @Test
+    public void getUserMapByUserId() {
+        userService.findUserMapByUserId("1");
     }
 
     @Test
@@ -66,7 +67,7 @@ public class UserControllerTest {
     @Test
     public void findUserListByNameOrAccount() {
 
-        userService.findUserListByNameOrAccount("张三", "");
+        userService.findUserListByNameOrAccount("张", "");
     }
 
     @Test
