@@ -28,7 +28,7 @@ public class UserControllerTest {
     }
 
     @Test
-    public void  store(){
+    public void store() {
         UserEntity userEntity = new UserEntity();
         userEntity.setName("张三123");
         userEntity.setAccount("1333");
@@ -39,8 +39,18 @@ public class UserControllerTest {
         userEntity.setUpdateTime(System.currentTimeMillis());
         userService.insertUser(userEntity);
     }
+
     @Test
-    public void update(){
+    public void getById() {
+
+
+        UserEntity userByUserId = userService.findUserByUserId("2");
+
+
+    }
+
+    @Test
+    public void update() {
 
         UserEntity userEntity = new UserEntity();
         userEntity.setId(2);
@@ -53,8 +63,15 @@ public class UserControllerTest {
         userEntity.setUpdateTime(System.currentTimeMillis());
         userService.updateUser(userEntity);
     }
+
     @Test
-    public void del(){
+    public void findUserListByNameOrAccount() {
+
+        userService.findUserListByNameOrAccount("张三", "");
+    }
+
+    @Test
+    public void del() {
         userService.deleteUserByUserId("2");
     }
 }

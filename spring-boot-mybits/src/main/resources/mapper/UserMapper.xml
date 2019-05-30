@@ -18,7 +18,23 @@
 
     <select id="findUserList" resultMap="BaseResultMap">
             select id, name, account, status, pass_word, create_time, update_time, lastLogin_time, sex from sys_user
-        </select>
+    </select>
+
+    <select id="findUserListByNameOrAccount" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select id, name, account, status, pass_word, create_time, update_time, lastLogin_time, sex from sys_user
+        where 1=1
+        <if test="name !=null and name !=''">
+            and name =#{name}
+        </if>
+        <if test="account !=null and account!=''">
+            and account =#{account}
+        </if>
+    </select>
+
+    <select id="findUserByUserId" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select id, name, account, status, pass_word, create_time, update_time, lastLogin_time, sex from sys_user where id=#{id}
+    </select>
+
     <insert id="insertUser" useGeneratedKeys="true" parameterType="com.bbz.core.entity.UserEntity">
         insert into sys_user(name, account, pass_word, create_time, update_time, lastLogin_time, sex)
         values (#{name},#{account},#{passWord},#{createTime},#{updateTime},#{lastLoginTime},#{sex})

@@ -26,8 +26,8 @@ public class UserController {
 
     @RequestMapping(value = "/store", method = RequestMethod.GET)
     public void store() {
-        UserEntity userEntity = new UserEntity();
 
+        UserEntity userEntity = new UserEntity();
         userEntity.setName("张三");
         userEntity.setAccount("1333");
         userEntity.setCreateTime(System.currentTimeMillis());

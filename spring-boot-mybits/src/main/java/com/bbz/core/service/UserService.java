@@ -9,6 +9,10 @@ public interface UserService {
 
     List<UserEntity> findUserList();
 
+
+    List<UserEntity> findUserListByNameOrAccount(String name, String account);
+
+
     /**
      * 根据账号查询用户
      *

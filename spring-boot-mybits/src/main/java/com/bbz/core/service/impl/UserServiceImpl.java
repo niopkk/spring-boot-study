@@ -21,6 +21,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<UserEntity> findUserListByNameOrAccount(String name, String account) {
+        return userMapper.findUserListByNameOrAccount(name, account);
+    }
+
+    @Override
     public UserEntity findUserByAccount(String account) {
         return userMapper.findUserByAccount(account);
     }

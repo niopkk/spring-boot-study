@@ -3,7 +3,10 @@ package com.bbz.core.repository;
 import com.bbz.core.entity.UserEntity;
 import com.github.pagehelper.Page;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 @Mapper
@@ -16,6 +19,8 @@ public interface UserMapper {
      * @return
      */
     Page<UserEntity> findUserList();
+
+    List<UserEntity> findUserListByNameOrAccount(@Param("name") String name, @Param("account") String account);
 
 
     /**
