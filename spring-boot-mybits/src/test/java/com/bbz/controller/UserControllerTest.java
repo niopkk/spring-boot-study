@@ -15,6 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class UserControllerTest {
@@ -29,14 +31,15 @@ public class UserControllerTest {
 
     @Test
     public void store() {
-        UserEntity userEntity = new UserEntity();
-        userEntity.setName("张三123");
-        userEntity.setAccount("1333");
-        userEntity.setCreateTime(System.currentTimeMillis());
-        userEntity.setPassWord("123");
-        userEntity.setSex(1);
-        userEntity.setStatus(1);
-        userEntity.setUpdateTime(System.currentTimeMillis());
+        UserEntity userEntity = new UserEntity()
+                .setName("张三123")
+                .setAccount("1333")
+                .setPassWord("124")
+                .setCreateTime(System.currentTimeMillis())
+                .setSex(1)
+                .setStatus(1)
+                .setUpdateTime(System.currentTimeMillis());
+
         userService.insertUser(userEntity);
     }
 
@@ -67,7 +70,7 @@ public class UserControllerTest {
     @Test
     public void findUserListByNameOrAccount() {
 
-        userService.findUserListByNameOrAccount("张", "");
+        final List<UserEntity> list = userService.findUserListByNameOrAccount("张", "");
     }
 
     @Test
