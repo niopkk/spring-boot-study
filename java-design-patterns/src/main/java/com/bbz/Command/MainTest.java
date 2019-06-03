@@ -3,6 +3,8 @@ package com.bbz.Command;
 import com.bbz.Command.impl.AddCommand;
 import com.bbz.Command.impl.DivideCommand;
 
+import java.util.Arrays;
+
 /**
  * com.bbz.Command
  * <p>
@@ -21,5 +23,6 @@ public class MainTest {
         int calculates = calculator.calculate(new DivideCommand(3, 4));
 
         System.out.println(calculates);
+
     }
 }

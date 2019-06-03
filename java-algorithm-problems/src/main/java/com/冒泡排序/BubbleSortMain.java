@@ -18,7 +18,23 @@ public class BubbleSortMain {
 
         int[] ints1 = {1, 9768, 545, 2343, 523, 32, 59897, 534};
         sor(ints1);
-        System.out.print(Arrays.toString(ints1));
+        System.out.println(Arrays.toString(ints1));
+
+
+
+        String[] t = new String[9];
+        String[] strs = new String[]{"A", "B", "C"};
+        String[] arrs = new String[]{"X", "Y", "Z"};
+
+        int index = 0;
+        for (int i = 0; i < strs.length; i++) {
+            for (int j = 0; j < arrs.length; j++) {
+                t[index] = strs[i] + arrs[j];
+                index++;
+            }
+        }
+        System.out.println(Arrays.toString(t));
+
     }
 
     static void bubbleSort(int... ints) {
