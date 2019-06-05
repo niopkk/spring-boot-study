@@ -19,7 +19,6 @@ public class MainTest {
 
         test.getSets().add("2323");
 
-        System.out.printf("");
 
 
     }
