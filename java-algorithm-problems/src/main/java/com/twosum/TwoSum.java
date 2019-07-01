@@ -1,5 +1,6 @@
 package com.twosum;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -19,12 +20,42 @@ public class TwoSum {
 
 
     public static void main(String[] args) {
-        int[] nums = new int[]{11, 2, 15, 7};
-        int taget = 13;
-        System.out.println(Arrays.toString(getTwoSum(nums, taget)));
-        System.out.println(Arrays.toString(getTwoSumMap(nums, taget)));
-        System.out.println(Arrays.toString(getTwoSumOneMap(nums, taget)));
+//        int[] nums = new int[]{11, 2, 15, 7};
+//        int taget = 13;
+//        System.out.println(Arrays.toString(getTwoSum(nums, taget)));
+//        System.out.println(Arrays.toString(getTwoSumMap(nums, taget)));
+//        System.out.println(Arrays.toString(getTwoSumOneMap(nums, taget)));
 //        System.out.println(System.getSecurityManager());
+        float a = 1.0f - 0.9f;
+        float b = 0.9f - 0.8f;
+        if (a == b) {
+            System.out.println("true");
+        } else {
+            System.out.println("false");
+        }
+
+//        Float a = Float.valueOf(1.0f - 0.9f);
+//        Float b = Float.valueOf(0.9f - 0.8f);
+//        if (a.equals(b)) {
+//            System.out.println("true");
+//        } else {
+//            System.out.println("false");
+//        }
+//
+//        String param = null;
+//        switch (param) {
+//            case "null":
+//                System.out.println("null");
+//                break;
+//            default:
+//                System.out.println("default");
+//        }
+
+//        BigDecimal a = new BigDecimal(0.1);
+//        System.out.println(a);
+//        BigDecimal b = new BigDecimal("0.1");
+//        System.out.println(b);
+
     }
 
     //第一算法

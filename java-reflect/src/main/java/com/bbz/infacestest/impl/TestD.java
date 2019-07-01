@@ -25,16 +25,8 @@ public class TestD implements TestA {
 
         System.out.println(extract);
 
-        String v = apply(s ->"0p0iiidf");
-
-        System.out.println(v);
 
     }
 
-
-    private static  <R> R apply(Function<Integer, R> function) {
-
-        return function.apply(12);
-    }
 
 }
