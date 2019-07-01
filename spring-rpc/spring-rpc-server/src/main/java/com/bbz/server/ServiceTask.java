@@ -38,7 +38,6 @@ public class ServiceTask implements Runnable {
             //注意此处得到的socket的输入流为socket的输入流即上方的(private Socket socket = null; )
             br = new BufferedReader(new InputStreamReader(client.getInputStream()));
             //向客户端返回消息的PrintWriter对象
-//            pw = new PrintWriter(new BufferedWriter(new OutputStreamWriter(client.getOutputStream())), true);
             pw = new PrintWriter(new BufferedWriter(new OutputStreamWriter(client.getOutputStream())), true);
             String str = br.readLine();
             System.out.println("客户端传入:" + str);
