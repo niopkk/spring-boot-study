@@ -15,7 +15,7 @@ public class Singleton {
         return instance;
     }
 
-    public static String get(String url) {
+    public String get(String url) {
 
         return " hello   " + url;
     }
