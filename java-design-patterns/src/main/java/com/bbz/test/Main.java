@@ -1,5 +1,9 @@
 package com.bbz.test;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 /**
  * com.bbz.test
  * <p>
@@ -21,9 +25,14 @@ public class Main {
 //        Student student1 = new Student();
 //        System.out.println(student1.hashCode());
 
+        String FIELD_SEPARATOR = Character.toString((char) 0x01);
+
+        System.out.println(FIELD_SEPARATOR);
+
         System.out.println(get1());
 
         System.out.println(get2());
+
     }
 
     private static Integer get1() {

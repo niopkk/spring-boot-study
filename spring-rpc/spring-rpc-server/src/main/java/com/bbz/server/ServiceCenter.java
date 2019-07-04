@@ -7,16 +7,22 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 
 public class ServiceCenter implements RpcServer, RegistryBean {
 
+
+//    ThreadPoolExecutor
+//    new ThreadPoolExecutor(5,200,0L,)
     private static ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 
-    //模拟一个简单ioc
+    /**
+     * 注入iop
+     */
     private final static Map<String, Class<?>> serviceRegistry = new ConcurrentHashMap<>();
 
 
-    private static int port;
+    private int port;
 
     public ServiceCenter(int port) {
         this.port = port;
