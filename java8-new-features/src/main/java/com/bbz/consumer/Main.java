@@ -16,7 +16,7 @@ public class Main {
     public static void main(String[] args) {
 
 
-        System.out.println(10/3);
+        System.out.println(10 / 3);
         List<Camera> list = new ArrayList<>();
         Camera camera1 = new Camera();
         camera1.setName("测试1组");
@@ -40,7 +40,8 @@ public class Main {
         list1.add(null);
         System.out.println(list1);
 
-        List<Apple> appleList = new ArrayList<>();//存放apple对象集合
+        //存放apple对象集合
+        List<Apple> appleList = new ArrayList<>();
 
 
         Apple apple1 = new Apple(1, "苹果1", new BigDecimal("3.25"), 10);
