@@ -31,6 +31,7 @@
         <module>spirng-springmvc</module>
         <module>java-spi</module>
         <module>sping-boot-shiro</module>
+        <module>java-effective</module>
     </modules>
 
     <properties>
