@@ -1,5 +1,8 @@
 package com.bbz.builder;
 
+/**
+ * 建造者模式(Builder)模式
+ */
 public class NutritionFacts {
 
     private final int servingSize;

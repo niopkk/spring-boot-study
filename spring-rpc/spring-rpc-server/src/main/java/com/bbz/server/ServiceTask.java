@@ -12,14 +12,6 @@ import java.util.Map;
 
 public class ServiceTask implements Runnable {
 
-    /**
-     * 读取流
-     */
-    private BufferedReader br;
-    /**
-     * 写入流
-     */
-    private PrintWriter pw;
 
     private Socket client;
 
@@ -34,28 +26,37 @@ public class ServiceTask implements Runnable {
     @Override
     public void run() {
 
-        try {
-            //注意此处得到的socket的输入流为socket的输入流即上方的(private Socket socket = null; )
-            br = new BufferedReader(new InputStreamReader(client.getInputStream()));
-            //向客户端返回消息的PrintWriter对象
-            pw = new PrintWriter(new BufferedWriter(new OutputStreamWriter(client.getOutputStream())), true);
-            String str = br.readLine();
-            System.out.println("客户端传入:" + str);
-            Request request = Jsons.fromJson(str, Request.class);
 
-            Respone respone = invokeMethod(request);
-
-            pw.println(Jsons.toJson(respone));
-            pw.flush();
-        } catch (Exception e) {
-            try {
-                br.close();
-                pw.close();
-                client.close();
-            } catch (IOException e1) {
-                e1.printStackTrace();
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(client.getInputStream()))) {
+            try (PrintWriter pw = new PrintWriter(new OutputStreamWriter(client.getOutputStream()), true)) {
+                String str = br.readLine();
+                System.out.println("客户端传入:" + str);
+                Request request = Jsons.fromJson(str, Request.class);
+                Respone respone = invokeMethod(request);
+                pw.println(Jsons.toJson(respone));
+                pw.flush();
             }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
+
+//        try {
+//            //注意此处得到的socket的输入流为socket的输入流即上方的(private Socket socket = null; )
+//            br = new BufferedReader(new InputStreamReader(client.getInputStream()));
+//            //向客户端返回消息的PrintWriter对象
+//            pw = new PrintWriter(new BufferedWriter(new OutputStreamWriter(client.getOutputStream())), true);
+//
+//        } catch (Exception e) {
+//            try {
+//                br.close();
+//                pw.close();
+//                client.close();
+//            } catch (IOException e1) {
+//                e1.printStackTrace();
+//            }
+//        }
 
     }
 
@@ -70,8 +71,8 @@ public class ServiceTask implements Runnable {
             Method method = serviceClass.getMethod(request.getMethodName(), request.getParamsType());
 
             System.out.println("serviceClass:" + serviceClass);
-            System.out.println("serviceClassnewInstance:" + serviceClass.newInstance());
-            Object result = method.invoke(serviceClass.newInstance(), request.getParams());
+            System.out.println("serviceClassnewInstance:" + serviceClass.getDeclaredConstructor().newInstance());
+            Object result = method.invoke(serviceClass.getDeclaredConstructor().newInstance(), request.getParams());
 
 
             response.setResult(result);

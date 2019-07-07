@@ -4,6 +4,9 @@ import java.util.EnumSet;
 import java.util.Objects;
 import java.util.Set;
 
+/**
+ * 类层次结构
+ */
 public abstract class Pizza {
 
     public enum Topping {HAM, MUSHROOM, ONION, PREPPER, SAUSAGE}
