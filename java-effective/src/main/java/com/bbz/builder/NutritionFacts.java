@@ -63,4 +63,16 @@ public class NutritionFacts {
         sodium = builder.sodium;
         carbohydrate = builder.carbohydrate;
     }
+
+    @Override
+    public String toString() {
+        return "NutritionFacts{" +
+                "servingSize=" + servingSize +
+                ", servings=" + servings +
+                ", calories=" + calories +
+                ", fat=" + fat +
+                ", sodium=" + sodium +
+                ", carbohydrate=" + carbohydrate +
+                '}';
+    }
 }
