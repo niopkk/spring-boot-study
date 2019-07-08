@@ -9,7 +9,7 @@ import java.util.Set;
  */
 public abstract class Pizza {
 
-    public enum Topping {HAM, MUSHROOM, ONION, PREPPER, SAUSAGE}
+    protected enum Topping {HAM, MUSHROOM, ONION, PREPPER, SAUSAGE}
 
     final Set<Topping> toppings;
 

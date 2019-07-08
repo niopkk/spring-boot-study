@@ -31,5 +31,11 @@ public class MyPizaa extends Pizza {
         size = builder.size;
     }
 
-
+    @Override
+    public String toString() {
+        return "MyPizaa{" +
+                "size=" + size +
+                ", toppings=" + toppings +
+                '}';
+    }
 }
