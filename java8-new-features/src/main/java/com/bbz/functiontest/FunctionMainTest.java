@@ -44,10 +44,10 @@ public class FunctionMainTest {
         persons.add(p6);
         persons.add(p7);
 
-        Set<String> sets=new TreeSet<>();
+        Set<String> sets = new TreeSet<>();
         sets.add("dsdf");
         sets.add("323");
-        System.out.println(".......:"+sets);
+        System.out.println(".......:" + sets);
 
 
         List<Person> collect = persons.stream().filter(distinctByKey(Person::getId)).collect(Collectors.toList());
@@ -61,12 +61,17 @@ public class FunctionMainTest {
         System.out.println(unique);
 
         System.out.println(collect);
+
+        System.out.println("thing前..." + Arrays.asList(Thing.values()));
+        Thing.values()[0] = new Thing(4);
+        System.out.println("thing后..." + Arrays.asList(Thing.values()));
     }
 
     private static <T> Predicate<T> distinctByKey(Function<? super T, Object> keyExtractor) {
         Map<Object, Boolean> seen = new ConcurrentHashMap<>();
         return t -> seen.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
     }
+
 
     static class Person implements Serializable {
 
