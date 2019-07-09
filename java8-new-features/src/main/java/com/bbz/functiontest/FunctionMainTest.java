@@ -1,16 +1,13 @@
 package com.bbz.functiontest;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-import static java.util.Comparator.comparingLong;
+import static java.util.Comparator.*;
 import static java.util.stream.Collectors.collectingAndThen;
 import static java.util.stream.Collectors.toCollection;
 
@@ -47,13 +44,18 @@ public class FunctionMainTest {
         persons.add(p6);
         persons.add(p7);
 
+        Set<String> sets=new TreeSet<>();
+        sets.add("dsdf");
+        sets.add("323");
+        System.out.println(".......:"+sets);
+
 
         List<Person> collect = persons.stream().filter(distinctByKey(Person::getId)).collect(Collectors.toList());
 
 
         List<Person> unique = persons.stream().collect(
                 collectingAndThen(
-                        toCollection(() -> new TreeSet<>(comparingLong(Person::getId))), ArrayList::new)
+                        toCollection(() -> new TreeSet<>(comparing(Person::getId))), ArrayList::new)
         );
 
         System.out.println(unique);
