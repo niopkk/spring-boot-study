@@ -3,7 +3,6 @@ package com.bbz.builder;
 import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Set;
-
 public class PizzaMainTest {
 
     public static void main(String[] args) {
@@ -38,9 +37,9 @@ public class PizzaMainTest {
         System.out.println("setText1" + setText1);
 
         Set<NumberTexts> setText2 = new HashSet<>();
-        setText2.add(NumberTexts.FIVE);
 
         System.out.println("setText2" + setText2);
+
 
 
     }
