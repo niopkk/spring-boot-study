@@ -11,6 +11,11 @@ public class SpellChecker {
     //    public SpellChecker(Dictionary dictionary) {
 //        this.dictionary = Objects.requireNonNull(dictionary);
 //    }
+
+    /**
+     *
+     * @param factory
+     */
     public SpellChecker(Supplier<? extends Dictionary> factory) {
         this.dictionary = factory.get();
     }
