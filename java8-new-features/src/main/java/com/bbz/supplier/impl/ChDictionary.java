@@ -14,4 +14,5 @@ public class ChDictionary implements Dictionary {
 
         System.out.println("ch...........");
     }
+
 }

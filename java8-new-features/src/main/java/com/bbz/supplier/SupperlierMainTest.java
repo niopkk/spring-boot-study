@@ -11,8 +11,6 @@ import com.bbz.supplier.impl.EnDictionary;
 public class SupperlierMainTest {
     public static void main(String[] args) {
 
-        Dictionary dic=new ChDictionary();
-        dic.findWord();
 
         Supper supper = new Supper(() -> new ChDictionary());
 

@@ -9,4 +9,7 @@ public interface Dictionary {
 
 
     void findWord();
+
+
+
 }
