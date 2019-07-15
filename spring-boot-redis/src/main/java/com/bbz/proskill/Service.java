@@ -22,7 +22,7 @@ public class Service {
         // 在borrow一个jedis实例时，是否需要验证，若为true，则所有jedis实例均是可用的
         config.setTestOnBorrow(true);
 
-        pool = new JedisPool(config, "104.224.176.144", 6379, 6000);
+        pool = new JedisPool(config, "104.245.43.165", 6379, 6000);
     }
 
 
