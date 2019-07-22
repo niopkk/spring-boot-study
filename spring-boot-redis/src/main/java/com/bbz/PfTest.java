@@ -20,6 +20,9 @@ public class PfTest {
                 break;
             }
         }
+        String mingling = "multi/exec/discard";
+
+//        "multi/exec/discard";
         jedis.close();
     }
 }

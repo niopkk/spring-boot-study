@@ -13,7 +13,15 @@ public class RedisDelayingQueue<T> {
 
     static class TaskItem<T> {
         public String id;
-        public T msg;
+        private T msg;
+
+        public T getMsg() {
+            return msg;
+        }
+
+        public void setMsg(T msg) {
+            this.msg = msg;
+        }
     }
 
     private Type TaskType = new TypeReference<TaskItem<T>>() {
@@ -23,8 +31,6 @@ public class RedisDelayingQueue<T> {
     private String queueKey;
 
 
-
-
     public RedisDelayingQueue(Jedis jedis, String queueKey) {
         this.jedis = jedis;
         this.queueKey = queueKey;
@@ -32,10 +38,13 @@ public class RedisDelayingQueue<T> {
 
     public void delay(T msg) {
         TaskItem<T> task = new TaskItem<T>();
-        task.id = UUID.randomUUID().toString(); // 分配唯一的 uuid
-        task.msg = msg;
-        String s = JSON.toJSONString(task); // fastjson 序列化
-        jedis.zadd(queueKey, System.currentTimeMillis() + 5000, s); // 塞入延时队列 ,5s 后再试
+        // 分配唯一的 uuid
+        task.id = UUID.randomUUID().toString();
+        task.setMsg(msg);
+        // fastjson 序列化
+        String s = JSON.toJSONString(task);
+        // 塞入延时队列 ,5s 后再试
+        jedis.zadd(queueKey, System.currentTimeMillis() + 5000, s);
     }
 
     public void loop() {
@@ -44,16 +53,19 @@ public class RedisDelayingQueue<T> {
             Set<String> values = jedis.zrangeByScore(queueKey, 0, System.currentTimeMillis(), 0, 1);
             if (values.isEmpty()) {
                 try {
-                    Thread.sleep(500); // 歇会继续
+                    // 歇会继续
+                    Thread.sleep(500);
                 } catch (InterruptedException e) {
                     break;
                 }
                 continue;
             }
             String s = values.iterator().next();
-            if (jedis.zrem(queueKey, s) > 0) { // 抢到了
-                TaskItem<T> task = JSON.parseObject(s, TaskType); // fastjson 反序列化
-                this.handleMsg(task.msg);
+            // 抢到了
+            if (jedis.zrem(queueKey, s) > 0) {
+                // fastjson 反序列化
+                TaskItem<T> task = JSON.parseObject(s, TaskType);
+                this.handleMsg(task.getMsg());
             }
         }
     }
@@ -64,27 +76,18 @@ public class RedisDelayingQueue<T> {
 
 
     public static void main(String[] args) {
-
-
+//
+//
+//        Jedis jedis = new Jedis("104.245.43.165",6379,300);
         Jedis jedis = new Jedis("104.245.43.165");
 
         RedisDelayingQueue<String> queue = new RedisDelayingQueue<>(jedis, "q-demo");
-        Thread producer = new Thread() {
-
-            public void run() {
-                for (int i = 0; i < 10; i++) {
-                    queue.delay("codehole" + i);
-                }
+        Thread producer = new Thread(() -> {
+            for (int i = 0; i < 10; i++) {
+                queue.delay("codehole" + i);
             }
-
-        };
-        Thread consumer = new Thread() {
-
-            public void run() {
-                queue.loop();
-            }
-
-        };
+        });
+        Thread consumer = new Thread(() -> queue.loop());
         producer.start();
         consumer.start();
         try {
