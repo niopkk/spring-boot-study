@@ -1,12 +1,13 @@
 package com.bbz.reflect02;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ReflectTest6 {
 
 
-    public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+    public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
         //正常实例化
 //        Book book = new Book();
 //        System.out.println(book);
@@ -29,9 +30,9 @@ public class ReflectTest6 {
 
         //反射实例化
         Class<?> c = Class.forName("com.bbz.reflect02.Book");
-        Object o = c.newInstance();
+        Object o = c.getDeclaredConstructor().newInstance();
         Book book = (Book) o;
-//        book.setName("数");
+        book.setName("数");
         System.out.println(book);
 
 

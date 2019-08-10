@@ -17,4 +17,12 @@ public class Book {
 //    public String toString() {
 //        return "这是重写了book toString()方法";
 //    }
+
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "name='" + name + '\'' +
+                '}';
+    }
 }
