@@ -10,6 +10,8 @@ import com.bbz.依赖倒置原则.correctinterface.impl.SaffImpl;
  */
 public class MainTest {
 
+
+
     public static void main(String[] args) {
 
 
