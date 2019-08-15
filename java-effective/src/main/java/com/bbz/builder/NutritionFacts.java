@@ -17,6 +17,15 @@ public class NutritionFacts {
 
     private final int carbohydrate;
 
+    private NutritionFacts(NutritionFacts.Builder builder) {
+        servingSize = builder.seringSize;
+        servings = builder.servings;
+        calories = builder.calories;
+        fat = builder.fat;
+        sodium = builder.sodium;
+        carbohydrate = builder.carbohydrate;
+    }
+
 
     public static class Builder {
 
@@ -58,14 +67,6 @@ public class NutritionFacts {
 
     }
 
-    private NutritionFacts(Builder builder) {
-        servingSize = builder.seringSize;
-        servings = builder.servings;
-        calories = builder.calories;
-        fat = builder.fat;
-        sodium = builder.sodium;
-        carbohydrate = builder.carbohydrate;
-    }
 
     @Override
     public String toString() {
