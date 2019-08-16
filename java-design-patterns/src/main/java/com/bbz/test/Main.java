@@ -3,6 +3,11 @@ package com.bbz.test;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * com.bbz.test
@@ -33,7 +38,62 @@ public class Main {
 
         System.out.println(get2());
 
+
+        List<Person> personList = new ArrayList<>();
+        personList.add(new Person("a", 2));
+        personList.add(new Person("b", 4));
+        personList.add(new Person("c", null));
+        // 升序
+        personList.stream().map(p -> {
+                    p.setAge(Optional.ofNullable(p.getAge())
+                            .orElse(0));
+                    return p;
+                }
+        )
+                .collect(Collectors.toList());
+
+        personList.sort(Comparator.comparingInt(Person::getAge));
+        // 降序
+//        personList.sort(Comparator.comparingInt(Person::getAge).reversed());
+        System.out.println(personList);
+
+
     }
+
+    public static class Person {
+        private String name;
+        private Integer age;
+
+        public Person(String name, Integer age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public void setAge(Integer age) {
+            this.age = age;
+        }
+
+        public Integer getAge() {
+            return age;
+        }
+
+        @Override
+        public String toString() {
+            return "Person{" +
+                    "name='" + name + '\'' +
+                    ", age=" + age +
+                    '}';
+        }
+    }
+
 
     private static Integer get1() {
         Student student = new Student();
