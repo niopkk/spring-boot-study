@@ -32,6 +32,7 @@
         <module>java-spi</module>
         <module>sping-boot-shiro</module>
         <module>java-effective</module>
+        <module>spring-boot-http</module>
     </modules>
 
     <properties>

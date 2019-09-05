@@ -41,7 +41,6 @@ public class MainTest {
         esDatabase.count();
 
 
-        System.out.println(8110 - 4900 - 1600);
 
     }
 }
