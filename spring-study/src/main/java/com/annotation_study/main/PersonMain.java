@@ -1,7 +1,9 @@
 package com.annotation_study.main;
 
 import com.annotation_study.config.MainPersonConfig;
+import com.annotation_study.pojo.IStudent;
 import com.annotation_study.pojo.Person;
+import com.annotation_study.pojo.Red;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -17,13 +19,20 @@ public class PersonMain {
 
         Person beanName = (Person) annotationConfigApplicationContext.getBean("person");
 
+        Red red = (Red) annotationConfigApplicationContext.getBean("com.annotation_study.pojo.Red");
 
-        String[] beanNamesForType = annotationConfigApplicationContext.getBeanDefinitionNames();
+        red.print();
 
-        System.out.println(beanName);
+        IStudent iStudent = (IStudent) annotationConfigApplicationContext.getBean("student");
 
-        for (String s : beanNamesForType) {
-            System.out.println("beanNamesForType:" + s);
+        iStudent.print();
+
+        String[] beanDefinitionNames = annotationConfigApplicationContext.getBeanDefinitionNames();
+
+        System.out.println(".person.." + beanName);
+
+        for (String s : beanDefinitionNames) {
+            System.out.println("beanDefinitionName:" + s);
         }
         int[] ints = {1, 42, 3, 2, 89, 4, 34};
         sort(ints);

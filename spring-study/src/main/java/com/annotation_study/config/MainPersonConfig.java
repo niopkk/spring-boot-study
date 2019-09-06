@@ -4,8 +4,10 @@ import com.annotation_study.condition.LiunxCondition;
 import com.annotation_study.condition.MyImportBeanDefinitionRegistrar;
 import com.annotation_study.condition.MyImportSelector;
 import com.annotation_study.condition.WindowsCondition;
+import com.annotation_study.pojo.IStudent;
 import com.annotation_study.pojo.Person;
 import com.annotation_study.pojo.Red;
+import com.annotation_study.pojo.impl.StudientImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
@@ -22,6 +24,11 @@ public class MainPersonConfig {
         return new Person("张三", 20);
     }
 
+    @Bean
+    public IStudent student() {
+        return new StudientImpl();
+    }
+
 
     @Conditional(WindowsCondition.class)
     @Bean("windows")
@@ -36,8 +43,8 @@ public class MainPersonConfig {
     }
 
     @Bean("sd")
-    public Person li(){
-        return new Person("macos",3);
+    public Person li() {
+        return new Person("macos", 3);
     }
 
 }
