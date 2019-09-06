@@ -1,12 +1,11 @@
 package com.bbz.test;
 
+import com.bbz.util.Maps;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -56,6 +55,18 @@ public class Main {
         // 降序
 //        personList.sort(Comparator.comparingInt(Person::getAge).reversed());
         System.out.println(personList);
+
+
+        Map<String, Integer> map = new HashMap<>();
+
+        map.put("1", 1);
+        map.put("3", 3);
+        map.put("4", 4);
+        map.put("9", 9);
+        map.put("5", 5);
+
+
+        System.out.println(Maps.sortByKey(map, Maps.asc()));
 
 
     }
