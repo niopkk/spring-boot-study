@@ -40,7 +40,7 @@
     </select>
 
     <insert id="insertUser" useGeneratedKeys="true" parameterType="com.bbz.core.entity.UserEntity">
-        insert into sys_user(name, account, pass_word, create_time, update_time, lastLogin_time, sex)
+        insert into sys_user(`name`, account, pass_word, create_time, update_time, lastLogin_time, sex)
         values (#{name},#{account},#{passWord},#{createTime},#{updateTime},#{lastLoginTime},#{sex})
     </insert>
 
