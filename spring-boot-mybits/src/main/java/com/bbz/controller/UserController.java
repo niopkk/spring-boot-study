@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -19,9 +20,9 @@ public class UserController {
 
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public Map<String, Object> getUserList() {
-//        userService.findUserList();
-        return null;
+    public List<UserEntity> getUserList() {
+
+        return userService.findUserList();
     }
 
     @RequestMapping(value = "/store", method = RequestMethod.GET)
