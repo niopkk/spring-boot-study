@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +39,26 @@ public class UserController {
         userEntity.setUpdateTime(System.currentTimeMillis());
         userService.insertUser(userEntity);
     }
+
+    /**
+     * 初始化100条数据
+     */
+    @PostConstruct
+    public void init() {
+        for (int i = 0; i < 100; i++) {
+            UserEntity userEntity = new UserEntity();
+            userEntity.setName("张三" + i);
+            userEntity.setAccount("00" + i);
+            userEntity.setCreateTime(System.currentTimeMillis());
+            userEntity.setPassWord("000000" + i);
+            userEntity.setSex(1);
+            userEntity.setStatus(1);
+            userEntity.setUpdateTime(System.currentTimeMillis());
+            userService.insertUser(userEntity);
+        }
+    }
+
+
 
 
 }
