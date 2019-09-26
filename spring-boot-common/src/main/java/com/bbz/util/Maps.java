@@ -114,6 +114,62 @@ public interface Maps {
         }
     }
 
+    /**
+     * map 按key排序
+     *
+     * @param map
+     * @param <K>
+     * @param <V>
+     * @return
+     */
+    static <K extends Comparable<? super K>, V> Map<K, V> sortByKey(Map<K, V> map) {
+        return sortByKey(map, desc());
+    }
+
+    static <K extends Comparable<? super K>, V> Comparator<Map.Entry<K, V>> desc() {
+        return Map.Entry.<K, V>comparingByKey()
+                .reversed();
+    }
+
+    static <K extends Comparable<? super K>, V> Comparator<Map.Entry<K, V>> asc() {
+        return Map.Entry.comparingByKey();
+
+    }
+
+    /**
+     * map 按key排序
+     *
+     * @param map
+     * @param <K>
+     * @param <V>
+     * @return
+     */
+    static <K extends Comparable<? super K>, V> Map<K, V> sortByKey(Map<K, V> map, Comparator<Map.Entry<K, V>> sort) {
+        Map<K, V> result = new LinkedHashMap<>();
+        map.entrySet().stream()
+                .sorted(sort).forEachOrdered(e -> result.put(e.getKey(), e.getValue()));
+
+
+        return result;
+    }
+
+    /**
+     * map 按value排序
+     *
+     * @param map
+     * @param <K>
+     * @param <V>
+     * @return
+     */
+    static <K, V extends Comparable<? super V>> Map<K, V> sortByValue(Map<K, V> map) {
+        Map<K, V> result = new LinkedHashMap<>();
+
+        map.entrySet().stream()
+                .sorted(Map.Entry.<K, V>comparingByValue()
+                        .reversed()).forEachOrdered(e -> result.put(e.getKey(), e.getValue()));
+        return result;
+    }
+
 
 //    /**
 //     * 获取Map中的值
