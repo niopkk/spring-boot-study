@@ -14,10 +14,15 @@ public class MainMonthodsTest {
     public static void main(String[] args) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException {
 
 
-        Method add = MainMonthodsTest.class.getMethod("add", double.class, double.class);
+//        Method add = MainMonthodsTest.class.getMethod("add", double.class, double.class);
+//
+//
+//        print(1, 3, MainMonthodsTest.class, add);
 
 
-        print(1, 3,MainMonthodsTest.class, add);
+        Class c = MainMonthodsTest.class;
+        c.getMethod("print", int.class, int.class, Class.class, Method.class);
+
 
     }
 
@@ -29,9 +34,9 @@ public class MainMonthodsTest {
         return z;
     }
 
-    public static void print(int x, int y,Class<?> cl, Method method) throws InvocationTargetException, IllegalAccessException, NoSuchMethodException, InstantiationException {
+    public static void print(int x, int y, Class<?> cl, Method method) throws InvocationTargetException, IllegalAccessException, NoSuchMethodException, InstantiationException {
 
-        Object invoke = method.invoke(cl.getConstructor().newInstance() , x, y);
+        Object invoke = method.invoke(cl.getConstructor().newInstance(), x, y);
 
 
     }

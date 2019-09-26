@@ -69,6 +69,14 @@ public class Main {
         System.out.println(Maps.sortByKey(map, Maps.asc()));
 
 
+        List<String> list = new ArrayList(1);
+        list.add("111");
+        list.add("111");
+        list.add("111");
+        list.add("111");
+        list.add("111");
+        System.out.println(list);
+
     }
 
     public static class Person {
