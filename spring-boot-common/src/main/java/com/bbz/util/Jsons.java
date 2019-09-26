@@ -2,7 +2,6 @@ package com.bbz.util;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.google.gson.Gson;
 
 public interface Jsons {
 
@@ -21,18 +20,6 @@ public interface Jsons {
         } catch (Exception e) {
             e.printStackTrace ( );
 
-        }
-        return result;
-    }
-
-    static String gsonToJson(Object object) {
-        String result = "";
-        try {
-            if ( object != null ) {
-                result = new Gson ( ).toJson (object);
-            }
-        } catch (Exception e) {
-            e.printStackTrace ( );
         }
         return result;
     }
