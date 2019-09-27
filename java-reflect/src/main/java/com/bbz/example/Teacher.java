@@ -13,6 +13,11 @@ public class Teacher {
 
     }
 
+    private Teacher(String age, String dddd) {
+
+        System.out.println("age....." + age + "...." + dddd);
+    }
+
     public Teacher(Integer age) {
         System.out.println("有参构造方法...." + age);
         this.age = age;

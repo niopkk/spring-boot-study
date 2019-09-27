@@ -1,6 +1,7 @@
 package com.bbz.example;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -34,14 +35,31 @@ public class MainTeacherTest {
 
 
         Constructor<?> constructor1 = var1.getConstructor(new Class[]{Integer.class});
-        Teacher teacher = (Teacher) constructor1.newInstance(1111);
+        Teacher teacher = (Teacher) constructor1.newInstance(111111);
         System.out.println(teacher.getAge());
 
         Constructor<?> constructor = var1.getConstructor(new Class[]{String.class});
 
         Teacher o = (Teacher) constructor.newInstance("1111221221");
 
-//        System.out.println(o.getAge());
+
+        Constructor<?> declaredConstructor = var1.getDeclaredConstructor(new Class[]{String.class, String.class});
+        declaredConstructor.setAccessible(true);
+        final Object o1 = declaredConstructor.newInstance("1", "1");
+
+
+        Field[] fields = var1.getDeclaredFields();
+        for (Field field : fields) {
+
+            System.out.println(field.getType());
+            if (field.getType().getName().equals("int")) {
+
+                System.out.println("属性类型:" + field.getType());
+            }
+
+            System.out.println("属性:" + field.getName());
+        }
+
 
     }
 }
