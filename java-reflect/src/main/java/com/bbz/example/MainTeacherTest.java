@@ -1,5 +1,6 @@
 package com.bbz.example;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -31,6 +32,16 @@ public class MainTeacherTest {
         method2.setAccessible(true);
         method2.invoke(var1.newInstance(), "男");
 
+
+        Constructor<?> constructor1 = var1.getConstructor(new Class[]{Integer.class});
+        Teacher teacher = (Teacher) constructor1.newInstance(1111);
+        System.out.println(teacher.getAge());
+
+        Constructor<?> constructor = var1.getConstructor(new Class[]{String.class});
+
+        Teacher o = (Teacher) constructor.newInstance("1111221221");
+
+//        System.out.println(o.getAge());
 
     }
 }
