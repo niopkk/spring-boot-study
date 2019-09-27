@@ -17,5 +17,9 @@ public class Teacher {
         System.out.println(subject + ".....static");
     }
 
+    private void getSex(String sex) {
+        System.out.println(sex + ".......私有方法");
+    }
+
 
 }

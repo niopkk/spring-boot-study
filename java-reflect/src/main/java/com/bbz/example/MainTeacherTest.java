@@ -27,6 +27,10 @@ public class MainTeacherTest {
 
         method1.invoke(var1, "数学");
 
+        Method method2 = var1.getDeclaredMethod("getSex", String.class);
+        method2.setAccessible(true);
+        method2.invoke(var1.newInstance(), "男");
+
 
     }
 }

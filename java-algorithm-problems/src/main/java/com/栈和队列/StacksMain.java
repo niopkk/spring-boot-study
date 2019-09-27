@@ -48,5 +48,9 @@ public class StacksMain {
 
             System.out.println("pop:" + pop);
         }
+
+
+
+
     }
 }
