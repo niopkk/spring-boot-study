@@ -5,7 +5,9 @@ import com.bbz.util.Lists;
 import java.time.LocalDate;
 import java.time.temporal.TemporalAdjusters;
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * com.bbz.map
@@ -56,25 +58,34 @@ public class MainMap {
 //        System.out.println("本月的最后一天"+lastDay);
 
 
-        List<Map> list = new LinkedList<>();
-        Map<String, Object> res = new LinkedHashMap<>();
-        res.put("name","111");
-        list.add(res);
-        Map<String, Object> res1 = new LinkedHashMap<>();
-        res1.put("name","111");
-        list.add(res1);
-        Map<String, Object> res2 = new LinkedHashMap<>();
-        res2.put("name","111");
-        list.add(res2);
-        Map<String, Object> res3 = new LinkedHashMap<>();
-        res3.put("name","");
-        list.add(res3);
+//        List<Map> list = new LinkedList<>();
+//        Map<String, Object> res = new LinkedHashMap<>();
+//        res.put("name","111");
+//        list.add(res);
+//        Map<String, Object> res1 = new LinkedHashMap<>();
+//        res1.put("name","111");
+//        list.add(res1);
+//        Map<String, Object> res2 = new LinkedHashMap<>();
+//        res2.put("name","111");
+//        list.add(res2);
+//        Map<String, Object> res3 = new LinkedHashMap<>();
+//        res3.put("name","");
+//        list.add(res3);
+//
+//        List<Map> name = list.stream().filter(p -> !p.get("name").equals("")).collect(Collectors.toList());
+//
+//        System.out.println(name);
 
-        List<Map> name = list.stream().filter(p -> !p.get("name").equals("")).collect(Collectors.toList());
+        Map<String, Integer> map1 = new LinkedHashMap<>();
+//        map1.put("key", 11);
+//        map1.put("key2", 11);
+//        map1.put("key3", 11);
+//        map1.put("key4", 11);
 
-        System.out.println(name);
 
+        final int sum = Optional.ofNullable(map1).map(Map::values).get().stream().mapToInt(Integer::intValue).sum();
 
+        System.out.println(",,,,," + sum);
     }
 
 
