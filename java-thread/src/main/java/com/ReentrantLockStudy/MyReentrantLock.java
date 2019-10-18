@@ -5,7 +5,7 @@ import java.util.concurrent.locks.ReentrantLock;
 public class MyReentrantLock implements Runnable {
 
     public ReentrantLock lock = new ReentrantLock();
-    public int i = 0;
+    public  int i = 0;
 
 
     @Override

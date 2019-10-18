@@ -14,8 +14,9 @@ public class MainTest {
 //
         //共享一个变量（需要加锁保证变量的一致性）
         MyReentrantLock lock = new MyReentrantLock();
-        new Thread(lock, "线程1").start();
-        new Thread(lock, "线程2").start();
+        for (int i = 0; i < 10; i++) {
+            new Thread(lock, "线程" + i).start();
+        }
 
 
         //不共享变量
