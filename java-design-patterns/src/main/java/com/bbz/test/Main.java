@@ -66,7 +66,7 @@ public class Main {
         map.put("5", 5);
 
 
-        System.out.println(Maps.sortByKey(map, Maps.asc()));
+//        System.out.println(Maps.sortByKey(map, Maps.asc()));
 
 
         List<String> list = new ArrayList(1);
