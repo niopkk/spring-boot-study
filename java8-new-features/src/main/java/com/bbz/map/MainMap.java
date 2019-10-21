@@ -77,15 +77,19 @@ public class MainMap {
 //        System.out.println(name);
 
         Map<String, Integer> map1 = new LinkedHashMap<>();
-//        map1.put("key", 11);
-//        map1.put("key2", 11);
-//        map1.put("key3", 11);
-//        map1.put("key4", 11);
+        map1.put("key", 11);
+        map1.put("key2", 11);
+        map1.put("key3", 11);
+        map1.put("key4", null);
 
 
-        final int sum = Optional.ofNullable(map1).map(Map::values).get().stream().mapToInt(Integer::intValue).sum();
+        final Long aLong = Optional.ofNullable(map1)
+                .map(item -> {
+                    long sum1 = item.entrySet().stream().filter(v -> Objects.nonNull(v.getValue())).mapToLong(Map.Entry::getValue).sum();
+                    return sum1;
+                }).orElse(0L);
 
-        System.out.println(",,,,," + sum);
+        System.out.println(",,,,," + aLong);
     }
 
 
