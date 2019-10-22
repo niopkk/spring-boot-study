@@ -21,9 +21,9 @@ public class MsgProcessChain {
     public String process(String msg) {
 
         for (IProcess chain : chains) {
-            System.out.println("开始处理.......：" + msg);
+//            System.out.println("开始处理.......：" + msg);
             msg = chain.doProcess(msg);
-            System.out.println("处理结束.......：" + msg);
+//            System.out.println("处理结束.......：" + msg);
         }
 
         return msg;

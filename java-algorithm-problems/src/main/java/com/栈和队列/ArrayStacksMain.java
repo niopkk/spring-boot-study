@@ -12,14 +12,15 @@ public class ArrayStacksMain {
         arrayStacks.push(3);
         arrayStacks.push(2);
         arrayStacks.push(1);
-        arrayStacks.push(0);
+        arrayStacks.push(8);
         arrayStacks.push(9);
 
-//
-//        System.out.println(arrayStacks.pop());
-//        System.out.println(arrayStacks.pop());
-//        System.out.println(arrayStacks.pop());
-//        System.out.println(arrayStacks.pop());
+
+        System.out.println(arrayStacks.pop());
+        System.out.println(arrayStacks.pop());
+        System.out.println(arrayStacks.pop());
+        System.out.println(arrayStacks.pop());
+        System.out.println(arrayStacks.pop());
 
 
 

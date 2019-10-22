@@ -27,8 +27,6 @@ public class ArrayStacks {
             for (int i = 0; i < items.length; i++) {
                 temps[i] = items[i];
             }
-            //清空原数组
-            items = null;
             //扩容原items数组
             items = new int[n];
             //重新赋值
