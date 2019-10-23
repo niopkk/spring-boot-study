@@ -9,8 +9,8 @@ public class Main {
 
 
         MsgProcessChain chain = new MsgProcessChain()
-                .addChain(new SensitiveWordProcess())
-                .addChain(new CopyrightProcess());
+                .addChain(new Process.SensitiveWordProcess())
+                .addChain(new Process.CopyrightProcess());
 
         msg = chain.process(msg);
         System.out.printf(msg);

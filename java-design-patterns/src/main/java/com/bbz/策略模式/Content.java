@@ -9,6 +9,7 @@ public class Content {
 
     private Strategy strategy;
 
+
     public Content(Strategy strategy) {
         this.strategy = strategy;
     }
