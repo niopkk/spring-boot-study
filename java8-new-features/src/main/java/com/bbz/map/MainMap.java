@@ -49,6 +49,17 @@ public class MainMap {
         System.out.print(collect);
 
 
+        String sdf = "1";
+        try {
+
+//            int ds = Integer.valueOf(sdf);
+//            System.out.println("正确:" + ds);
+            System.exit(1);
+        } finally {
+            System.out.println("finally:....1111");
+        }
+
+
 //        LocalDate today = LocalDate.now();
 //        //本月的第一天
 //        LocalDate firstday = LocalDate.of(today.getYear(),today.getMonth(),1);

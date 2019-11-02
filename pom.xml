@@ -33,6 +33,7 @@
         <module>sping-boot-shiro</module>
         <module>java-effective</module>
         <module>spring-boot-http</module>
+        <module>java-io</module>
     </modules>
 
     <properties>
