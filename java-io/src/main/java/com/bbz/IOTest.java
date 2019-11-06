@@ -13,7 +13,7 @@ public class IOTest {
     private final static String path = "/Users/tianxin2/tianxin/spring-boot-study/java-io";
 
     //    https://juejin.im/post/5b97e5f75188255c8d0fb0c0  文章地址
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, IllegalAccessException, InstantiationException, ClassNotFoundException {
 
 //        test01();
 //        test02();
@@ -27,9 +27,32 @@ public class IOTest {
 //        test09();
 //        test10();
 //        test11();
-        test12();
+//        test12();
+
+
+        Student student = new Student();
+
+        System.out.println(student.getClass());
+        print(student.getClass());
+        print("com.bbz.Student");
+
+    }
+    private static void print(String s) throws IllegalAccessException, InstantiationException, ClassNotFoundException {
+        Class<?> aClass=Class.forName(s);
+        Student student = (Student) aClass.newInstance();
+        student.setAge("ewerewkkkkk");
+        System.out.println(student.getAge());
+
     }
 
+
+
+    private static void print(Class<?> s) throws IllegalAccessException, InstantiationException {
+        Student student = (Student) s.newInstance();
+        student.setAge("1232");
+        System.out.println(student.getAge());
+
+    }
 
     private static void test12() throws IOException {
         // 输入和输出都使用缓冲流
