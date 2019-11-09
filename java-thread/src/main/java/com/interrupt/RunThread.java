@@ -7,6 +7,7 @@ public class RunThread {
 
 
         InterruptMyThread myThread = new InterruptMyThread();
+        System.out.println("start");
         myThread.start();
         try {
             Thread.sleep(20000);

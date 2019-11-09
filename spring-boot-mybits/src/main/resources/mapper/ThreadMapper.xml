@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bbz.core.repository.ThreadMapper">
+
+
+    <insert id="save" useGeneratedKeys="true" parameterType="com.bbz.core.entity.ThreadEntity">
+        insert into thread_test(name,des) values (#{name},#{des})
+    </insert>
+
+    <update id="update" parameterType="com.bbz.core.entity.ThreadEntity">
+        update thread_test set name=#{name},des=#{des} where id=#{id}
+    </update>
+
+
+</mapper>

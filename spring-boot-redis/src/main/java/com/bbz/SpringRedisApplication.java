@@ -31,7 +31,7 @@ public class SpringRedisApplication {
 
         }
 
-        System.out.println("...." + Jsons.gsonToJson(json));
+//        System.out.println("...." + Jsons.gsonToJson(json));
         return "1231231";
     }
 

@@ -18,8 +18,9 @@ public class InterruptMyThread extends Thread {
 //        }
 //        System.out.println("看到这句话说明线程并未终止------");
         while (true) {
+            System.out.println(Thread.currentThread().interrupted());
             if (this.isInterrupted()) {
-                System.out.println("ֹͣ停止了!");
+                System.out.println("停止了!");
                 return;
             }
             System.out.println("timer=" + System.currentTimeMillis());

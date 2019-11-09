@@ -7,8 +7,9 @@ public class VolatileMain {
         VolatileThread volatileThread = new VolatileThread();
 
         Thread thread = new Thread(volatileThread);
+        Thread thread_01 = new Thread(volatileThread);
         thread.start();
-
+        thread_01.start();
         Thread.sleep(1000);
         volatileThread.setRunning(false);
 
