@@ -1,10 +1,11 @@
 package com.bbz;
 
 import com.bbz.util.Jsons;
+import com.bbz.util.Lists;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.Tuple;
 
-import java.util.Set;
+import java.util.*;
 
 public class PfTest {
 
@@ -18,9 +19,41 @@ public class PfTest {
         System.out.println(jedis.get("name"));
 
 //        jedis.setex("names",10,"23");
-        System.out.println(jedis.get("names"));
 
 
+//        Fans fans_01 = new Fans();
+//        fans_01.setName("go");
+//        fans_01.setId("3");
+//        Fans fans_02 = new Fans();
+//        fans_02.setName("java");
+//        fans_02.setId("1");
+//        Fans fans_03 = new Fans();
+//        fans_03.setName("python");
+//        fans_03.setId("2");
+//
+//        String[] strings = new String[]{Jsons.toJson(fans_01), Jsons.toJson(fans_02), Jsons.toJson(fans_03)};
+//        jedis.rpush("books", strings);
+
+//        final List<String> books = jedis.lrange("books", 0, -1);
+//        System.out.println(books);
+
+        jedis.hset("hbooks", new HashMap<String, String>() {
+            {
+                put("java", "think java");
+                put("go", " go sdd ");
+                put("python", "python this");
+            }
+        });
+
+        jedis.hset("hbook", "java", "think in java");
+
+        String[] strings = new String[]{"1", "2", "3"};
+        List<String> of = Lists.of(strings);
+        System.out.println(Arrays.toString(of.stream().toArray(String[]::new)));
+
+        Map<String, String> hbooks = jedis.hgetAll("hbook");
+        hbooks.forEach((k, v) -> System.out.println(v));
+        System.out.println(Jsons.toJson(hbooks));
 
 //        Fans fans = new Fans();
 //
