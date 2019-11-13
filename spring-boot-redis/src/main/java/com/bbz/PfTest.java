@@ -15,11 +15,16 @@ public class PfTest {
 
 
         Jedis jedis = new Jedis("144.34.149.150");
-        jedis.set("name", "11113333");
-        System.out.println(jedis.get("name"));
 
-        jedis.setex("names",10,"23");
 
+
+
+//        String returnValue = jedis.set("name", "11113333");
+//
+//        System.out.println("return:" + returnValue);
+//        System.out.println(jedis.get("name"));
+//
+//        jedis.setex("names", 10, "23");
 
 
 //        Fans fans_01 = new Fans();
@@ -38,34 +43,34 @@ public class PfTest {
 //        final List<String> books = jedis.lrange("books", 0, -1);
 //        System.out.println(books);
 
-        jedis.hset("hbooks", new HashMap<String, String>() {
-            {
-                put("java", "think java");
-                put("go", " go sdd ");
-                put("python", "python this");
-            }
-        });
-
-        jedis.hset("hbook", "java", "think in java");
-
-
-        String[] strings = new String[]{"1", "2", "3"};
-        List<String> of = Lists.of(strings);
-        System.out.println(Arrays.toString(of.stream().toArray(String[]::new)));
-
-        Map<String, String> hbooks = jedis.hgetAll("hbook");
-        hbooks.forEach((k, v) -> System.out.println(v));
-        System.out.println(Jsons.toJson(hbooks));
-
-        Long hbook = jedis.hlen("hbook");
-        System.out.println(hbook);
-
-        jedis.sadd("sbook", "python","python","32");
-        jedis.sadd("zbook", "java");
-        System.out.println(jedis.smembers("sbook"));
-        System.out.println(jedis.smembers("zbook"));
-        jedis.zadd("ss",1,"23");
-        System.out.println(jedis.zrange("ss",0,-1));
+//        jedis.hset("hbooks", new HashMap<String, String>() {
+//            {
+//                put("java", "think java");
+//                put("go", " go sdd ");
+//                put("python", "python this");
+//            }
+//        });
+//
+//        jedis.hset("hbook", "java", "think in java");
+//
+//
+//        String[] strings = new String[]{"1", "2", "3"};
+//        List<String> of = Lists.of(strings);
+//        System.out.println(Arrays.toString(of.stream().toArray(String[]::new)));
+//
+//        Map<String, String> hbooks = jedis.hgetAll("hbook");
+//        hbooks.forEach((k, v) -> System.out.println(v));
+//        System.out.println(Jsons.toJson(hbooks));
+//
+//        Long hbook = jedis.hlen("hbook");
+//        System.out.println(hbook);
+//
+//        jedis.sadd("sbook", "python", "python", "32");
+//        jedis.sadd("zbook", "java");
+//        System.out.println(jedis.smembers("sbook"));
+//        System.out.println(jedis.smembers("zbook"));
+//        jedis.zadd("ss", 1, "23");
+//        System.out.println(jedis.zrange("ss", 0, -1));
 
 //        Fans fans = new Fans();
 //
