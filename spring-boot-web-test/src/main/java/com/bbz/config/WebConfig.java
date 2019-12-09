@@ -19,7 +19,7 @@ import java.util.List;
 public class WebConfig {
     @Bean
     public WebMvcConfigurer webMvcConfigurer() {
-        return new WebMvcConfigurerAdapter() {
+        return new WebMvcConfigurer() {
             @Override
             public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
                 argumentResolvers.add(new UserIdArgumentResolver());
