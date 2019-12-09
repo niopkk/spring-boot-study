@@ -29,6 +29,7 @@ public class Main {
 //        Student student1 = new Student();
 //        System.out.println(student1.hashCode());
 
+
         String FIELD_SEPARATOR = Character.toString((char) 0x01);
 
         System.out.println(FIELD_SEPARATOR);
