@@ -78,6 +78,18 @@ public class Main {
         list.add("111");
         System.out.println(list);
 
+
+        System.out.println(test01());
+    }
+
+    private static int test01() {
+        int ret = 0;
+        try {
+            return ret;
+        } finally {
+            ret = 2;
+            return ret;
+        }
     }
 
     public static class Person {
