@@ -1,5 +1,8 @@
 package com.带权重的抽奖;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 /**
  * com.带权重的抽奖
  * <p>
@@ -17,5 +20,6 @@ public class Lottery {
         for (int i = 0; i < 1000; i++) {
             System.out.println(weightRandom.nextItem()+" ");
         }
+        Map map=new LinkedHashMap();
     }
 }
