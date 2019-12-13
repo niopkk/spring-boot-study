@@ -1,8 +1,8 @@
 package com.enummap;
 
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import com.bbz.util.Lists;
+
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -66,6 +66,15 @@ public class EnumSet {
         }
         for (Worker w : availableDays) {
             System.out.println("days.周一,周二.." + w.getName());
+        }
+
+
+        Queue queue = new PriorityQueue();
+        queue.offer(22);
+        queue.add(10);
+        queue.addAll(Lists.of(11, 12, 34, 2, 7, 4, 15, 12, 18, 6, 19, 13));
+        while (queue.peek() != null) {
+            System.out.print(queue.poll() + " ");
         }
     }
 }
