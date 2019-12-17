@@ -24,6 +24,7 @@ public class Application {
     @RequestMapping(value = "/api/user", method = {RequestMethod.POST, RequestMethod.GET})
     @ResponseBody
     public String list(Subject subject, User user) {
+
         return subject.getCredential();
     }
 }

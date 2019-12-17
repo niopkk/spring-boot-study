@@ -13,8 +13,8 @@ public class TopKMain {
 
     public static void main(String[] args) {
         TopK<Integer> topK = new TopK<>(3);
-        topK.addAll(Lists.of(100, 1, 2, 3, 34,4, 5, 6, 23, 21, 90,1));
-        System.out.println(Arrays.toString(topK.toArray(new Integer[0])));
+        topK.addAll(Lists.of(100, 1, 2, 3, 34, 4, 5, 6, 23, 21, 90, 1));
+        System.out.println(Arrays.toString(topK.toArray(new Integer[]{})));
         System.out.println(topK.getKth());
     }
 }
