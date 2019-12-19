@@ -19,7 +19,7 @@ public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
-S
+
 
     @RequestMapping(value = "/api/user", method = {RequestMethod.POST, RequestMethod.GET})
     @ResponseBody
