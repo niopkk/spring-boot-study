@@ -8,7 +8,17 @@ package com.bbz.annotation04.DI容器;
 @SimpleSingleton
 public class ServiceB {
 
+    private String name;
+
     public void action(){
         System.out.println("I'm B");
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

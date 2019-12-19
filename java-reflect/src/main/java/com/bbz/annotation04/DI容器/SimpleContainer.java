@@ -50,6 +50,7 @@ public class SimpleContainer {
                     f.set(obj, getInstance(clsType));
                 }
             }
+            System.out.println("obj..." + obj.toString());
             return obj;
         } catch (Exception e) {
             throw new RuntimeException();
