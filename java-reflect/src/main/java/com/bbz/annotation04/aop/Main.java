@@ -14,12 +14,12 @@ public class Main {
         ServiceA serviceA = CGlibContainer.getInstance(ServiceA.class);
         serviceA.action();
 
-        Map<String,String> env =  System.getenv();
-        for (String name : env.keySet()) {
-            System.out.println(env.get(name));
-        }
+//        Map<String,String> env =  System.getenv();
+//        for (String name : env.keySet()) {
+//            System.out.println(env.get(name));
+//        }
 
-        System.out.println(System.getProperty("os.name"));
+//        System.out.println(System.getProperty("os.name"));
 //        System.out.println(System.getProperty("JAVA_HOME"));
     }
 }

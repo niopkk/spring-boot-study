@@ -5,6 +5,7 @@ import org.springframework.cglib.proxy.MethodInterceptor;
 import org.springframework.cglib.proxy.MethodProxy;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.*;
 
@@ -33,6 +34,21 @@ public class CGlibContainer {
         for (Class<?> cls : aspects) {
             Aspect aspect = cls.getAnnotation(Aspect.class);
             if (aspect != null) {
+
+                final Method abs;
+                try {
+                    abs = Math.class.getMethod("abs", long.class);
+                    final Object invoke = abs.invoke(null, -100);
+                    System.out.println("abs invoke..." + invoke);
+                } catch (NoSuchMethodException e) {
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (InvocationTargetException e) {
+                    e.printStackTrace();
+                }
+
+
                 final Method before = getMethod(cls, "before", new Class<?>[]{Object.class, Method.class, Object[].class});
 
                 final Method after = getMethod(cls, "after", new Class<?>[]{Object.class, Method.class, Object[].class, Object.class});
