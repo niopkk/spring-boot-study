@@ -49,13 +49,18 @@ public class SimpleJDKProxyDemo {
         }
     }
 
+    static <T> T proxy(Class<T> cls, T o) {
+
+        return (T) Proxy.newProxyInstance(cls.getClassLoader(),
+                new Class[]{cls},
+                new SimpleInvocationHandler(o));
+    }
+
     public static void main(String[] args) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
         IService service = new RealService();
-        final IService o = (IService) Proxy.newProxyInstance(IService.class.getClassLoader(),
-                new Class[]{IService.class},
-                new SimpleInvocationHandler(service));
+        final IService o = proxy(IService.class, service);
         o.sayHello("张三");
-        o.returnVal("如何是好");
+//        o.returnVal("如何是好");
 //        final Class<?> proxyClass = Proxy.getProxyClass(IService.class.getClassLoader(), new Class[]{IService.class});
 
 //        final Constructor<?> constructor = proxyClass.getConstructor(new Class[]{InvocationHandler.class});
