@@ -22,7 +22,6 @@ public class ProxyFactory implements InvocationHandler {
         RpcClient rpcClient = method.getDeclaringClass().getAnnotation(RpcClient.class);
         System.out.println("rpcClient:" + rpcClient.value());
 
-
 //        if (annotationconfig != null) {
 //            Method[] met = annotationconfig.annotationType().getDeclaredMethods();
 //            for(Method me : met ){

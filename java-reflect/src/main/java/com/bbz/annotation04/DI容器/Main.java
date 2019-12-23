@@ -1,5 +1,7 @@
 package com.bbz.annotation04.DI容器;
 
+import java.util.Optional;
+
 /**
  * com.bbz.annotation04.DI容器
  * <p>
@@ -13,6 +15,8 @@ public class Main {
         serviceA.action();
 
 
+        Object s = "122";
+        System.out.println(Optional.ofNullable(s).map(i -> i.toString()).orElse("111"));
     }
 
 }
