@@ -5,6 +5,7 @@ import com.bbz.util.Lists;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -35,8 +36,12 @@ public class Functions {
 //        for (String s : strings) {
 //            System.out.println(s);
 //        }
-
         foreach(students, student -> System.out.println(student.getName()));
+
+        final List<String> of = Lists.of(new String[]{"1"});
+
+        final String[] strings = of.stream().toArray(String[]::new);
+        System.out.println(Arrays.toString(strings));
 
     }
 
