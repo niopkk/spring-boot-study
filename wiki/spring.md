@@ -1,0 +1,16 @@
+####spring类概括
+- AliasRegistry:对Alias(别名)增删该查的操作
+- SimpleAlicasRegistry:主要使用map作为alias的缓存，并对接口AliasRegistry进行实现。
+- SingletonBeanRegistry:定义对单例的注册及获取。
+- BeanFactory:定义获取bean的定义及bean的各种属性。
+- DefaultSingletonBeanRegistry:对接口SingletonBeanRegistry接口的实现。
+- HierarchicalBeanFactory(分成):继承BeanFactory,也就是在BeanFactory定义的功能基础上增加了parentFactory的支持。
+- BeanDefinitionRegistry:定义对BeanDefinition的增删改查。
+- FactoryBeanRegistrySupport:在DefaultSingletonBeanRegistry基础上增加了对FactoryBean的特殊处理功能
+- ConfigurableBeanFactory:提供配置Factory的各种方法。
+- ListableBeanFactory:根据各种条件获取bean的配置清单。
+- AbstractBeanFactory:综合FactoryBeanRegistrySupport和ConfigurableBeanFactory的功能。
+- AutowireCapableBeanFactory:提供创建bean、自动注入、初始化以及应用bean的后处理器。
+- AbstractAutowireCapableBeanFactory:综合AbstractBeanFactory并对接口AutowireCapableBeanFactory进行实现。
+- ConfigurableListableBeanFactory:BeanFactory的配置清单，指定忽略类型及接口等。
+- DefaultListableBeanFactory:综合上门所有功能,主要对bean注册后的处理。
