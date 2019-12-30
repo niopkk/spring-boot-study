@@ -32,14 +32,16 @@ public class MyTestBeanTest {
 
 //        System.out.println("ddd");
 //
-       new ClassPathXmlApplicationContext("mytestbean.xml");
-//
-//        MyTestBean myTestBean = bf.getBean("myTestBean", MyTestBean.class);
-//        MyTestBean myTestBean1 = bf.getBean(MyTestBean.class, "dsdffd");
-//        final ObjectProvider<MyTestBean> beanProvider = bf.getBeanProvider(MyTestBean.class);
-//        final MyTestBean object = beanProvider.getIfAvailable(() -> new MyTestBean());
-//        beanProvider.ifAvailable((m) -> System.out.println(m.getTestStr()));
-//        System.out.println(object.getTestStr());
+        new ClassPathXmlApplicationContext("mytestbean.xml");
+
+//        System.out.println((Object[]) null);
+
+        MyTestBean myTestBean = bf.getBean("myTestBean", MyTestBean.class);
+        MyTestBean myTestBean1 = bf.getBean(MyTestBean.class, "dsdffd");
+        final ObjectProvider<MyTestBean> beanProvider = bf.getBeanProvider(MyTestBean.class);
+        final MyTestBean object = beanProvider.getIfAvailable(() -> new MyTestBean());
+        beanProvider.ifAvailable((m) -> System.out.println(m.getTestStr()));
+        System.out.println(object.getTestStr());
 //
 ////        final CarFactoryBean car = (CarFactoryBean) bf.getBean("&car");
 ////        System.out.println(car.getCarInfo());

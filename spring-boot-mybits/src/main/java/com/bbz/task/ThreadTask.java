@@ -17,7 +17,7 @@ public class ThreadTask {
     @Autowired
     private ThreadService threadService;
 
-    @Scheduled(cron = "0/2 * *  * * ?")
+//    @Scheduled(cron = "0/2 * *  * * ?")
     public void update() {
 
         System.out.println("进入任务:" + System.currentTimeMillis());
