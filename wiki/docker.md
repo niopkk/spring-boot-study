@@ -8,6 +8,9 @@
 
 删除所有的container(容器)`docker rm $(docker ps -a -q)`或 `docker rm $(docker ps -aq)`
 
+删除所有的停止的容器container(容器) `docker container prune`
+
+
 拉取images(镜像):`docker pull <iamges>`
 
 查看有哪些images(镜像):`docker images`
@@ -54,6 +57,16 @@ docker exec :在运行的容器中执行命令
          -t:为容器重新分配一个伪终端，通常与-i同时使用
 如：docker exec -it adfd /bin/bash
  ```
+docker日志查看
+```
+docker logs -f [容器名称或id] 读取最新日志
+docker logs --tail 10 [容器名称或id] 查看最后10行日志
+docker logs --tail 0 -f [容器名称或id] 跟踪容器的最新日志不读取整个文件
+```
+docker查看容器内进程
+```
+docker top [容器名称]
+```
 
 数据卷:是提供给容器使用的特殊目录,它将主机操作系统目录直接映射进容器。
 特性如下:  
