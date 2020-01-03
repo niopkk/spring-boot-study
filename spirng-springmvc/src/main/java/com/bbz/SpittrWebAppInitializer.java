@@ -8,21 +8,21 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
  * com.bbz
  * <p>
  */
-public class SpittrWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
-
-
-    @Override
-    protected Class<?>[] getRootConfigClasses() {
-        return new Class<?>[]{RootConfig.class};
-    }
-
-    @Override
-    protected Class<?>[] getServletConfigClasses() {
-        return new Class[]{WebConfig.class};
-    }
-
-    @Override
-    protected String[] getServletMappings() {
-        return new String[]{"/"};
-    }
-}
+//public class SpittrWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+//
+//
+//    @Override
+//    protected Class<?>[] getRootConfigClasses() {
+//        return new Class<?>[]{RootConfig.class};
+//    }
+//
+//    @Override
+//    protected Class<?>[] getServletConfigClasses() {
+//        return new Class[]{WebConfig.class};
+//    }
+//
+//    @Override
+//    protected String[] getServletMappings() {
+//        return new String[]{"/"};
+//    }
+//}
