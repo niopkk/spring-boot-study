@@ -1,5 +1,6 @@
 package com.bbz.map;
 
+import com.bbz.util.Jsons;
 import com.bbz.util.Lists;
 
 import java.time.LocalDate;
@@ -30,23 +31,30 @@ public class MainMap {
 
         System.out.println(map);
 
-        List<Student> lists = new LinkedList<>();
+        List<Student> lists = new ArrayList<>();
 
         Student student = new MainMap().new Student();
         Student student2 = new MainMap().new Student();
 
+        student.setAge(111);
         student.setRegions(Lists.of("11111", "2222"));
-        student2.setRegions(Lists.of("11111", "2222"));
+        student2.setAge(4444);
+        student2.setRegions(Lists.of("111112", "2222"));
 
 
-        lists.add(student);
+
         lists.add(student2);
+        lists.add(student);
 
-        final Set<String> collect = lists.stream().flatMap(item -> {
-            return item.getRegions().stream().map(String::intern);
-        }).collect(Collectors.toSet());
+//        final Set<String> collect = lists.stream().flatMap(item -> {
+//            return item.getRegions().stream().map(String::intern);
+//        }).collect(Collectors.toSet());
 
-        System.out.print(collect);
+        final List<Student> collect = lists.stream().sorted((s1, s2) -> s2.getAge().compareTo(s1.getAge())).collect(Collectors.toList());
+
+        collect.forEach(ds -> {
+           System.out.println(ds.getAge());
+       });
 
 
         String sdf = "1";
@@ -105,7 +113,11 @@ public class MainMap {
 
 
     public class Student {
+
         private String name;
+
+        private Integer age;
+
 
         private List<String> regions;
 
@@ -123,6 +135,14 @@ public class MainMap {
 
         public void setRegions(List<String> regions) {
             this.regions = regions;
+        }
+
+        public Integer getAge() {
+            return age;
+        }
+
+        public void setAge(Integer age) {
+            this.age = age;
         }
     }
 }
