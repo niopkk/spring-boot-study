@@ -28,6 +28,6 @@ public class DaemonDemo {
         Thread t=new DaemonT();
         t.setDaemon(true);
         t.start();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
     }
 }
