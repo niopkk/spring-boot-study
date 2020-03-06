@@ -145,16 +145,38 @@ public abstract class Dates extends DateUtils {
         return date;
     }
 
-//
-//    public static void main(String[] args) {
-//        LocalDateTime today_end = LocalDateTime.of(LocalDate.now(), LocalTime.MIN);
-//
-//        localDateTimeToDate(today_end);
-//
-//        System.out.println(today_end);
-//
-//
-//        System.out.println(localDateToDate(LocalDate.now()));
-//    }
+    /**
+     * 是否工作日
+     */
+    static boolean isWorkday(long date) {
+        ZoneId zone = ZoneId.systemDefault();
+        LocalDate localDate = Instant.ofEpochMilli(date).atZone(zone).toLocalDate();
+        DayOfWeek dayOfWeek = localDate.getDayOfWeek();
+        if (dayOfWeek == DayOfWeek.SATURDAY
+                || dayOfWeek == DayOfWeek.SUNDAY) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * 是否休息日
+     */
+    static boolean isOffday(long date) {
+        return !isWorkday(date);
+    }
+
+    public static void main(String[] args) {
+        LocalDateTime today_end = LocalDateTime.of(LocalDate.now(), LocalTime.MIN);
+
+        localDateTimeToDate(today_end);
+
+        System.out.println(today_end);
+
+
+        System.out.println(localDateToDate(LocalDate.now()));
+        boolean workday = isOffday(1583375614000L);
+        System.out.println(workday);
+    }
 
 }
