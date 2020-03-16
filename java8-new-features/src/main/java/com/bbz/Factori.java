@@ -16,10 +16,10 @@ public class Factori {
 
 
 
-//        Factori factori=new Factori();
-//        System.out.println(factori.toString());
+        Factori factori=new Factori();
+        System.out.println(factori.toString());
 //
-//        String ss="ddddddd";
+        String ss="ddddddd";
 //        System.out.println(ss.replace("'",""));
 
 //        String d="ew";dfsd
