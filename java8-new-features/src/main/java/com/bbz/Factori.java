@@ -25,7 +25,7 @@ public class Factori {
         String d="ew";
         if(!"0".equals(d)){
 
-
+//dsd
 //            dfs
             System.out.println("dsddfsdf");
         }else {
