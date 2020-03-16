@@ -16,9 +16,21 @@ public class Factori {
 
 
 
-        Factori factori=new Factori();
-        System.out.println(factori.toString());
+//        Factori factori=new Factori();
+//        System.out.println(factori.toString());
+//
+//        String ss="ddddddd";
+//        System.out.println(ss.replace("'",""));
 
+        String d="ew";
+        if(!"0".equals(d)){
+
+
+//            dfs
+            System.out.println("dsddfsdf");
+        }else {
+            System.out.println("3333");
+        }
 
     }
 
