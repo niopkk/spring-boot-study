@@ -22,15 +22,15 @@ public class Factori {
 //        String ss="ddddddd";
 //        System.out.println(ss.replace("'",""));
 
-        String d="ew";
-        if(!"0".equals(d)){
-
-//dsd
-//            dfs
-            System.out.println("dsddfsdf");
-        }else {
-            System.out.println("3333");
-        }
+//        String d="ew";dfsd
+//        if(!"0".equals(d)){
+//
+////dsd
+////            dfs
+//            System.out.println("dsddfsdf");
+//        }else {
+//            System.out.println("3333");
+//        }
 
     }
 
