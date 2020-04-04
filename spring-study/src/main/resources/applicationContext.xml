@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="car" class="com.xml_study.Car">
+        <constructor-arg value="Aodi" type="java.lang.String"/>
+        <constructor-arg value="shanghai" type="java.lang.String"/>
+        <constructor-arg value="300" type="double"/>
+    </bean>
+
+    <bean id="car1" class="com.xml_study.Car">
+        <constructor-arg value="Aodi" type="java.lang.String"/>
+        <constructor-arg value="shanghai" type="java.lang.String"/>
+        <constructor-arg  type="int">
+            <value>230</value>
+        </constructor-arg>
+    </bean>
+
+    <bean id="person" class="com.xml_study.Person">
+        <property name="name" value="张三"/>
+        <property name="age" value="19"/>
+        <property name="car" ref="car"/>
+    </bean>
+
+</beans>
