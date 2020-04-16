@@ -1,9 +1,5 @@
 package com.bbz;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.UnaryOperator;
-
 /**
  * com.bbz
  * <p>
@@ -14,12 +10,16 @@ public class Factori {
     public static void main(String[] args) {
 //        System.out.println(new Factori().fact.apply(5));
 
+        int i = 1;
+        i = i++;
 
-
-        Factori factori=new Factori();
-        System.out.println(factori.toString());
-//
-        String ss="ddddddd";
+        int j = i++;
+        System.out.println(i);
+        System.out.println(j);
+//        Factori factori=new Factori();
+//        System.out.println(factori.toString());
+////
+//        String ss="ddddddd";
 //        System.out.println(ss.replace("'",""));
 
 //        String d="ew";dfsd
@@ -35,5 +35,5 @@ public class Factori {
     }
 
     //24-32
-    private UnaryOperator<Integer> fact = x -> ((x == 1 || x == 0) ? 1 : x * this.fact.apply(x - 1));
+//    private UnaryOperator<Integer> fact = x -> ((x == 1 || x == 0) ? 1 : x * this.fact.apply(x - 1));
 }

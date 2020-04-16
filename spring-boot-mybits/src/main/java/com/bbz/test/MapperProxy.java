@@ -13,7 +13,7 @@ public class MapperProxy implements InvocationHandler {
         System.out.println(returnType);
         List<Object> lists = new ArrayList<>();
         lists.add(1);
-        lists.add("ee");
+        lists.add(23);
         lists.add(3);
         return lists;
     }

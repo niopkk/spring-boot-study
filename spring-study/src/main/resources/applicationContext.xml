@@ -1,26 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tool http://www.springframework.org/schema/tool/spring-tool.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <bean id="car" class="com.xml_study.Car">
-        <constructor-arg value="Aodi" type="java.lang.String"/>
-        <constructor-arg value="shanghai" type="java.lang.String"/>
-        <constructor-arg value="300" type="double"/>
+    <!--jdbc配置数据源-->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="application.properties"></property>
     </bean>
 
-    <bean id="car1" class="com.xml_study.Car">
-        <constructor-arg value="Aodi" type="java.lang.String"/>
-        <constructor-arg value="shanghai" type="java.lang.String"/>
-        <constructor-arg  type="int">
-            <value>230</value>
-        </constructor-arg>
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="name" value="${jdbc.name}"></property>
+        <property name="driver" value="${jdbc.driver}"></property>
+        <property name="url" value="${jdbc.url}"></property>
+        <property name="password" value="${jdbc.password}"></property>
     </bean>
+    <bean class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+    <!--jdbc配置数据源-->
 
-    <bean id="person" class="com.xml_study.Person">
+    <!--    事物配置-->
+    <bean id="dataSourceTransactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager"></bean>
+    <tx:annotation-driven transaction-manager="dataSourceTransactionManager"></tx:annotation-driven>
+    <!--    事物配置-->
+
+    <bean id="person" class="com.day01_Spring.Person">
+        <property name="id" value="1001"/>
         <property name="name" value="张三"/>
-        <property name="age" value="19"/>
-        <property name="car" ref="car"/>
+        <property name="teacher">
+            <list>
+                <value>1</value>
+                <value>2</value>
+                <value>3</value>
+            </list>
+        </property>
+        <property name="sList">
+            <list>
+                <ref bean="t1"/>
+            </list>
+        </property>
     </bean>
 
+
+    <bean id="person_01" class="com.day01_Spring.Person">
+        <constructor-arg value="1002"></constructor-arg>
+        <constructor-arg value="李四"></constructor-arg>
+    </bean>
+    <bean id="person_02" class="com.day01_Spring.Person">
+        <constructor-arg value="1002222" type="java.lang.Double"></constructor-arg>
+        <constructor-arg value="王武"></constructor-arg>
+    </bean>
+
+    <bean id="t1" class="com.day01_Spring.Teacher">
+        <property name="sList">
+            <list>
+                <bean class="com.day01_Spring.Teacher">
+                    <property name="name" value="教师11"></property>
+                    <property name="id" value="1000111"></property>
+                </bean>
+                <bean class="com.day01_Spring.Teacher">
+                    <property name="name" value="教师221"></property>
+                    <property name="id" value="323233"></property>
+                </bean>
+            </list>
+        </property>
+    </bean>
 </beans>

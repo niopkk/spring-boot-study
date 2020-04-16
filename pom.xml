@@ -28,7 +28,6 @@
         <module>spring-boot-redis</module>
         <module>spring-boot-hazelcast</module>
         <module>java8-new-features</module>
-        <module>spirng-springmvc</module>
         <module>java-spi</module>
         <module>sping-boot-shiro</module>
         <module>java-effective</module>
