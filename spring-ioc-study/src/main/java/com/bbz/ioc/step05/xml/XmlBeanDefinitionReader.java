@@ -1,6 +1,6 @@
 package com.bbz.ioc.step05.xml;
 
-import com.bbz.ioc.step05.AbstracBeanDefinitionReader;
+import com.bbz.ioc.step05.AbstractBeanDefinitionReader;
 import com.bbz.ioc.step05.BeanDefinition;
 import com.bbz.ioc.step05.BeanRefernce;
 import com.bbz.ioc.step05.PropertyValue;
@@ -17,7 +17,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class XmlBeanDefinitionReader extends AbstracBeanDefinitionReader {
+public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 
 
     public XmlBeanDefinitionReader(ResourceLoader resourceLoader) {
@@ -76,7 +76,7 @@ public class XmlBeanDefinitionReader extends AbstracBeanDefinitionReader {
         beanDefinition.setBeanClassName(className);
 
 
-        getRegisty().put(id, beanDefinition);
+        getRegistry().put(id, beanDefinition);
 
     }
 

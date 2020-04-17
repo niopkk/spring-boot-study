@@ -6,7 +6,7 @@ import com.bbz.ioc.step05.PropertyValue;
 
 import java.lang.reflect.Field;
 
-public class AutowireCapableBeanFactory extends AbstracBeanFactory {
+public class AutowireCapableBeanFactory extends AbstractBeanFactory {
     @Override
     protected Object doCreateBean(BeanDefinition beanDefinition) throws Exception {
         Object bean = createBeanDefinition(beanDefinition);
