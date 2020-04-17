@@ -4,8 +4,13 @@ import java.net.URL;
 
 public class ResourceLoader {
 
-    public Resource getResouce(String local) {
-        URL resource = this.getClass().getClassLoader().getResource(local);
-        return new UrlResource(resource);
+    public Resource getResouce(String location) {
+        if (location.startsWith("/")) {
+//            return new FileResource(location.getBytes())
+            return null;
+        } else {
+            URL resource = this.getClass().getClassLoader().getResource(location);
+            return new UrlResource(resource);
+        }
     }
 }

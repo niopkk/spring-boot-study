@@ -15,10 +15,6 @@ public abstract class AbstractBeanFactory implements BeanFactory {
         return beanDefinitionMap.get(name).getBean();
     }
 
-    @Override
-    public <T> T getBean(Class<T> tClass) {
-        return null;
-    }
 
     @Override
     public void registerBeanDefinition(String beanName, BeanDefinition beanDefinition) throws Exception {

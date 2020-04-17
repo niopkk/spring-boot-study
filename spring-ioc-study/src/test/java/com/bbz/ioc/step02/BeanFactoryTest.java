@@ -14,14 +14,16 @@ public class BeanFactoryTest {
         //2、注入bean
         BeanDefinition beanDefinition=new BeanDefinition();
 
+        //3、set全类名
         beanDefinition.setBeanClassName("com.bbz.ioc.step02.HelloWordService");
-//        beanDefinition.setBean(new HelloWordService());
+
+        //注入bean
         beanFactory.registerBeanDefinition("helloWordService",beanDefinition);
 
 
         //获取bean
         HelloWordService helloWordService = (HelloWordService)beanFactory.getBean("helloWordService");
-
+        //调用方法
         helloWordService.hello();
     }
 
