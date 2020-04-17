@@ -6,7 +6,6 @@ public interface BeanFactory {
 
     Object getBean(String name);
 
-    <T> T getBean(Class<T> tClass);
 
     void registerBeanDefinition(String beanName, BeanDefinition beanDefinition) throws Exception;
 }
