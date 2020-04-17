@@ -1,6 +1,6 @@
 package com.bbz.ioc.step04;
 
-public interface BeanDefinitionRead {
+public interface BeanDefinitionReader {
 
     void loadBeanDefinitions(String local) throws Exception;
 }
