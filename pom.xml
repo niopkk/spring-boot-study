@@ -34,6 +34,8 @@
         <module>spring-boot-http</module>
         <module>java-io</module>
         <module>spring-boot-web-test</module>
+        <module>spring-boot-activemq</module>
+        <module>spring-boot-activemq/boot-active-demo</module>
     </modules>
 
     <properties>

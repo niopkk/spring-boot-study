@@ -1,11 +1,12 @@
-package com.bbz.ioc.step05;
+package com.bbz.ioc.step06;
 
 
-import com.bbz.ioc.step05.factory.AbstractBeanFactory;
-import com.bbz.ioc.step05.factory.AutowireCapableBeanFactory;
-import com.bbz.ioc.step05.factory.BeanFactory;
-import com.bbz.ioc.step05.io.ResourceLoader;
-import com.bbz.ioc.step05.xml.XmlBeanDefinitionReader;
+
+import com.bbz.ioc.step06.beans.BeanDefinition;
+import com.bbz.ioc.step06.beans.factory.AbstarcBeanFactory;
+import com.bbz.ioc.step06.beans.factory.AutowiteCapableBeanFactory;
+import com.bbz.ioc.step06.beans.io.LoaderResource;
+import com.bbz.ioc.step06.beans.xml.XmlBeanDefinitionReader;
 import org.junit.Test;
 
 import java.util.Map;
@@ -16,11 +17,11 @@ public class BeanFactoryTest {
     public void test() throws Exception {
 
 
-        XmlBeanDefinitionReader xmlBeanDefinitionReader = new XmlBeanDefinitionReader(new ResourceLoader());
-        xmlBeanDefinitionReader.loadBeanDefinitions("application-05.xml");
+        XmlBeanDefinitionReader xmlBeanDefinitionReader = new XmlBeanDefinitionReader(new LoaderResource());
+        xmlBeanDefinitionReader.loadBeanDefinitions("application-06.xml");
 
 
-        BeanFactory beanFactory = new AutowireCapableBeanFactory();
+        AbstarcBeanFactory beanFactory = new AutowiteCapableBeanFactory();
         for (Map.Entry<String, BeanDefinition> beanDefinitionEntry : xmlBeanDefinitionReader.getRegistry().entrySet()) {
             beanFactory.registerBeanDefinition(beanDefinitionEntry.getKey(), beanDefinitionEntry.getValue());
         }
@@ -35,17 +36,17 @@ public class BeanFactoryTest {
     @Test
     public void testPreInstantiate() throws Exception {
         // 1.读取配置
-        XmlBeanDefinitionReader xmlBeanDefinitionReader = new XmlBeanDefinitionReader(new ResourceLoader());
-        xmlBeanDefinitionReader.loadBeanDefinitions("application-05.xml");
+        XmlBeanDefinitionReader xmlBeanDefinitionReader = new XmlBeanDefinitionReader(new LoaderResource());
+        xmlBeanDefinitionReader.loadBeanDefinitions("application-06.xml");
 
         // 2.初始化BeanFactory并注册bean
-        AbstractBeanFactory beanFactory = new AutowireCapableBeanFactory();
+        AbstarcBeanFactory beanFactory=new AutowiteCapableBeanFactory();
         for (Map.Entry<String, BeanDefinition> beanDefinitionEntry : xmlBeanDefinitionReader.getRegistry().entrySet()) {
             beanFactory.registerBeanDefinition(beanDefinitionEntry.getKey(), beanDefinitionEntry.getValue());
         }
 
         // 3.初始化bean
-        beanFactory.preInstantiateSingletons();
+//        beanFactory.preInstantiateSingletons();
 
         // 4.获取bean
         HelloWorldService helloWorldService = (HelloWorldService) beanFactory.getBean("helloWorldService");
