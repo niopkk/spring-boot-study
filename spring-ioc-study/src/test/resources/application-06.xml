@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="outputService" class="com.bbz.ioc.step06.OutputService">
+        <property name="helloWorldService" ref="helloWorldService"></property>
+    </bean>
+
+    <bean id="helloWorldService" class="com.bbz.ioc.step06.HelloWorldService">
+        <property name="text" value="Hello World!"></property>
+        <property name="outputService" ref="outputService"></property>
+    </bean>
+
+</beans>

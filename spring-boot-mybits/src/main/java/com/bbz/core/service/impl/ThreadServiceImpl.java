@@ -7,8 +7,6 @@ import com.bbz.core.service.ThreadTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
-
 /**
  * com.bbz.core.service.impl
  * <p>
@@ -20,7 +18,7 @@ public class ThreadServiceImpl implements ThreadService {
     @Autowired
     private ThreadMapper threadMapper;
 
-    @PostConstruct
+    //@PostConstruct
     private void init() {
         new Thread(new ThreadTest(this)).start();
     }
