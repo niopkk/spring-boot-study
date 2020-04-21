@@ -1,5 +1,6 @@
 package com.atomic;
 
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class AtomicReferenceTest {
@@ -11,7 +12,8 @@ public class AtomicReferenceTest {
         for (int i = 0; i < 10; i++) {
             new Thread(() -> {
                 try {
-                    Thread.sleep(Math.abs((int) Math.random() * 100));
+//                    Thread.sleep(Math.abs((int) Math.random() * 100));
+                    TimeUnit.SECONDS.sleep(Math.abs((int) Math.random() * 100));
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
