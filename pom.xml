@@ -31,7 +31,6 @@
         <module>java-spi</module>
         <module>sping-boot-shiro</module>
         <module>java-effective</module>
-        <module>spring-boot-http</module>
         <module>java-io</module>
         <module>spring-boot-web-test</module>
         <module>spring-boot-activemq</module>
