@@ -4,31 +4,28 @@ import java.util.EnumSet;
 import java.util.Objects;
 import java.util.Set;
 
-/**
- * 类层次结构
- */
 public abstract class Pizza {
 
-    protected enum Topping {HAM, MUSHROOM, ONION, PREPPER, SAUSAGE}
+    //火腿、蘑菇、洋葱、辣椒、香肠
+    public enum Topping {HAM, MUSHROOM, ONION, PEPPER, SAUSAGE}
 
     final Set<Topping> toppings;
 
-    abstract static class Builder<T extends Builder<T>> {
+    public abstract static class Builder<T extends Builder> {
 
         EnumSet<Topping> toppings = EnumSet.noneOf(Topping.class);
 
         public T addTopping(Topping topping) {
-
             toppings.add(Objects.requireNonNull(topping));
             return self();
         }
 
-        abstract Pizza build();
+        abstract Pizza builder();
 
         protected abstract T self();
     }
 
-    Pizza(Builder<?> builder) {
-        toppings = builder.toppings.clone();
+    public Pizza(Builder<?> builder) {
+        this.toppings = builder.toppings.clone();
     }
 }

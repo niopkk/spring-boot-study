@@ -2,19 +2,19 @@ package com.bbz.builder;
 
 public class Calzone extends Pizza {
 
-
     private final boolean sauceInside;
 
     public static class Builder extends Pizza.Builder<Builder> {
+
         private boolean sauceInside = false;
 
         public Builder sauceInside() {
-            sauceInside = true;
+            this.sauceInside = true;
             return this;
         }
 
         @Override
-        Calzone build() {
+        public Calzone builder() {
             return new Calzone(this);
         }
 
@@ -24,15 +24,10 @@ public class Calzone extends Pizza {
         }
     }
 
-    Calzone(Builder builder) {
+
+    public Calzone(Builder builder) {
         super(builder);
-        sauceInside = builder.sauceInside;
+        this.sauceInside = builder.sauceInside;
     }
 
-    @Override
-    public String toString() {
-        return "Calzone{" +
-                "sauceInside=" + sauceInside +
-                '}';
-    }
 }

@@ -1,8 +1,5 @@
 package com.bbz.builder;
 
-/**
- * 建造者模式(Builder)模式
- */
 public class NutritionFacts {
 
     private final int servingSize;
@@ -17,19 +14,9 @@ public class NutritionFacts {
 
     private final int carbohydrate;
 
-    private NutritionFacts(NutritionFacts.Builder builder) {
-        servingSize = builder.seringSize;
-        servings = builder.servings;
-        calories = builder.calories;
-        fat = builder.fat;
-        sodium = builder.sodium;
-        carbohydrate = builder.carbohydrate;
-    }
-
-
     public static class Builder {
 
-        private final int seringSize;
+        private final int servingSize;
 
         private final int servings;
 
@@ -41,42 +28,48 @@ public class NutritionFacts {
 
         private int carbohydrate = 0;
 
-        public Builder(int seringSize, int servings) {
-            this.seringSize = seringSize;
-            this.servings = servings;
+        public Builder(int servingSize, int serings) {
+            this.servingSize = servingSize;
+            this.servings = serings;
         }
 
-        public Builder calories(int val) {
-            calories = val;
+        public Builder calories(int calories) {
+            this.calories = calories;
             return this;
         }
 
-        public Builder soduim(int val) {
-            sodium = val;
+        public Builder fat(int fat) {
+            this.fat = fat;
             return this;
         }
 
-        public Builder carbohydrate(int val) {
-            carbohydrate = val;
+        public Builder sodium(int sodium) {
+            this.sodium = sodium;
+            return this;
+        }
+
+        public Builder carbohydrate(int carbohydrate) {
+            this.carbohydrate = carbohydrate;
             return this;
         }
 
         public NutritionFacts builder() {
             return new NutritionFacts(this);
         }
+    }
 
+    public NutritionFacts(Builder builder) {
+        this.servingSize = builder.servingSize;
+        this.servings = builder.servings;
+        this.calories = builder.calories;
+        this.fat = builder.fat;
+        this.sodium = builder.sodium;
+        this.carbohydrate = builder.carbohydrate;
     }
 
 
-    @Override
-    public String toString() {
-        return "NutritionFacts{" +
-                "servingSize=" + servingSize +
-                ", servings=" + servings +
-                ", calories=" + calories +
-                ", fat=" + fat +
-                ", sodium=" + sodium +
-                ", carbohydrate=" + carbohydrate +
-                '}';
+    public static void main(String[] args) {
+        new Builder(10, 20).calories(100)
+                .sodium(10).carbohydrate(20).builder();
     }
 }

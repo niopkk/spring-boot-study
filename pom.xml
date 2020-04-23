@@ -35,6 +35,7 @@
         <module>spring-boot-web-test</module>
         <module>spring-boot-activemq</module>
         <module>spring-boot-activemq/boot-active-demo</module>
+        <module>spring-boot-rabbitmq/rabbitmq</module>
     </modules>
 
     <properties>

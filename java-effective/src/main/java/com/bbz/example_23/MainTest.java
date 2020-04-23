@@ -19,5 +19,7 @@ public class MainTest {
 
         System.out.println(new Circle(2).area());
         System.out.println(new Rectangle(3, 2).area());
+
+
     }
 }
