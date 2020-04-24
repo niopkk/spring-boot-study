@@ -64,11 +64,14 @@ public class Https {
     }
 
     public static Https getInstance() {
-        synchronized (Https.class) {
-            if (instance == null) {
-                instance = new Https();
+        if(instance== null){
+            synchronized (Https.class) {
+                if (instance == null) {
+                    instance = new Https();
+                }
             }
         }
+
         return instance;
     }
 
