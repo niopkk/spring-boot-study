@@ -42,22 +42,6 @@ public class ServiceTask implements Runnable {
             e.printStackTrace();
         }
 
-//        try {
-//            //注意此处得到的socket的输入流为socket的输入流即上方的(private Socket socket = null; )
-//            br = new BufferedReader(new InputStreamReader(client.getInputStream()));
-//            //向客户端返回消息的PrintWriter对象
-//            pw = new PrintWriter(new BufferedWriter(new OutputStreamWriter(client.getOutputStream())), true);
-//
-//        } catch (Exception e) {
-//            try {
-//                br.close();
-//                pw.close();
-//                client.close();
-//            } catch (IOException e1) {
-//                e1.printStackTrace();
-//            }
-//        }
-
     }
 
     private Respone invokeMethod(Request request) throws ClassNotFoundException {

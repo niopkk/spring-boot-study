@@ -5,6 +5,7 @@ package com.bbz.consumer;
 
 import com.bbz.pojo.dto.OrderDTO;
 import com.rabbitmq.client.Channel;
+import org.springframework.amqp.core.ExchangeTypes;
 import org.springframework.amqp.rabbit.annotation.*;
 import org.springframework.amqp.support.AmqpHeaders;
 import org.springframework.messaging.handler.annotation.Headers;
@@ -20,7 +21,7 @@ public class OrderReceiver {
             bindings = @QueueBinding(                    //数据是否持久化
                     value = @Queue(value = "order-queue",durable = "true"),
                     exchange = @Exchange(name = "order-exchange",
-                            durable = "true",type = "topic"),
+                            durable = "true",type = ExchangeTypes.TOPIC),
                     key="order.*"
             )
     )
