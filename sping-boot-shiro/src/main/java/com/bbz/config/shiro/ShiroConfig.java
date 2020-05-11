@@ -18,6 +18,7 @@ import org.crazycake.shiro.RedisManager;
 import org.crazycake.shiro.RedisSessionDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.util.Base64Utils;
@@ -73,6 +74,7 @@ public class ShiroConfig {
     }
 
     @Bean
+//    @ConditionalOnProperty(prefix = "",name = "",havingValue = "true")
     public ShiroFilterFactoryBean shiroFilterFactoryBean(SecurityManager securityManager) {
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
 
@@ -157,16 +159,6 @@ public class ShiroConfig {
         AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = new AuthorizationAttributeSourceAdvisor();
         authorizationAttributeSourceAdvisor.setSecurityManager(securityManager);
         return authorizationAttributeSourceAdvisor;
-    }
-
-    /**
-     * 用于开启 Thymeleaf 中的 shiro 标签的使用
-     *
-     * @return ShiroDialect shiro 方言对象
-     */
-    @Bean
-    public ShiroDialect shiroDialect() {
-        return new ShiroDialect();
     }
 
     @Bean
