@@ -1,0 +1,8 @@
+server:
+  port: 8081
+
+spring.profiles: pro
+student:
+  id: 0000001
+  name: 历史
+  enabled: true

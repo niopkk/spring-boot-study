@@ -28,19 +28,28 @@ public class MainMap {
         map.merge("A", "2", (oldVal, newVal) -> oldVal + newVal);
         map.merge("3", "222", (oldVal, newVal) -> oldVal);
 
+        Map<String, Integer> map_1 = new HashMap<>();
+
+        map_1.put("A", 1111);
+
+        map_1.merge("A", 2, (oldVal, newVal) -> oldVal + newVal);
+        map_1.merge("3", 222, (oldVal, newVal) -> oldVal);
+
+
 
         System.out.println(map);
 
+        System.out.println(map_1);
+
         List<Student> lists = new ArrayList<>();
 
-        Student student = new MainMap().new Student();
-        Student student2 = new MainMap().new Student();
+        Student student = new Student();
+        Student student2 = new Student();
 
         student.setAge(111);
         student.setRegions(Lists.of("11111", "2222"));
         student2.setAge(4444);
         student2.setRegions(Lists.of("111112", "2222"));
-
 
 
         lists.add(student2);
@@ -53,8 +62,8 @@ public class MainMap {
         final List<Student> collect = lists.stream().sorted((s1, s2) -> s2.getAge().compareTo(s1.getAge())).collect(Collectors.toList());
 
         collect.forEach(ds -> {
-           System.out.println(ds.getAge());
-       });
+            System.out.println(ds.getAge());
+        });
 
 
         String sdf = "1";
@@ -112,7 +121,7 @@ public class MainMap {
     }
 
 
-    public class Student {
+    public static class Student {
 
         private String name;
 
