@@ -36,6 +36,7 @@
         <module>spring-boot-activemq</module>
         <module>spring-boot-activemq/boot-active-demo</module>
         <module>spring-boot-rabbitmq/rabbitmq</module>
+        <module>java-rpc</module>
     </modules>
 
     <properties>

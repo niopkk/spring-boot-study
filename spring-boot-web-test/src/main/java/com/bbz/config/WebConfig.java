@@ -2,6 +2,8 @@ package com.bbz.config;
 
 import com.bbz.Student;
 import com.bbz.UserIdArgumentResolver;
+import com.bbz.Welcomer;
+import com.bbz.support.BeanModifier;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -35,6 +37,16 @@ public class WebConfig implements WebMvcConfigurer {
     public Student student() {
 
         return new Student("000002", "张三", 20);
+    }
+
+    @Bean(initMethod = "initWelcomer")
+    public Welcomer welcomer() {
+        return new Welcomer();
+    }
+
+    @Bean
+    public BeanModifier beanModifier() {
+        return new BeanModifier();
     }
 
 

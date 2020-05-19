@@ -5,9 +5,8 @@ public class Main {
     public static void main(String[] args) {
 
 
-
-        Singer singer=new Singer();
-        Singer proxy= (Singer) new ProxyFactory(singer).getProxyInstance();
+        Singer singer = new Singer();
+        Singer proxy = new ProxyFactory().ProxyFactory(Singer.class);
         proxy.sing();
     }
 }

@@ -47,7 +47,12 @@ public class Application {
 //        }
         String property = env.getProperty("spring.profiles.active", "default");
 
-        System.out.println(property);
+//        System.out.println(property);
+
+        Welcomer welcomer = applicationContext.getBean(Welcomer.class);
+
+        System.out.println(welcomer.getWelcomeText());
+
         return properties.getName();
     }
 }

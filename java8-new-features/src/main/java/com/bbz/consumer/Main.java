@@ -76,7 +76,8 @@ public class Main {
 
 
         String[] s = new String[]{"1", "2"};
-        Arrays.stream(s).peek(v -> System.err.println(v.replace("1", "*"))).collect(Collectors.toList());
+        Arrays.stream(s).peek(v -> System.out.println(v.replace("1", "*")))
+                .collect(Collectors.toList());
 
 
         double ff = 0.1 * 0.1;
