@@ -38,6 +38,7 @@
         <module>spring-boot-rabbitmq/rabbitmq</module>
         <module>java-rpc</module>
         <module>spring-boot-kafka</module>
+        <module>spring-boot-security</module>
     </modules>
 
     <properties>
