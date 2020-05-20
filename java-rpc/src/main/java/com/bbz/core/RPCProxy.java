@@ -50,65 +50,61 @@ public class RPCProxy {
         Enhancer enhancer = new Enhancer();
         enhancer.setSuperclass(cla);
 //        enhancer.setInterfaces(cla.getClass().getInterfaces());
-        enhancer.setCallback(new MethodInterceptor() {
+        enhancer.setCallback((MethodInterceptor) (o, method, objects, methodProxy) -> {
 
-            @Override
-            public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
-
-                if (!method.isAnnotationPresent(RPCmethod.class)) {
-                    throw new MethodNotHaveRPCAnnotation("方法[" + method + "]没有RPCmethod.class的注解");
-                }
-                RPCmethod rpCmethod = method.getAnnotation(RPCmethod.class);
-
-
-                String remoteName = rpCmethod.remoteName();
-                List<String> paramers = new ArrayList<>();
-                int paramerCount = objects.length;
-                for (int i = 0; i < paramerCount; i++) {
-                    paramers.add(Jsons.toJson(objects[i]));
-                }
-
-                Socket socket = new Socket(serverIp, port);
-                DataInputStream dataInputStream = new DataInputStream(socket.getInputStream());
-                DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());
-
-                Object lock = new Object();
-                ControlThread controlThread = new ControlThread(dataInputStream, dataOutputStream, lock);
-                synchronized (lock) {
-                    new Thread(controlThread).start();
-                    lock.wait();
-                }
-                //首先发送远程调用方法的remoteName
-                dataOutputStream.writeUTF(remoteName);
-                if (paramerCount > 0) {
-                    //序列化为json字符串
-                    String str = Jsons.toJson(paramers);
-                    byte[] bytes = str.getBytes();
-                    dataOutputStream.writeInt(bytes.length);
-                    //将字符串转换为二进制发送，需先发送一个头部表明需要接收的长度
-                    dataOutputStream.write(bytes);
-                }
-                Object result = null;
-                try {
-                    int length = dataInputStream.readInt();
-                    byte[] bytes = new byte[length];
-                    dataInputStream.readFully(bytes, 0, length);
-                    String resStr = new String(bytes);
-                    if (resStr.equals("null")) {
-                        return null;
-                    }
-                    result = Jsons.fromJson(resStr.trim(), method.getGenericReturnType());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    throw new RPCProxyReadOutTimeException("向服务器【" + serverIp + "】请求数据超时");
-                } finally {
-                    dataInputStream.close();
-                    dataOutputStream.close();
-                    socket.close();
-                }
-                return result;
-
+            if (!method.isAnnotationPresent(RPCmethod.class)) {
+                throw new MethodNotHaveRPCAnnotation("方法[" + method + "]没有RPCmethod.class的注解");
             }
+            RPCmethod rpCmethod = method.getAnnotation(RPCmethod.class);
+
+
+            String remoteName = rpCmethod.remoteName();
+            List<String> paramers = new ArrayList<>();
+            int paramerCount = objects.length;
+            for (int i = 0; i < paramerCount; i++) {
+                paramers.add(Jsons.toJson(objects[i]));
+            }
+
+            Socket socket = new Socket(serverIp, port);
+            DataInputStream dataInputStream = new DataInputStream(socket.getInputStream());
+            DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());
+
+            Object lock = new Object();
+            ControlThread controlThread = new ControlThread(dataInputStream, dataOutputStream, lock);
+            synchronized (lock) {
+                new Thread(controlThread).start();
+                lock.wait();
+            }
+            //首先发送远程调用方法的remoteName
+            dataOutputStream.writeUTF(remoteName);
+            if (paramerCount > 0) {
+                //序列化为json字符串
+                String str = Jsons.toJson(paramers);
+                byte[] bytes = str.getBytes();
+                dataOutputStream.writeInt(bytes.length);
+                //将字符串转换为二进制发送，需先发送一个头部表明需要接收的长度
+                dataOutputStream.write(bytes);
+            }
+            Object result = null;
+            try {
+                int length = dataInputStream.readInt();
+                byte[] bytes = new byte[length];
+                dataInputStream.readFully(bytes, 0, length);
+                String resStr = new String(bytes);
+                if (resStr.equals("null")) {
+                    return null;
+                }
+                result = Jsons.fromJson(resStr.trim(), method.getGenericReturnType());
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw new RPCProxyReadOutTimeException("向服务器【" + serverIp + "】请求数据超时");
+            } finally {
+                dataInputStream.close();
+                dataOutputStream.close();
+                socket.close();
+            }
+            return result;
+
         });
         Object cglibProxy = enhancer.create();
         return (T) cglibProxy;

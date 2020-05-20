@@ -27,10 +27,6 @@ public class RpcProxy implements InvocationHandler {
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws IOException {
-//        Socket socket = null;
-//        BufferedReader br = null;
-//        PrintWriter pw = null;
-
         try (Socket socket = new Socket()) {
             socket.connect(this.addr);
             try (PrintWriter pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()), true)) {

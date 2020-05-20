@@ -237,10 +237,11 @@ public class RPCServer implements Runnable {
                 rdf.setObject(object);
                 continue;
             }
-            serviceMap.put(remoteName, new RPCMethodDefinition()
-                    .setKlass(klass)
-                    .setMethod(method)
-                    .setObject(object));
+            serviceMap.put(remoteName,
+                    new RPCMethodDefinition()
+                            .setKlass(klass)
+                            .setMethod(method)
+                            .setObject(object));
 
         }
     }
