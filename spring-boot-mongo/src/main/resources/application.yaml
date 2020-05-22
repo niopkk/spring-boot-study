@@ -1,0 +1,2 @@
+host: 192.168.10.230
+spring.data.mongodb.uri: mongodb://localhost:27017/test

@@ -26,7 +26,7 @@ public class XmlBeanDefinitionReader extends AbstracBeanDefinitionReader {
 
     @Override
     public void loadBeanDefinitions(String local) throws Exception {
-        InputStream inputStream = getResourceLoader().getResouce(local).getInputStream();
+        InputStream inputStream = getResourceLoader().getResource(local).getInputStream();
         doLoadBeanDefinitions(inputStream);
     }
 

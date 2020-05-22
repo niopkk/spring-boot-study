@@ -5,9 +5,10 @@ import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 
+
 public class UrlResource implements Resource {
 
-    private final URL url;
+    private URL url;
 
     public UrlResource(URL url) {
         this.url = url;
@@ -15,9 +16,7 @@ public class UrlResource implements Resource {
 
     @Override
     public InputStream getInputStream() throws IOException {
-        //1、创建URLConnection对象
         URLConnection urlConnection = url.openConnection();
-        //2、建立连接
         urlConnection.connect();
         return urlConnection.getInputStream();
     }

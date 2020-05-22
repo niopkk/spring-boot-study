@@ -39,6 +39,7 @@
         <module>java-rpc</module>
         <module>spring-boot-kafka</module>
         <module>spring-boot-security</module>
+        <module>spring-boot-mongo</module>
     </modules>
 
     <properties>
