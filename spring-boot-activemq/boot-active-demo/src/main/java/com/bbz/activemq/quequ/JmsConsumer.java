@@ -8,12 +8,14 @@ import java.io.IOException;
 
 public class JmsConsumer {
 
+    private final static String url = "tcp://localhost:61616";
+    private final static String QUEUE_NAME = "queue01";
+
     public static void main(String[] args) throws JMSException, InterruptedException, IOException {
 
         System.out.println(2);
 
-        String url = "tcp://localhost:61616";
-        String QUEUE_NAME = "queue01";
+
         //第一步创建连接
         ActiveMQConnectionFactory activeMQConnectionFactory =
                 new ActiveMQConnectionFactory(url);

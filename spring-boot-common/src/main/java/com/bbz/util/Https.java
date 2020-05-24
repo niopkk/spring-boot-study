@@ -6,6 +6,8 @@ import javax.net.ssl.*;
 import java.io.InputStream;
 import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
+import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class Https {
@@ -64,7 +66,7 @@ public class Https {
     }
 
     public static Https getInstance() {
-        if(instance== null){
+        if (instance == null) {
             synchronized (Https.class) {
                 if (instance == null) {
                     instance = new Https();
@@ -122,6 +124,37 @@ public class Https {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public void post(String url, Map<String, String> paramsMap, String unixNow) {  //这里没有返回，也可以返回string
+
+        OkHttpClient mOkHttpClient = new OkHttpClient();
+        FormBody.Builder formBodyBuilder = new FormBody.Builder();
+        Set<String> keySet = paramsMap.keySet();
+        for (String key : keySet) {
+            String value = paramsMap.get(key);
+            formBodyBuilder.add(key, value);
+        }
+        FormBody formBody = formBodyBuilder.build();
+//        String s = "device_name=android%2FSEA-AL10-HUAWEI; serial=fdb9f7f48220214315; client_time=" + Strings.substring(unixNow, 0, unixNow.length() - 3) + "; device_id=fdb9f7d2da27f482; version=10; channel=null; app_name=7000301";
+        Request request = new Request
+                .Builder()
+//                .addHeader("Content-Type", "application/x-thrift")
+//                .addHeader("Accept", "application/x-thrift")
+//                .addHeader("User-Agent", "bcz_app/android/7.0.3")
+//                .addHeader("Accept-Encoding", "gzip, deflate, sdch")
+//                .addHeader("Cookie", s)
+//                .addHeader("Host", "passport.baicizhan.com")
+//                .addHeader("Content-Length", "36")
+//                .addHeader("Connection", "keep-alive")
+                .post(formBody)
+                .url(url)
+                .build();
+        try (Response response = mOkHttpClient.newCall(request).execute()) {
+            System.out.println(response.body().string());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 

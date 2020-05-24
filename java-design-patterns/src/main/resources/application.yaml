@@ -1,0 +1,4 @@
+driveClassName: com.mysql.jdbc.Drive
+url: jdbc:mysql:///jdbcdemo
+usename: root
+password: 123456

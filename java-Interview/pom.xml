@@ -9,9 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <artifactId>java-Interview</artifactId>
 
-    <artifactId>spring-boot-activemq</artifactId>
-
-    <!--https://github.com/elstic/ActiveMQ-->
 
 </project>

@@ -1,6 +1,5 @@
 package com.bbz.controller;
 
-import com.bbz.model.CustomUser;
 import com.bbz.server.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,12 +18,12 @@ public class PublicController {
 
         return "/login";
     }
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String log(String username,String password) {
-
-        final CustomUser customUserByUserNameAndPassWord = customUserDetailsService.findCustomUserByUserNameAndPassWord(username, password);
-
-        return "/login";
-    }
+//    @RequestMapping(value = "/login", method = RequestMethod.POST)
+//    public String log(String username,String password) {
+//
+//        final CustomUser customUserByUserNameAndPassWord = customUserDetailsService.findCustomUserByUserNameAndPassWord(username, password);
+//
+//        return "/login";
+//    }
 
 }

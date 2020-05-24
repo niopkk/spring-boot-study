@@ -40,6 +40,7 @@
         <module>spring-boot-kafka</module>
         <module>spring-boot-security</module>
         <module>spring-boot-mongo</module>
+        <module>java-Interview</module>
     </modules>
 
     <properties>
