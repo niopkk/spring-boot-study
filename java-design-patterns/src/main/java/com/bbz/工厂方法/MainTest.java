@@ -10,9 +10,13 @@ public class MainTest {
     public static void main(String[] args) {
 
 
-        IVehicleGarage vehicleGarage = new CarGarAge();
-        vehicleGarage.getVehicle().run();
+        IVehicleFactory factory = new CarFactory();
+        IVehicle iVehicle = factory.create();
+        iVehicle.run();
 
+        factory = new MotorcyFactory();
+        iVehicle = factory.create();
+        iVehicle.run();
 
     }
 }

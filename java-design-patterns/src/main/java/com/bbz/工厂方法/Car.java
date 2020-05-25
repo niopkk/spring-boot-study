@@ -8,6 +8,6 @@ package com.bbz.工厂方法;
 public class Car implements IVehicle {
     @Override
     public void run() {
-        System.out.println("车");
+        System.out.println("汽车");
     }
 }
