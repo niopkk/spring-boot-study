@@ -11,13 +11,16 @@ public class VehicleFactory {
 
     }
 
-    public static IVehicle getVehicle(String type) {
-        if ("car".equals(type)) {
-            return new Car();
-        } else if ("motorcycle".equals(type)) {
-            return new Motorcycle();
+    public static IVehicle create(Class<? extends IVehicle> classz) {
+        try {
+            if (null != classz) {
+                return classz.newInstance();
+            }
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
         }
-
-        throw new IllegalArgumentException("请输入工具类型");
+        return null;
     }
 }

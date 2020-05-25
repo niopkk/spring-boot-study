@@ -10,10 +10,10 @@ public class MainTest {
     public static void main(String[] args) {
 
 
-        IVehicle car = VehicleFactory.getVehicle("car");
+        IVehicle car = VehicleFactory.create(Car.class);
         car.run();
 
-        IVehicle motorcycle = VehicleFactory.getVehicle("motorcycle");
+        IVehicle motorcycle = VehicleFactory.create(Motorcycle.class);
         motorcycle.run();
 
 
