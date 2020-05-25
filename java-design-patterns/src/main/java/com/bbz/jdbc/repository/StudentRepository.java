@@ -46,7 +46,18 @@ public class StudentRepository {
         return list;
     }
 
-    class StudentRowMapper implements IRowMapper<Student> {
+    public Long getTotal() {
+        String sql = "SELECT COUNT( *) total FROM t_student";
+        Long total = JdbcTemplate.query(sql, new IRowMapper<Long>() {
+            @Override
+            public Long mapping(ResultSet rs) throws Exception {
+                return rs.getLong("total");
+            }
+        });
+        return total;
+    }
+
+    class StudentRowMapper implements IRowMapper<List<Student>> {
         @Override
         public List<Student> mapping(ResultSet rs) throws Exception {
             List<Student> list = new ArrayList<>();

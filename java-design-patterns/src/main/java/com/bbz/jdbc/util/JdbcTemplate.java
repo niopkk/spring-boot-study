@@ -28,7 +28,7 @@ public class JdbcTemplate {
         }
     }
 
-    public static <T> List<T> query(String sql, IRowMapper<T> rsh, Object... params) {
+    public static <T> T query(String sql, IRowMapper<T> rsh, Object... params) {
 
         Connection connection = null;
         Statement st = null;
