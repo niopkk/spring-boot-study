@@ -11,7 +11,7 @@ public class ResourceLoaderTest {
     @Test
     public void test() throws IOException {
         ResourceLoader resource=new ResourceLoader();
-        Resource resouce = resource.getResouce("application.xml");
+        Resource resouce = resource.getResource("application.xml");
         InputStream inputStream = resouce.getInputStream();
         Assert.assertNotNull(inputStream);
     }
