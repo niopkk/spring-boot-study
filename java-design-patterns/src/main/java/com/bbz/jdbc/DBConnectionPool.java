@@ -51,6 +51,11 @@ public final class DBConnectionPool extends Pool {
     private static DBConnectionPool pool = null;
 
 
+    /**
+     * 产生数据连接池
+     *
+     * @return
+     */
     public static DBConnectionPool getInstance() {
         if (null == pool) {
             pool = new DBConnectionPool();
