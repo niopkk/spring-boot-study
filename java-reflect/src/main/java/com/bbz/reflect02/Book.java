@@ -1,9 +1,11 @@
 package com.bbz.reflect02;
 
 public class Book {
-    public Book() {
+
+    protected Book() {
         System.out.println("book 构造函数");
     }
+
     private String name;
 
     public String getName() {

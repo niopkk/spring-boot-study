@@ -1,5 +1,6 @@
 package com.bbz.reflect02;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -30,8 +31,10 @@ public class ReflectTest6 {
 
         //反射实例化
         Class<?> c = Class.forName("com.bbz.reflect02.Book");
-        Object o = c.getDeclaredConstructor().newInstance();
-        Book book = (Book) o;
+        Constructor<?> declaredConstructor = c.getDeclaredConstructor();
+        declaredConstructor.setAccessible(true);
+        Object o1 = declaredConstructor.newInstance();
+        Book book = (Book) o1;
         book.setName("数");
         System.out.println(book);
 
