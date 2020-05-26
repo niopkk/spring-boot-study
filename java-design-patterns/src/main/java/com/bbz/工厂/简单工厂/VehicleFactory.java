@@ -1,7 +1,7 @@
-package com.bbz.简单工厂;
+package com.bbz.工厂.简单工厂;
 
 /**
- * com.bbz.简单工厂
+ * com.bbz.工厂.简单工厂
  * <p>
  * Created by tianxin2 on 2019-08-09
  */

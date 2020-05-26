@@ -1,4 +1,4 @@
-package com.bbz.抽象工厂模式;
+package com.bbz.工厂.抽象工厂模式;
 
 public interface INote {
 
