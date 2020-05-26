@@ -10,7 +10,7 @@ public class Singleton {
     // 多线程下是不安全的，如果多个线程同时进入 if (instance == null),并且instance为null，将导致实例化多次Singleton;
     private static volatile Singleton instance = null;
 
-    public Singleton() {
+    private Singleton() {
     }
 
     public static Singleton getInstance() {
@@ -20,7 +20,7 @@ public class Singleton {
         return instance;
     }
 
-    //双唇检查锁模式
+    //双唇检查锁模式,存在锁和浪费内存的问题
     public static Singleton getInstanceLock() {
         if (instance == null) {
             synchronized (Singleton.class) {
@@ -30,5 +30,18 @@ public class Singleton {
             }
         }
         return instance;
+    }
+
+    /**
+     * 屏蔽锁和内存浪费的问题
+     *
+     * @return
+     */
+    public static Singleton getInstanceLazy() {
+        return LazyHolder.LAZY;
+    }
+
+    public static class LazyHolder {
+        private static final Singleton LAZY = new Singleton();
     }
 }
