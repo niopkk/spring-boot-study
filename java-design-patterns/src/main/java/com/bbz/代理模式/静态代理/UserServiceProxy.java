@@ -1,16 +1,16 @@
 package com.bbz.代理模式.静态代理;
 
-public class UserServiceProxy implements UserService {
+public class UserServiceProxy {
 
     //定义被代理的对象
-    UserService userService;
+    private UserService userService;
 
 
     public UserServiceProxy(UserService userService) {
         this.userService = userService;
     }
 
-    @Override
+
     public String login(String account, String password) {
         System.out.println("调用前的方法");
         String result = userService.login(account, password);
