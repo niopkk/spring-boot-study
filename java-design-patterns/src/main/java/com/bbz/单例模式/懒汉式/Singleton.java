@@ -11,6 +11,9 @@ public class Singleton {
     private static volatile Singleton instance = null;
 
     private Singleton() {
+        if (null != LazyHolder.LAZY) {
+            throw new RuntimeException("不允许创建多个实例");
+        }
     }
 
     public static Singleton getInstance() {
@@ -34,10 +37,12 @@ public class Singleton {
 
     /**
      * 屏蔽锁和内存浪费的问题
-     *
+     * 每一个关键字都不多余
+     * static 是为了单例的空间共享，final 保证不会被重写、重载
      * @return
      */
-    public static Singleton getInstanceLazy() {
+    public final static Singleton getInstanceLazy() {
+        //返回结果前，一定会先加载内部类
         return LazyHolder.LAZY;
     }
 
