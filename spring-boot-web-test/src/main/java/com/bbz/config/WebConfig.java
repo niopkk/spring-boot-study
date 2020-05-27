@@ -33,7 +33,7 @@ public class WebConfig implements WebMvcConfigurer {
 
 
     @Bean
-    @ConditionalOnProperty(prefix = "student", name = {"enabled"}, havingValue = "true")
+//    @ConditionalOnProperty(prefix = "student", name = {"enabled"}, havingValue = "true")
     public Student student() {
 
         return new Student("000002", "张三", 20);
