@@ -14,12 +14,15 @@ public class MainTest {
 //        int exec = new Content(new Shop()).exec(1, 2);
 //        int exec1 = new Content(new Shop1()).exec(1, 2);
 
-        List<Strategy> strategies = new ArrayList<>();
-        strategies.add(new Shop());
-        strategies.add(new Shop1());
-        for (Strategy s : strategies) {
-            int add = s.add(1, 3);
-            System.out.println(add);
+
+//        Content content = new Content(new Shop());
+
+        List<Content> strategies = new ArrayList<>();
+        strategies.add(new Content(new Shop()));
+        strategies.add(new Content(new Shop1()));
+        for (Content s : strategies) {
+            int exec = s.exec(1, 3);
+            System.out.println(exec);
         }
 //        System.out.println(exec);
     }

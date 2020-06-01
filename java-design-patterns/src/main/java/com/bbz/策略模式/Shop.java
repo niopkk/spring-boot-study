@@ -10,7 +10,7 @@ public class Shop implements Strategy {
 
     @Override
     public int add(int x, int y) {
-        System.out.println("1111");
+//        System.out.println("1111");
         return x + y;
     }
 }

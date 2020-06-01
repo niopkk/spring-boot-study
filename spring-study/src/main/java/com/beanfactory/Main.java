@@ -12,5 +12,8 @@ public class Main {
         Car car = (Car) cxt.getBean("car1");
         System.out.println(car);
 
+//        Childer bean = cxt.getBean(Childer.class);
+        Parent bean1 = cxt.getBean(Parent.class);
+        bean1.say();
     }
 }

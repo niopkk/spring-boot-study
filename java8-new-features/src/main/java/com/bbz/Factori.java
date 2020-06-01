@@ -24,13 +24,17 @@ public class Factori {
 //        System.out.println(i);
 //        System.out.println(j);
 
-        List<Student> list = new ArrayList<>();
+//        List<Student> list = new ArrayList<>();
+//
+//        list.add(new Student("111", 2222));
+//        list.add(new Student("222", 1111));
+//        list.stream().peek(p -> p.setName(p.getName().replace("111", "*"))).collect(Collectors.toList()).forEach(a -> {
+//            System.out.println(a.getName());
+//        });
+        String s="1111|2222";
+        String[] split = s.split("\\|");
+        System.out.println(split);
 
-        list.add(new Student("111", 2222));
-        list.add(new Student("222", 1111));
-        list.stream().peek(p -> p.setName(p.getName().replace("111", "*"))).collect(Collectors.toList()).forEach(a -> {
-            System.out.println(a.getName());
-        });
 
 
 //        List<String> collect = Stream.of("0123456789").peek(p -> p.replace("1", "*"))
