@@ -42,6 +42,8 @@
         <module>spring-boot-mongo</module>
         <module>java-Interview</module>
         <module>spring-mvc</module>
+        <module>spring-boot-mvc</module>
+        <!--        <module>spring-mvc-test</module>-->
     </modules>
 
     <properties>

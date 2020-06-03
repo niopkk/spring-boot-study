@@ -53,7 +53,7 @@ public class DispatcherServlet extends HttpServlet {
         }
         Method method = (Method) this.mapping.get(url);
         Map<String, String[]> parameter = req.getParameterMap();
-        method.invoke(this.mapping.get(method.getDeclaringClass().getName()),new Object[]{req,resp,parameter.get("name")[0]});
+        method.invoke(this.mapping.get(method.getDeclaringClass().getName()), new Object[]{req, resp, parameter.get("name")[0]});
     }
 
 
@@ -153,6 +153,6 @@ public class DispatcherServlet extends HttpServlet {
                 mapping.put(clazzName, null);
             }
         }
-
     }
+
 }
