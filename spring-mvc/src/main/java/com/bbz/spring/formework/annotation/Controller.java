@@ -1,4 +1,4 @@
-package com.bbz.annotation;
+package com.bbz.spring.formework.annotation;
 
 import java.lang.annotation.*;
 

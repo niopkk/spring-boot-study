@@ -10,6 +10,10 @@ public class Welcomer {
 
     private String welcomeText;
 
+    public Welcomer() {
+        System.out.println("构造方法");
+    }
+
     public void initWelcomer() {
         System.out.println("Welcomer is initialized");
         logger.info("Welcomer is initialized");

@@ -1,5 +1,6 @@
 package com.bbz;
 
+import com.bbz.util.Strings;
 import com.google.gson.internal.$Gson$Preconditions;
 
 import java.util.ArrayList;
@@ -31,10 +32,18 @@ public class Factori {
 //        list.stream().peek(p -> p.setName(p.getName().replace("111", "*"))).collect(Collectors.toList()).forEach(a -> {
 //            System.out.println(a.getName());
 //        });
-        String s="1111|2222";
-        String[] split = s.split("\\|");
-        System.out.println(split);
+//        String s="1111|2222";
+//        String[] split = s.split("\\|");
+//        System.out.println(split);
 
+
+        String s = "my.test.txt";
+        System.out.println(s.replace(".", "#"));
+        System.out.println(s.replaceAll("\\.", "#"));
+        System.out.println(s.replaceFirst("\\.", "#"));
+
+        String className="Test";
+        System.out.println(Strings.uncapitalize(className));
 
 
 //        List<String> collect = Stream.of("0123456789").peek(p -> p.replace("1", "*"))

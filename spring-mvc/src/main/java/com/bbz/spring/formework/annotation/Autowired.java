@@ -1,10 +1,11 @@
-package com.bbz.annotation;
+package com.bbz.spring.formework.annotation;
 
 import java.lang.annotation.*;
 
-@Target(ElementType.TYPE)
+@Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface Service {
+public @interface Autowired {
+
     String value() default "";
 }
