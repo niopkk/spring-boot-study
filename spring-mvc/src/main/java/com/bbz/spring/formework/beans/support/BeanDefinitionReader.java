@@ -1,6 +1,5 @@
 package com.bbz.spring.formework.beans.support;
 
-import com.bbz.spring.formework.annotation.Autowired;
 import com.bbz.spring.formework.beans.config.BeanDefinition;
 import com.bbz.util.Strings;
 
@@ -24,7 +23,7 @@ public class BeanDefinitionReader {
     private String[] configLocations;
 
     public BeanDefinitionReader(String... locations) {
-        InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(locations[0].replace("classpath", ""));
+        InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(locations[0].replace("classpath:", ""));
         try {
             config.load(inputStream);
         } catch (IOException e) {
@@ -70,9 +69,9 @@ public class BeanDefinitionReader {
         try {
             for (String className : registyBeanClasses) {
 
-                if (Strings.equals("com.bbz.spring.formework.servlet.DispatcherServlet", className)) {
-                    continue;
-                }
+//                if (Strings.equals("com.bbz.spring.formework.servlet.DispatcherServlet", className)) {
+//                    continue;
+//                }
                 Class<?> beanClass = Class.forName(className);
                 if (beanClass.isInterface()) {
                     continue;
