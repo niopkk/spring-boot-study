@@ -13,12 +13,12 @@ public class MainTest {
 
 
         //默认为全路径名
-        new MainTest().getResources("1.txt");
+//        new MainTest().getResources("1.txt");
 
         //fileName：
         //  ClassLoader:根目录为 target/classes/
         // fileName 前面加 / 报错 原因：改变了 / 根目录 绝对路径
-        new MainTest().getClassLoaderResources("/com/bbz/resource/2.txt");
+        new MainTest().getClassLoaderResources("");
 
 
     }

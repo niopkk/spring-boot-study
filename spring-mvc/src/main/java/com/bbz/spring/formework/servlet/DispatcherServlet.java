@@ -69,7 +69,7 @@ public class DispatcherServlet extends HttpServlet {
         initRequestToViewNameTranslator(context);
 
         //自己解析一套模版语言
-//        initViewResolver(context);
+        initViewResolver(context);
 
         //flash 映射管理
         initFlashMapManager(context);
@@ -83,6 +83,7 @@ public class DispatcherServlet extends HttpServlet {
         //在页面中输入 http://localhost/first.html
         //解决页面名字和模板文件关联的问题
         String templateRoot = context.getConfig().getProperty("templateRoot");
+
         String templateRootPath = this.getClass().getClassLoader().getResource(templateRoot).getFile();
         File templateRootDir = new File(templateRootPath);
 
