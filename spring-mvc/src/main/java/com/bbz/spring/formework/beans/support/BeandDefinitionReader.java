@@ -42,6 +42,7 @@ public class BeandDefinitionReader {
     }
 
     private void doScanner(String scanPackage) {
+
         URL url = this.getClass().getClassLoader().getResource("./" + scanPackage.replaceAll("\\.", "/"));
         File fileClassPath = new File(url.getFile());
 

@@ -7,7 +7,7 @@ import com.bbz.spring.controller.service.HelloService;
 @Controller
 public class HelloController {
 
-    @Autowired("dsdfds")
+    @Autowired()
     private HelloService helloService;
 
     public String say() {
