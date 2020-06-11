@@ -10,11 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Controller
-@RequestMapping("/web")
+@RequestMapping
 public class Action {
 
 
-    @RequestMapping("/query.json")
+    @RequestMapping("/query")
     public ModelAndView query(HttpServletRequest request, HttpServletResponse response) {
         return out(response, "dsdfdfdfsd");
     }
