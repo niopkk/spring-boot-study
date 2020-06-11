@@ -6,7 +6,7 @@ import com.bbz.spring.formework.annotation.Service;
 import com.bbz.spring.formework.beans.BeanWrapper;
 import com.bbz.spring.formework.beans.config.BeanDefinition;
 import com.bbz.spring.formework.beans.config.BeanPostProcessor;
-import com.bbz.spring.formework.beans.support.BeandDefinitionReader;
+import com.bbz.spring.formework.beans.support.BeanDefinitionReader;
 import com.bbz.spring.formework.beans.support.DefaultListableBeanFactory;
 import com.bbz.spring.formework.core.BeanFactory;
 
@@ -24,7 +24,7 @@ public class ApplicationContext extends DefaultListableBeanFactory implements Be
 
     private String[] configLocations;
 
-    private BeandDefinitionReader reader;
+    private BeanDefinitionReader reader;
 
     public ApplicationContext(String... configLocations) {
         this.configLocations = configLocations;
@@ -39,7 +39,7 @@ public class ApplicationContext extends DefaultListableBeanFactory implements Be
     protected void refresh() throws Exception {
 
         //定位配置文件
-        reader = new BeandDefinitionReader(this.configLocations);
+        reader = new BeanDefinitionReader(this.configLocations);
 
         //加载配置文件，扫描相关的类，将它们封装成beanDefinition
         List<BeanDefinition> beanDefinitions = reader.loadBeanDefinitions();
@@ -48,10 +48,10 @@ public class ApplicationContext extends DefaultListableBeanFactory implements Be
         doRegisterBeanDefinition(beanDefinitions);
 
         //把不是延时加载的类，提前初始化
-        doAutowrited();
+        doAutowired();
     }
 
-    private void doAutowrited() {
+    private void doAutowired() {
         beanDefinitionMap.forEach(((beanName, beanDefinition) -> {
             if (!beanDefinition.isLazyinit()) {
                 try {

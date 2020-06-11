@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-public class BeandDefinitionReader {
+public class BeanDefinitionReader {
 
     private List<String> registyBeanClasses = new ArrayList<>();
 
@@ -23,7 +23,7 @@ public class BeandDefinitionReader {
 
     private String[] configLocations;
 
-    public BeandDefinitionReader(String... locations) {
+    public BeanDefinitionReader(String... locations) {
         InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(locations[0].replace("classpath", ""));
         try {
             config.load(inputStream);
@@ -43,7 +43,7 @@ public class BeandDefinitionReader {
 
     private void doScanner(String scanPackage) {
 
-        URL url = this.getClass().getClassLoader().getResource("./" + scanPackage.replaceAll("\\.", "/"));
+        URL url = this.getClass().getClassLoader().getResource(scanPackage.replaceAll("\\.", "/"));
         File fileClassPath = new File(url.getFile());
 
         for (File file : fileClassPath.listFiles()) {
@@ -89,7 +89,7 @@ public class BeandDefinitionReader {
         return result;
     }
 
-    private  BeanDefinition doCreateBeanDefinition(String factoryBeanName, String beanClassName) {
+    private BeanDefinition doCreateBeanDefinition(String factoryBeanName, String beanClassName) {
         BeanDefinition beanDefinition = new BeanDefinition();
         //类的全限定名称,com.bbz.Test
         beanDefinition.setBeanClassName(beanClassName);
