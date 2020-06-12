@@ -171,7 +171,7 @@ public class DispatcherServlet extends HttpServlet {
         try {
             doDispatch(req, resp);
         } catch (Exception e) {
-            resp.getWriter().write("dsfdfdf");
+            resp.getWriter().write("404");
         }
     }
 

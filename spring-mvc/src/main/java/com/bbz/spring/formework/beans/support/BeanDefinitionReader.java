@@ -2,6 +2,7 @@ package com.bbz.spring.formework.beans.support;
 
 import com.bbz.spring.formework.beans.config.BeanDefinition;
 import com.bbz.util.Strings;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -76,7 +77,7 @@ public class BeanDefinitionReader {
                 if (beanClass.isInterface()) {
                     continue;
                 }
-                result.add(doCreateBeanDefinition(Strings.uncapitalize(beanClass.getSimpleName()), beanClass.getName()));
+                result.add(doCreateBeanDefinition(StringUtils.uncapitalize(beanClass.getSimpleName()), beanClass.getName()));
                 Class<?>[] interfaces = beanClass.getInterfaces();
                 for (Class<?> i : interfaces) {
                     result.add(doCreateBeanDefinition(i.getName(), beanClass.getName()));

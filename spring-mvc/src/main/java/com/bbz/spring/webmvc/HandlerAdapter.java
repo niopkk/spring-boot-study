@@ -51,7 +51,7 @@ public class HandlerAdapter {
         Object[] paramValues = new Object[parameterTypes.length];
 
         for (Map.Entry<String, String[]> param : reqParameterMap.entrySet()) {
-            String value = Arrays.toString(param.getValue()).replaceAll("\\[|\\]]", "").replaceAll("\\s", "");
+            String value = Arrays.toString(param.getValue()).replaceAll("\\[|\\]", "").replaceAll("\\s", "");
             if (!paramMapping.containsKey(param.getKey())) {
                 continue;
             }
