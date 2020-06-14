@@ -106,6 +106,7 @@ public abstract class PackageScanner {
                         } catch (ClassNotFoundException var9) {
                             var9.printStackTrace();
                         }
+                        
                     }
                 }
             }

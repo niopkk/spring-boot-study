@@ -6,7 +6,7 @@ import com.bbz.代理模式.静态代理案例.server.IOrderService;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class OrderServiceStaticProxy implements IOrderService{
+public class OrderServiceStaticProxy implements IOrderService {
 
     private SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy");
 
@@ -18,7 +18,7 @@ public class OrderServiceStaticProxy implements IOrderService{
 
 
     public int createOrder(Order order) {
-      before();
+        before();
         Long time = order.getCreateTime();
         Integer dbRouter = Integer.valueOf(yearFormat.format(new Date(time)));
         System.out.println("静态代理类自动分配【db_" + dbRouter + "】数据源处理数据");

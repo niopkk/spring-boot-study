@@ -12,7 +12,7 @@ public class CSVTest {
     public static void main(String[] args) throws Exception {
 
 
-        InputStream inputStream = new FileInputStream(new File(path) + "/任务11.csv");
+        InputStream inputStream = new FileInputStream(new File(path) + "/sf.csv");
         CSVTemplate.of().process(new InputStreamReader(inputStream, "utf-8"), row -> {
             try {
                 Task task = new Task(row.get(0), row.get(1));
