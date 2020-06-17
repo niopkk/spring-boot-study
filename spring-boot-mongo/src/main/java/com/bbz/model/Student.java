@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public class Student {
 
-    private String id;
+
 
     private String name;
 
@@ -15,19 +15,13 @@ public class Student {
     public Student() {
     }
 
-    public Student(String id, String name, Integer age) {
-        this.id = id;
+    public Student(String name, Integer age) {
+
         this.name = name;
         this.age = age;
     }
 
-    public String getId() {
-        return id;
-    }
 
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;

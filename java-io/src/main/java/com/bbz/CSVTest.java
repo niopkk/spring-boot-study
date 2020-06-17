@@ -35,7 +35,7 @@ public class CSVTest {
 
         @Override
         public String toString() {
-            return "Task{" +
+            return "{" +
                     "name='" + name + '\'' +
                     ", type='" + type + '\'' +
                     '}';

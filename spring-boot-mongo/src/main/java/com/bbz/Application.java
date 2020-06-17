@@ -22,7 +22,7 @@ public class Application {
 
     @RequestMapping("/save")
     public String save() {
-        studentService.save(new Student("dsd", "测试11111", 33333333));
+        studentService.save(new Student( "测试11111", 33333333));
         return "save";
     }
 }
