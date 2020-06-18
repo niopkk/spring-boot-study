@@ -44,7 +44,7 @@ public class DLXProduct1 {
         for (int i = 0; i < 130; i++) {
 //            String sd = String.valueOf(1000 * (new Random().nextInt(15) + 1));
             channel.basicPublish("exchange.normal", "rk",
-                    new AMQP.BasicProperties().builder().contentType("text/plain").replyTo("ddd").correlationId("ds").build(), ("dlx").getBytes("UTF-8"));
+                    new AMQP.BasicProperties().builder().contentType("text/plain").build(), ("dlx").getBytes("UTF-8"));
 //            MessageProperties.PERSISTENT_TEXT_PLAIN
         }
 

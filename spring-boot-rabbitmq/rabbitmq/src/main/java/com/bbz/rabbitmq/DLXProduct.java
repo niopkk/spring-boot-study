@@ -21,6 +21,7 @@ public class DLXProduct {
         //创建一个通道
         Channel channel = connection.createChannel();
 
+
         //创建一个交换器
         channel.exchangeDeclare("exchange.dlx", "direct");
         channel.exchangeDeclare("exchange.normal", "fanout");
@@ -42,10 +43,13 @@ public class DLXProduct {
 
         channel.queueBind("queue.dlx", "exchange.dlx", "routingkey");//死信路由键
 
-        for (int i = 0; i < 230; i++) {
+        for (int i = 0; i < 2; i++) {
 //            String sd = String.valueOf(1000 * (new Random().nextInt(15) + 1));
-            channel.basicPublish("exchange.normal", "rk",
-                    new AMQP.BasicProperties().builder().contentType("text/plain").build(), ("dlx").getBytes("UTF-8"));
+//            channel.basicPublish("exchange.normal", "rk",
+//                    new AMQP.BasicProperties().builder().contentType("text/plain").build(), ("dlx").getBytes("UTF-8"));
+
+            new Thread(new ThreadProduct(channel, "dlx")).start();
+
 
         }
 
