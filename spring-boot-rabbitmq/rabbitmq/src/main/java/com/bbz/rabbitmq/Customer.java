@@ -21,10 +21,12 @@ public class Customer {
         Channel channel = connection.createChannel();
 
 
+
         channel.queueDeclare(QUEQU_NAME, false, false, false, null);
         channel.queueDeclare(QUEQU_NAME_1, false, false, false, null);
 
         System.out.println("Customer Waiting Received messages");
+
 
         Consumer defaultConsumer = new DefaultConsumer(channel) {
             @Override

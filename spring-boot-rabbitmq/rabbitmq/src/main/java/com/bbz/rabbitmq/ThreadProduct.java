@@ -5,6 +5,9 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.ConfirmListener;
 
 import java.io.IOException;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 public class ThreadProduct implements Runnable {
 
@@ -22,9 +25,9 @@ public class ThreadProduct implements Runnable {
             channel.confirmSelect();
             for (int i = 0; i < 20; i++) {
 
-                System.out.println(channel.getNextPublishSeqNo());
+                final long deliveryTag = channel.getNextPublishSeqNo();
                 channel.basicPublish("exchange.normal", "rk",
-                        new AMQP.BasicProperties().builder().contentType("text/plain").build(), (message + Thread.currentThread().getId()).getBytes("UTF-8"));
+                        new AMQP.BasicProperties().builder().contentType("text/plain").build(), (message + Thread.currentThread().getId() + "......." + deliveryTag).getBytes("UTF-8"));
 
 
                 //发送方确定消息是否到达
@@ -34,6 +37,7 @@ public class ThreadProduct implements Runnable {
 
             }
 
+
             channel.addConfirmListener(new ConfirmListener() {
                 @Override
                 public void handleAck(long deliveryTag, boolean multiple) throws IOException {
@@ -42,6 +46,7 @@ public class ThreadProduct implements Runnable {
 
                 @Override
                 public void handleNack(long deliveryTag, boolean multiple) throws IOException {
+
                     System.out.println("未确认消息" + deliveryTag + ":" + multiple);
                 }
             });
