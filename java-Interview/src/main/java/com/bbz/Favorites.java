@@ -1,5 +1,7 @@
 package com.bbz;
 
+import com.bbz.operation.Operation;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -10,7 +12,7 @@ public class Favorites {
     private Map<Class<?>, Object> map = new HashMap<>();
 
     public <T> void putFavorites(Class<T> type, T instance) {
-        map.put(Objects.requireNonNull(type), instance);
+        map.put(Objects.requireNonNull(type), type.cast(instance));
     }
 
     public <T> T getFavorite(Class<T> type) {
@@ -31,5 +33,11 @@ public class Favorites {
         System.out.println(favorite);
 
         System.out.println(favoriteClass.getName());
+
+
+        double apply = Operation.PLUS.apply(2, 3);
+        System.out.println("......." + apply);
     }
+
+
 }
