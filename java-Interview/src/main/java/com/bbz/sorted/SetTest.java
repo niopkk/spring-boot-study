@@ -1,7 +1,7 @@
 package com.bbz.sorted;
 
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -30,5 +30,7 @@ public class SetTest {
         System.out.println("..........................");
         sortedSet.remove(4L);
         sortedSet.forEach(s -> System.out.println(s));
+        Map<String,String> m=new HashMap<>();
+        m.getOrDefault("","");
     }
 }
