@@ -1,6 +1,7 @@
 package com.bbz.map;
 
 import com.bbz.util.Lists;
+import com.bbz.util.Strings;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -9,6 +10,8 @@ import java.util.stream.Stream;
 import static java.util.stream.Collectors.*;
 
 public class StreamToMap {
+
+    private static final String NULL = Strings.EMPTY;
 
     public static void main(String[] args) {
         Stream<Locale> locals = Stream.of(Locale.getAvailableLocales());
@@ -71,9 +74,13 @@ public class StreamToMap {
         lists.add(Lists.of("2222"));
         lists.add(Lists.of("3333"));
         lists.add(Lists.of("4444"));
+        lists.add(Lists.of(""));
         Set<String> collect2 = lists.stream().flatMap(strings -> strings.stream()).collect(Collectors.toSet());
         System.out.println(collect2);
 
+        Map<String, String> stringMap = new HashMap<>();
+        stringMap.put("111", "333");
+        stringMap.put("22", NULL);
 
     }
 }
