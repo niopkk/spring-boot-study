@@ -52,6 +52,11 @@
             <version>1.7.25</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.atteo.classindex</groupId>
+            <artifactId>classindex</artifactId>
+            <version>3.4</version>
+        </dependency>
 
 
 
