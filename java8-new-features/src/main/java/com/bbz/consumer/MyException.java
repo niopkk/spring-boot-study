@@ -1,7 +1,7 @@
 package com.bbz.consumer;
 
 /**
- * com.bbz.consumer
+ * com.bbz.ConsumerTest
  * <p>
  * Created by tianxin2 on 2019-07-04
  */

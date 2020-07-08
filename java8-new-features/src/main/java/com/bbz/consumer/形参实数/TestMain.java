@@ -3,7 +3,7 @@ package com.bbz.consumer.形参实数;
 import java.lang.reflect.Field;
 
 /**
- * com.bbz.consumer.形参实数
+ * com.bbz.ConsumerTest.形参实数
  * <p>
  * Created by tianxin2 on 2019-05-05
  */
