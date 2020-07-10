@@ -10,7 +10,7 @@ public class LRUMain {
     public static void main(String[] args) {
 
 
-        LRUCache lruCache = new LRUCache(3);
+        LRUCache lruCache = new LRUCache(2);
         lruCache.put("a", "abstract");
         lruCache.put("b", "basic");
         lruCache.put("c", "call");

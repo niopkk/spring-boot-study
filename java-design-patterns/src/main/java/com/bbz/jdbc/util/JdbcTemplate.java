@@ -35,6 +35,7 @@ public class JdbcTemplate {
         ResultSet rs = null;
         PreparedStatement ps;
         try {
+            connection=JdbcUtil.getConnection();
             ps = connection.prepareStatement(sql);
             for (int i = 0; i < params.length; i++) {
                 ps.setObject(i + 1, params[i]);
