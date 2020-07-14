@@ -22,13 +22,15 @@
 
     <select id="findUserListByNameOrAccount" resultMap="BaseResultMap">
         select id, name, account, status, pass_word, create_time, update_time, lastLogin_time, sex from sys_user
-        where 1=1
-        <if test="name !=null and name !=''">
-            and name LIKE CONCAT(CONCAT('%',#{name}),'%')
-        </if>
-        <if test="account !=null and account!=''">
-            and account =#{account}
-        </if>
+       <where>
+           <if test="name !=null and name !=''">
+               and name LIKE CONCAT(CONCAT('%',#{name}),'%')
+           </if>
+           <if test="account !=null and account!=''">
+               and account =#{account}
+           </if>
+       </where>
+
     </select>
 
     <select id="findUserByUserId" resultMap="BaseResultMap" parameterType="java.lang.String">
