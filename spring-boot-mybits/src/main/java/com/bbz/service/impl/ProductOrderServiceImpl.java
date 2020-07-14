@@ -13,7 +13,8 @@ public class ProductOrderServiceImpl implements com.bbz.service.ProductOrderServ
 
     @Override
     public Integer insert(ProductOrder productOrder) {
-        productOrderDao.insert(productOrder);
-        return null;
+
+        return productOrderDao.insert(productOrder);
+
     }
 }
