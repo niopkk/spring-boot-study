@@ -4,9 +4,46 @@
 <mapper namespace="com.bbz.dao.ProductOrderDao">
 
 
-    <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id" parameterType="com.bbz.model.ProductOrder">
+    <resultMap id="resultProduct" type="com.bbz.model.ProductOrder">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="order_no" property="orderNo"/>
+        <result column="total_price" property="totalPrice"/>
+        <result column="pay_type" property="payType"/>
+        <result column="create_time" property="createTime"/>
+    </resultMap>
+
+
+    <select id="findProductByIdAndName" resultMap="resultProduct">
+       select id, name, order_no, total_price, pay_type, create_time
+       from product_order where id=#{id} and name=#{name}
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id"
+            parameterType="com.bbz.model.ProductOrder">
        insert into product_order(`name`, order_no, total_price, pay_type, create_time)
        values
        (#{name },#{orderNo},#{totalPrice},#{payType},#{createTime})
     </insert>
+
+    <update id="updateProductOrder">
+      update product_order
+         set
+          name=#{name},
+          order_no=#{orderNo},
+          total_price=#{totalPrice},
+          pay_type=#{payType}
+          where id=#{id}
+    </update>
+
+    <delete id="deleteById">
+           delete from product_order where id=#{id}
+    </delete>
+
+    <delete id="batchDeleteIds" parameterType="java.util.List">
+        delete from product_order where id in
+        <foreach collection="ids" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
 </mapper>
