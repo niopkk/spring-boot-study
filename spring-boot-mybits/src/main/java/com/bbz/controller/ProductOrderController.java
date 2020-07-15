@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 @Controller
 public class ProductOrderController {
 
@@ -39,6 +41,15 @@ public class ProductOrderController {
 
 
         return productOrderService.findProductByIdAndName(3, "测试订单00000000003");
+
+    }
+
+    @RequestMapping("/getProductOrders")
+    @ResponseBody
+    public List<ProductOrder> getProductOrders() {
+
+
+        return productOrderService.findProducts();
 
     }
 

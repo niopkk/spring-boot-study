@@ -8,6 +8,9 @@ public interface ProductOrderService {
 
     Integer insert(ProductOrder productOrder);
 
+    List<ProductOrder> findProducts();
+
+
     ProductOrder findProductByIdAndName(int id, String name);
 
     boolean updateProductOrder(ProductOrder productOrder);

@@ -11,6 +11,8 @@ public interface ProductOrderDao {
 
     Integer insert(ProductOrder productOrder);
 
+    List<ProductOrder> findProducts();
+
 
     ProductOrder findProductByIdAndName(@Param("id") int id, @Param("name") String name);
 

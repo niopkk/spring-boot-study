@@ -13,10 +13,20 @@
         <result column="create_time" property="createTime"/>
     </resultMap>
 
+    <sql id="sql">
+       id, name, order_no, total_price, pay_type, create_time
+    </sql>
+
+    <select id="findProducts" resultMap="resultProduct">
+        select
+        <include refid="sql"></include>
+        from product_order
+    </select>
 
     <select id="findProductByIdAndName" resultMap="resultProduct">
-       select id, name, order_no, total_price, pay_type, create_time
-       from product_order where id=#{id} and name=#{name}
+        select
+        <include refid="sql"></include>
+        from product_order where id=#{id} and name=#{name}
     </select>
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id"

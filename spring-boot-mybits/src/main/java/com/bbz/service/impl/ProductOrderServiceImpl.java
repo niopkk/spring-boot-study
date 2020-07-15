@@ -21,6 +21,11 @@ public class ProductOrderServiceImpl implements com.bbz.service.ProductOrderServ
     }
 
     @Override
+    public List<ProductOrder> findProducts() {
+        return productOrderDao.findProducts();
+    }
+
+    @Override
     public ProductOrder findProductByIdAndName(int id, String name) {
         return productOrderDao.findProductByIdAndName(id, name);
     }
