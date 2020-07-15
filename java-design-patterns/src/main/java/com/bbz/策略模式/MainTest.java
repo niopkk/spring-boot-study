@@ -11,11 +11,11 @@ import java.util.List;
 public class MainTest {
 
     public static void main(String[] args) {
-//        int exec = new Content(new Shop()).exec(1, 2);
-//        int exec1 = new Content(new Shop1()).exec(1, 2);
+//        int exec = new Context(new Shop()).exec(1, 2);
+//        int exec1 = new Context(new Shop1()).exec(1, 2);
 
 
-//        Content content = new Content(new Shop());
+//        Context content = new Context(new Shop());
 
         List<Content> strategies = new ArrayList<>();
         strategies.add(new Content(new Shop()));
