@@ -10,6 +10,26 @@ public class HighArray {
         nElems = 0;
     }
 
+    int findNew(int key) {
+        int lowerBound = 0;
+        int upperBound = nElems - 1;
+        int curIn;
+        while (true) {
+            curIn = (lowerBound + upperBound) / 2;
+            if (a[curIn] == key) {
+                return curIn;
+            } else if (lowerBound > upperBound) {
+                return -1;
+            } else {
+                if (a[curIn] < key) {
+                    lowerBound = curIn + 1;
+                } else {
+                    upperBound = curIn - 1;
+                }
+            }
+        }
+    }
+
 
     public int find(int searchKey) {
         int lowerBound = 0;
