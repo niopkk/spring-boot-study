@@ -30,7 +30,7 @@
         from product_order
         <where>
             <if test="name!=null and name!=''">
-                and name =#{name}
+                `name` =#{name}
             </if>
             <if test="orderNo!=null and orderNo!=''">
                 and order_no=#{orderNo}
