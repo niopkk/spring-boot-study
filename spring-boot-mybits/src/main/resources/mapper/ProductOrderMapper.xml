@@ -23,6 +23,22 @@
         from product_order
     </select>
 
+
+    <select id="findProductOrder" resultMap="resultProduct">
+        select
+        <include refid="sql"></include>
+        from product_order
+        <where>
+            <if test="name!=null and name!=''">
+                and name =#{name}
+            </if>
+            <if test="orderNo!=null and orderNo!=''">
+                and order_no=#{orderNo}
+            </if>
+        </where>
+        order by ${sort}
+    </select>
+
     <select id="findProductByIdAndName" resultMap="resultProduct">
         select
         <include refid="sql"></include>

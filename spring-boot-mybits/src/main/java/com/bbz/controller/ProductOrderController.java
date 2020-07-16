@@ -1,14 +1,15 @@
 package com.bbz.controller;
 
+import com.bbz.dao.ProductOrderDao;
 import com.bbz.model.ProductOrder;
 import com.bbz.service.ProductOrderService;
 import com.bbz.util.Lists;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,13 +36,17 @@ public class ProductOrderController {
         return productOrder.getId().toString();
     }
 
+    @RequestMapping("/getProductOrderParam")
+    @ResponseBody
+    public List<ProductOrder> getProductOrder(ProductOrder productOrder) {
+        return productOrderService.findProductOrder(productOrder);
+    }
+
+
     @RequestMapping("/getProductOrder")
     @ResponseBody
     public ProductOrder getProductOrder() {
-
-
         return productOrderService.findProductByIdAndName(3, "测试订单00000000003");
-
     }
 
     @RequestMapping("/getProductOrders")

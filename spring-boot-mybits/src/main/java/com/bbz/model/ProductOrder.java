@@ -16,4 +16,6 @@ public class ProductOrder {
     private Integer payType;
 
     private Long createTime;
+
+    private String sort;
 }

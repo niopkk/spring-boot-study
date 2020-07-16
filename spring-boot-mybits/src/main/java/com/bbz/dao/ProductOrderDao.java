@@ -11,6 +11,9 @@ public interface ProductOrderDao {
 
     Integer insert(ProductOrder productOrder);
 
+
+    List<ProductOrder> findProductOrder(ProductOrder productOrder);
+
     List<ProductOrder> findProducts();
 
 
