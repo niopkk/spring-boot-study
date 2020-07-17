@@ -6,8 +6,10 @@ public class BinarySearch {
     public static void main(String[] args) {
         HighArray highArray = new HighArray(10);
         highArray.insert(5);
+        highArray.insert(9);
         highArray.insert(1);
         highArray.insert(4);
+        highArray.insert(10);
         highArray.insert(2);
         highArray.insert(3);
 
@@ -15,21 +17,23 @@ public class BinarySearch {
         highArray.insert(6);
 
         highArray.insert(8);
-        highArray.insert(9);
-        highArray.insert(10);
-
-        highArray.delete(10);
 
 
-        highArray.display();
+//        highArray.delete(10);
 
 
-
+        highArray.print();
         System.out.println("---------");
+        highArray.selectFind();
+        highArray.print();
 
-        int i = highArray.find(9);
 
-        System.out.println(i);
+//
+//        System.out.println("---------");
+//
+//        int i = highArray.find(11111);
+//
+//        System.out.println(i);
 
     }
 
