@@ -15,7 +15,7 @@
 <div id="app">
     <input type="text" v-model="name" placeholder="订单名称">
     <input type="text" v-model="orderNo" placeholder="订单编号">
-
+    <button @click="getOrder()">搜索</button>
     <table>
         <th>id</th>
         <th>name</th>
@@ -32,7 +32,7 @@
             <td>{{order.createTime}}</td>
         </tr>
     </table>
-    <button @click="getOrder()">搜索</button>
+
 </div>
 
 
