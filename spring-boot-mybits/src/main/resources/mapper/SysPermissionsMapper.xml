@@ -22,7 +22,7 @@
        p.modify_time
     </sql>
 
-    <select id="findSysPermissionsByRoleId" resultMap="resultProduct">
+    <select id="findSysPermissionsByRoleId" resultMap="resultSysPermissions">
         select
         <include refid="sql"></include>
         from sys_permissions p

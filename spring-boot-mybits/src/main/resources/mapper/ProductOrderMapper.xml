@@ -36,7 +36,7 @@
                 and order_no=#{orderNo}
             </if>
         </where>
-        order by ${sort}
+--         order by ${sort}
     </select>
 
     <select id="findProductByIdAndName" resultMap="resultProduct">
