@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+
+
+<div id="app">
+    <button-counter></button-counter>
+    <button-counter></button-counter>
+    <button-counter></button-counter>
+
+    <!--    <blog-post title="My journey with Vue"></blog-post>-->
+    <!--    <blog-post title="Blogging with Vue"></blog-post>-->
+    <!--    <blog-post title="Why Vue is so fun"></blog-post>-->
+
+    <!--    <blog-post v-for="post in posts"-->
+    <!--               v-bind:key="post.id"-->
+    <!--               v-bind:title="post.title"-->
+    <!--               v-bind:content="post.content"></blog-post>-->
+
+    <div :style="{ fontSize: postFontSize + 'em' }">
+        <blog-post v-for="post in posts"
+                   v-bind:id="post.id"
+                   v-bind:post="post"
+                   v-on:enlarge-text="postFontSize += $event">
+
+        </blog-post>
+    </div>
+
+    <alert-box>
+        Something bad happened.
+        dsdfd
+    </alert-box>
+</div>
+
+<script>
+
+    Vue.component('button-counter', {
+        data: function () {
+            return {
+                count: 0
+            }
+        },
+        template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+    })
+    // Vue.component('blog-post', {
+    //     props: ['title', 'content'],
+    //     template: '<div><h3>{{title}}</h3><div v-html="content"></div></div>'
+    // })
+    Vue.component('blog-post', {
+        props: ['post'],
+        template: `
+            <div class="blog-post">
+                <h3>{{ post.title }}</h3>
+                <button v-on:click="$emit('enlarge-text',0.1)">
+                    Enlarge text
+                </button>
+                <div v-html="post.content"></div>
+            </div>
+        `
+    });
+    Vue.component('alert-box', {
+        template: `
+            <div class="demo-alert-box">
+              <strong>Error!</strong>
+              <slot></slot>
+            </div>
+          `
+    });
+
+    new Vue({
+        el: '#app',
+        data: {
+            posts: [{
+                id: 1,
+                title: 'My journey with Vue',
+                content: '内容1',
+            }, {
+                id: 2,
+                title: 'Blogging with Vue',
+                content: '内容2'
+            }, {
+                id: 3,
+                title: 'Why Vue is so fu',
+                content: '内容2'
+            }],
+            postFontSize: 1
+        }
+
+    })
+</script>
+</body>
+</html>
