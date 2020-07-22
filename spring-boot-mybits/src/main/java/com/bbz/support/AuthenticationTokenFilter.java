@@ -7,8 +7,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
+import org.springframework.web.filter.GenericFilterBean;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -17,8 +17,9 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
-public class AuthenticationTokenFilter extends UsernamePasswordAuthenticationFilter {
+public class AuthenticationTokenFilter extends GenericFilterBean {
 
+    private static final String FILTER_APPLIED = "__spring_security_authenticationTokenFilter_filterApplied";
     /**
      * json web token 在请求头的名字
      */
@@ -40,9 +41,16 @@ public class AuthenticationTokenFilter extends UsernamePasswordAuthenticationFil
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        //解决filter重复执行
+        if (request.getAttribute(FILTER_APPLIED) != null) {
+            chain.doFilter(request, response);
+            return;
+        }
+        request.setAttribute(FILTER_APPLIED, true);
         // 将 ServletRequest 转换为 HttpServletRequest 才能拿到请求头中的 token
         HttpServletRequest httpRequest = (HttpServletRequest) request;
-        logger.info("111111");
+
+
         // 尝试获取请求头的 token
         String authToken = httpRequest.getHeader(this.tokenHeader);
         // 尝试拿 token 中的 username

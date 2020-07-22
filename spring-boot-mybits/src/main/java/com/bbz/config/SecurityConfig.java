@@ -23,19 +23,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      * @throws Exception
      */
     @Bean
-    public AuthenticationTokenFilter authenticationTokenFilterBean() throws Exception {
-        AuthenticationTokenFilter authenticationTokenFilter = new AuthenticationTokenFilter();
-        authenticationTokenFilter.setAuthenticationManager(authenticationManagerBean());
-        return authenticationTokenFilter;
+    public AuthenticationTokenFilter authenticationTokenFilter() {
+        return new AuthenticationTokenFilter();
     }
 
-    //解决过滤器执行两次
-    @Bean
-    public FilterRegistrationBean registration(AuthenticationTokenFilter filter) {
-        FilterRegistrationBean registration = new FilterRegistrationBean(filter);
-        registration.setEnabled(false);
-        return registration;
-    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -57,6 +48,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
          * 通过添加过滤器将 token 解析，将用户所有的权限写入本次 Spring Security 的会话
          */
         http
-                .addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(authenticationTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     }
 }
