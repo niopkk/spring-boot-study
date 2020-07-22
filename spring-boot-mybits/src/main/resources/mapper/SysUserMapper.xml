@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bbz.dao.SysUserDao">
+
+
+    <resultMap id="resultSysUser" type="com.bbz.model.SysUser">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="account" property="account"/>
+        <result column="pass_word" property="passWord"/>
+        <result column="status" property="status"/>
+        <result column="login_time" property="loginTime"/>
+        <result column="create_time" property="createTime"/>
+        <result column="modify_time" property="modifyTime"/>
+        <result column="role_id" property="roleId"/>
+    </resultMap>
+
+    <sql id="sql">
+      id,
+      `name`,
+      account,
+      pass_word,
+      status,
+      login_time,
+      create_time,
+      modify_time,
+      role_id
+    </sql>
+    <select id="findSysUserByUserName" resultMap="resultSysUser">
+        select
+        <include refid="sql"></include>
+        from sys_user
+        where account = #{userName}
+    </select>
+
+
+</mapper>

@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="js/vue.js"></script>
-    <script src="js/axios.min.js"></script>
+    <!--    <script src="js/axios.min.js"></script>-->
+    <script src="js/jquery.min.js"></script>
 
 
 </head>
@@ -51,17 +52,20 @@
         // },
         methods: {
             getOrder: function () {
-                axios.get("http://localhost:8081/getProductOrderParam", {
-                    params: {
-                        name: this.name,
-                        orderNo: this.orderNo
-                    }
-                }).then(response => {
-                    // console.log(JSON.stringify(response))
-                    this.orders = response.data;
-                }, function (error) {
-                    console.log("获取数据失败")
-                });
+                // axios.get("http://localhost:8081/getProductOrderParam", {
+                //     params: {
+                //         name: this.name,
+                //         orderNo: this.orderNo
+                //     },
+                //     headers: {
+                //         'x_auth_token': 'yJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImNyZWF0ZWQiOjE1OTUzODY3Mzc4ODIsImV4cCI6MTU5NTk5MTUzN30.o6QkFHDFo1hDJ0NGEVnpeRI6skmpx5Dm6T348296tMvfLFIZREhltAWF3KqVf8Y9qaev5bktqzyABx4GPYNg4g'
+                //     },
+                // }).then(response => {
+                //     // console.log(JSON.stringify(response))
+                //     this.orders = response.data;
+                // }, function (error) {
+                //     console.log("获取数据失败")
+                // });
                 //拦截器
                 // axios.interceptors.request.use(function (config) {
                 //
@@ -69,6 +73,20 @@
                 // },function () {
                 //     return Promise.reject()
                 // })
+                $.ajax({
+                    headers: {
+                        x_auth_token: "12323231"
+                    },
+                    url: 'http://localhost:8081/getProductOrderParam',
+                    type: 'get',
+                    data: {
+                        name: this.name,
+                        orderNo: this.orderNo
+                    },
+                    success: function (response) {
+                        this.orders = response.data;
+                    }
+                })
             },
             formatDateTime: function (v) {
                 console.log("时间" + v);

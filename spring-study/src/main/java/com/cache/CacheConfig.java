@@ -24,10 +24,10 @@ public class CacheConfig {
 //        //申明缓存管理器
 //        return new ConcurrentMapCacheManager();
 //    }
-    @Bean
-    public EhCacheCacheManager cacheCacheManager() {
-        return new EhCacheCacheManager(ehcache().getObject());
-    }
+//    @Bean
+//    public EhCacheCacheManager cacheCacheManager() {
+//        return new EhCacheCacheManager(ehcache().getObject());
+//    }
     @Bean
     public EhCacheManagerFactoryBean ehcache() {
         EhCacheManagerFactoryBean ehCacheManagerFactoryBean = new EhCacheManagerFactoryBean();

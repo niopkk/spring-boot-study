@@ -6,6 +6,7 @@ import com.bbz.util.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -36,7 +37,7 @@ public class ProductOrderController {
 
     @RequestMapping("/getProductOrderParam")
     @ResponseBody
-    public List<ProductOrder> getProductOrder(ProductOrder productOrder) {
+    public List<ProductOrder> getProductOrder(@RequestHeader(value = "x_auth_token") String token,ProductOrder productOrder) {
         return productOrderService.findProductOrder(productOrder);
     }
 
@@ -50,6 +51,7 @@ public class ProductOrderController {
     @RequestMapping("/getProductOrders")
     @ResponseBody
     public List<ProductOrder> getProductOrders() {
+
 
 
         return productOrderService.findProducts();
