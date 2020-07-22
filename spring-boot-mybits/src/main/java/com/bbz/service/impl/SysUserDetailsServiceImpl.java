@@ -52,7 +52,7 @@ public class SysUserDetailsServiceImpl implements SysUserDetailsService, UserDet
                 .passWord(user.getPassWord())
                 .authorities(AuthorityUtils.commaSeparatedStringToAuthorityList(authorities))
                 .lastPasswordReset(Dates.addDays(new Date(), -1))
-                .enabled(user.getStatus() > 0)
+//                .enabled(user.getStatus() == 0)
                 .build();
     }
 

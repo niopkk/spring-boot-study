@@ -4,6 +4,7 @@ import com.bbz.model.ProductOrder;
 import com.bbz.service.ProductOrderService;
 import com.bbz.util.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -37,7 +38,8 @@ public class ProductOrderController {
 
     @RequestMapping("/getProductOrderParam")
     @ResponseBody
-    public List<ProductOrder> getProductOrder(@RequestHeader(value = "x_auth_token") String token,ProductOrder productOrder) {
+//    @PreAuthorize("hasAnyAuthority('/getProductOrderParam')")
+    public List<ProductOrder> getProductOrder(ProductOrder productOrder) {
         return productOrderService.findProductOrder(productOrder);
     }
 
