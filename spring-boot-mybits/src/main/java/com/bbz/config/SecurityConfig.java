@@ -1,6 +1,7 @@
 package com.bbz.config;
 
 import com.bbz.support.AuthenticationTokenFilter;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -28,15 +29,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return authenticationTokenFilter;
     }
 
+    //解决过滤器执行两次
+    @Bean
+    public FilterRegistrationBean registration(AuthenticationTokenFilter filter) {
+        FilterRegistrationBean registration = new FilterRegistrationBean(filter);
+        registration.setEnabled(false);
+        return registration;
+    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
                 .antMatchers("/login").permitAll()
-                .anyRequest().authenticated()      // 允许所有请求通过
+                .anyRequest().authenticated()
+                .and()
+                .cors()
                 .and()
                 .csrf()
-                .disable()                      // 禁用 Spring Security 自带的跨域处理
+                .disable()   // 禁用 Spring Security 自带的跨域处理
+
                 .sessionManagement()                        // 定制我们自己的 session 策略
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS); // 调整为让 Spring Security 不创建和使用 session
         /**

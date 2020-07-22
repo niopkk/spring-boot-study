@@ -42,6 +42,7 @@ public class AuthenticationTokenFilter extends UsernamePasswordAuthenticationFil
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         // 将 ServletRequest 转换为 HttpServletRequest 才能拿到请求头中的 token
         HttpServletRequest httpRequest = (HttpServletRequest) request;
+        logger.info("111111");
         // 尝试获取请求头的 token
         String authToken = httpRequest.getHeader(this.tokenHeader);
         // 尝试拿 token 中的 username
