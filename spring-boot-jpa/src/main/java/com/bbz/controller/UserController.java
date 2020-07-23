@@ -15,15 +15,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/user")
-public class UserController extends BaseController{
+@RequestMapping
+public class UserController extends BaseController {
 
 
     @Autowired
     private UserService userService;
 
 
-    @GetMapping(value = "/getUserById",produces = MediaType.APPLICATION_XML_VALUE)
+    @GetMapping(value = "/getUserById", produces = MediaType.APPLICATION_XML_VALUE)
     public UserModel getUserById(Integer id) {
 //        Map<String, Object> result = new HashMap<String, Object>();
 //        result.put("data", );
@@ -54,9 +54,6 @@ public class UserController extends BaseController{
         result.put("data", userService.findUserAll());
         return result;
     }
-
-
-
 
 
 }
