@@ -66,3 +66,36 @@ create table sys_user_role
     user_id int comment '用户id',
     role_id int comment '角色id'
 )charset = 'utf8mb4';
+
+
+create table t_user
+(
+    t_id      int primary key auto_increment,
+    t_name    varchar(50),
+    t_age     int default 0,
+    t_address varchar(150)
+) char set = 'utf8mb4';
+
+create table user
+(
+    user_id   int primary key auto_increment,
+    user_name varchar(50),
+    pass_word varchar(50),
+    gender    int default 0,
+    age       int default 0,
+    school    int,
+    grade     int
+) char set = 'utf8mb4';
+
+create table school
+(
+    school_id   int primary key auto_increment,
+    school_name varchar(50)
+) char set = 'utf8mb4';
+
+create table grade
+(
+    grade_id int primary key auto_increment,
+    grade_name varchar(10),
+    school int
+)char set = 'utf8mb4';

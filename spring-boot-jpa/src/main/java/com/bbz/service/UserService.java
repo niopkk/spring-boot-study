@@ -1,40 +1,15 @@
 package com.bbz.service;
 
-import com.bbz.model.UserModel;
-import com.bbz.search.UserSearchTerm;
+import com.bbz.model.User;
+import com.bbz.search.Params;
 
 import java.util.List;
 
 public interface UserService {
 
-    /**
-     * 查询全部
-     *
-     * @return
-     */
-    List<UserModel> findUserAll();
+    List<User> findAll();
 
-    /**
-     * 多条件查找
-     *
-     * @param term
-     * @return
-     */
-    List<UserModel> findUserAll(UserSearchTerm term);
+    List<User> findAll(int pageNum, int pageSize, User user);
 
-
-    /**
-     * 单个条件查找
-     *
-     * @param id
-     * @return
-     */
-    UserModel findUserById(int id);
-
-    /**
-     * 保存
-     *
-     * @param userModel
-     */
-    void save(UserModel userModel);
+    List<User> findAll(int pageNum, int pageSize, Params params);
 }
