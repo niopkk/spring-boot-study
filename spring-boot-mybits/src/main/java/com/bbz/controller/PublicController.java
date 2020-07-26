@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -27,7 +28,7 @@ public class PublicController extends BaseController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
-    public ResultView login(@Valid RequestLoginUser requestLoginUser, BindingResult bindingResult) {
+    public ResultView login(@RequestBody @Valid RequestLoginUser requestLoginUser, BindingResult bindingResult) {
         // 检查有没有输入用户名密码和格式对不对
         if (bindingResult.hasErrors()) {
             return errorResult("缺少参数或者参数格式不对");
