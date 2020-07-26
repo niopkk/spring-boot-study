@@ -31,12 +31,9 @@ public class Application {
     private Environment env;
 
 
-
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
-
-
 
 
     @RequestMapping(value = "/user", method = {RequestMethod.POST, RequestMethod.GET})
@@ -47,14 +44,15 @@ public class Application {
 //        if (null != bean) {
 //            return properties.getName() + ";" + bean.getName();
 //        }
-        String property = env.getProperty("spring.profiles.active", "default");
+//        String property = env.getProperty("spring.profiles.active", "default");
+//
+////        System.out.println(property);
+//
+//        Welcomer welcomer = applicationContext.getBean(Welcomer.class);
+//
+//        System.out.println(welcomer.getWelcomeText());
 
-//        System.out.println(property);
-
-        Welcomer welcomer = applicationContext.getBean(Welcomer.class);
-
-        System.out.println(welcomer.getWelcomeText());
-
+        System.out.println(subject.getPrincipal());
         return properties.getName();
     }
 }

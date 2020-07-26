@@ -15,7 +15,8 @@ public class YCThread implements Runnable {
 
             String s = Https.getInstance().get("https://www.xcode.me/");
 
-            System.out.println(Thread.currentThread().getName());
+            System.
+                    out.println(Thread.currentThread().getName());
 
             System.out.println(s);
         }

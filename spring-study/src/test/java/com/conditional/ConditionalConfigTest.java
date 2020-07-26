@@ -1,25 +1,19 @@
 package com.conditional;
 
-
-import com.annotationconfig.config.Config;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+
 public class ConditionalConfigTest {
 
-//
-//    @Autowired
-//    private MagicBean magicBean;
-
     @Test
-    public void test() {
+    public void TestConfig() {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(ConditionalConfig.class);
+        String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
 
-        MagicBean bean = applicationContext.getBean(MagicBean.class);
-        bean.hello();
-
+        for (String beanDefinitionName : beanDefinitionNames) {
+            System.out.println(beanDefinitionName);
+        }
     }
-
 }
