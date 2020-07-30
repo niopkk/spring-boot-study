@@ -1,16 +1,11 @@
-package com.bbz;
+package com.bbz.util;
 
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
 import java.io.*;
 
-/**
- * com.bbz
- * <p>
- * Created by tianxin2 on 2019-07-23
- */
-public class Util {
+public interface Base64 {
 
     public static String imageChangeBase64(String imagePath) {
         InputStream inputStream = null;
@@ -52,5 +47,4 @@ public class Util {
             return false;
         }
     }
-
 }

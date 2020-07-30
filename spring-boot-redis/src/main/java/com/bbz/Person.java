@@ -1,64 +1,24 @@
 package com.bbz;
 
+import java.io.Serializable;
+
 /**
  * com.bbz
  * <p>
  * Created by tianxin2 on 2019-07-23
  */
-public class Person {
+public class Person implements Serializable {
 
-    private String image;
+   private String name;
 
-    private String address;
+   private Integer age;
 
-    private String sex;
+   private String  sex;
 
-    private String birthday;
-
-    private String idNumber;
-
-    private String name;
-
-    private String nation;
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
+    public Person(String name, Integer age, String sex) {
+        this.name = name;
+        this.age = age;
         this.sex = sex;
-    }
-
-    public String getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
-    }
-
-    public String getIdNumber() {
-        return idNumber;
-    }
-
-    public void setIdNumber(String idNumber) {
-        this.idNumber = idNumber;
     }
 
     public String getName() {
@@ -69,11 +29,19 @@ public class Person {
         this.name = name;
     }
 
-    public String getNation() {
-        return nation;
+    public Integer getAge() {
+        return age;
     }
 
-    public void setNation(String nation) {
-        this.nation = nation;
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 }
