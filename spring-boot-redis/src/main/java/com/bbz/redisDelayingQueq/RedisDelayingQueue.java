@@ -39,7 +39,7 @@ public class RedisDelayingQueue {
                 String next = values.iterator().next();
                 if (jedis.zrem(queueKey, next) > 0) {//拿到锁
                     Order order = Jsons.fromJson(next, Order.class);
-                    System.out.println(order.getName());
+                    System.out.println(order.getName() + ":::" + Thread.currentThread().getName());
                 }
             }
 

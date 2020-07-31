@@ -14,7 +14,7 @@ public class ProducerThread {
         System.out.println(System.currentTimeMillis() + 300000);
 
         Thread producerThread = new Thread(() -> {
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 1000; i++) {
                 Order order = new Order();
                 order.setOrderNo(UUID.randomUUID().toString());
                 order.setName("张三订单" + i);
