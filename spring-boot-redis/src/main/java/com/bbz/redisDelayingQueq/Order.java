@@ -1,4 +1,4 @@
-package com.bbz;
+package com.bbz.redisDelayingQueq;
 
 public class Order {
 
@@ -8,6 +8,8 @@ public class Order {
     private String orderNo;
 
     private String state;
+
+
 
     public Order() {
 
@@ -44,4 +46,5 @@ public class Order {
     public void setState(String state) {
         this.state = state;
     }
+
 }
