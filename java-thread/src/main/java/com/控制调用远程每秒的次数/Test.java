@@ -28,9 +28,9 @@ public class Test {
         }, 1000, 500, TimeUnit.MILLISECONDS);//1000毫秒后开始执行, 执行周期是500毫秒
 
         //lots of concurrent calls:100 * 1000
-        ExecutorService pool = Executors.newFixedThreadPool(10);
+        ExecutorService pool = Executors.newFixedThreadPool(100);
 
-        for (int i = 10; i > 0; i--) {
+        for (int i = 100; i > 0; i--) {
 
             final int x = i;
 
