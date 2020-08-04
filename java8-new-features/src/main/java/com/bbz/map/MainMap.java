@@ -20,6 +20,8 @@ public class MainMap {
 
         map.put("A", "1111");
 
+
+
         map.merge("A", "2", (oldVal, newVal) -> oldVal + newVal);
         map.merge("3", "222", (oldVal, newVal) -> oldVal);
 

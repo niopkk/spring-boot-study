@@ -14,12 +14,12 @@ public class Semapore {
         for (int i = 0; i < N; i++) {
             syncObjects[i] = new Semaphore(1);
             if (i != N - 1) {
-                syncObjects[i].acquire();
+                syncObjects[i].acquire(); //让偶数先启动，
             }
         }
         for (int i = 0; i < N; i++) {
-            final Semaphore lastSemphore = i == 0 ? syncObjects[N - 1] : syncObjects[i - 1];
-            final Semaphore curSemphore = syncObjects[i];
+            final Semaphore lastSemphore = i == 0 ? syncObjects[N - 1] : syncObjects[i - 1];//奇/偶数的信号量
+            final Semaphore curSemphore = syncObjects[i];//当前使用的信号量
             final int index = i;
             threads[i] = new Thread(() -> {
                 try {
