@@ -21,6 +21,7 @@ public class CallableMain {
         FutureTask<String> task1 = new FutureTask<>(new CallableThread());
         new Thread(task1).start();
 
+
         System.out.println("【线程返回数据】:" + task1.get());
 
     }
