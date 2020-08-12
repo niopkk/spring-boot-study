@@ -8,6 +8,8 @@ public class Testmain {
         a.setName("张三");
 
 
+
+
         change(a);
 
         System.out.println("ddddd:" + a.getName());
@@ -16,6 +18,18 @@ public class Testmain {
         Integer d = 3;
         change(d);
         System.out.println(d);
+
+        String str1 = "通话";
+
+        String str2 = "重地";
+
+
+        System.out.println(str1. hashCode());
+        System.out.println(str2. hashCode());
+
+        System. out. println(str1. equals(str2));
+
+
 
     }
 
