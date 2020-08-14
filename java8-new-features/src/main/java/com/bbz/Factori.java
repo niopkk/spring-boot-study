@@ -37,13 +37,13 @@ public class Factori {
 //        System.out.println(split);
 
 
-        String s = "my.test.txt";
-        System.out.println(s.replace(".", "#"));
-        System.out.println(s.replaceAll("\\.", "#"));
-        System.out.println(s.replaceFirst("\\.", "#"));
-
-        String className="Test";
-        System.out.println(Strings.uncapitalize(className));
+//        String s = "my.test.txt";
+//        System.out.println(s.replace(".", "#"));
+//        System.out.println(s.replaceAll("\\.", "#"));
+//        System.out.println(s.replaceFirst("\\.", "#"));
+//
+//        String className="Test";
+//        System.out.println(Strings.uncapitalize(className));
 
 
 //        List<String> collect = Stream.of("0123456789").peek(p -> p.replace("1", "*"))
@@ -66,6 +66,9 @@ public class Factori {
 //        }else {
 //            System.out.println("3333");
 //        }
+
+
+        System.out.println(String.format("%s", "3333"));
 
     }
 

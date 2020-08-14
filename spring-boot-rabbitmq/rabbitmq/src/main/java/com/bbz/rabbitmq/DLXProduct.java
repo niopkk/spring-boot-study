@@ -48,7 +48,7 @@ public class DLXProduct {
 //            channel.basicPublish("exchange.normal", "rk",
 //                    new AMQP.BasicProperties().builder().contentType("text/plain").build(), ("dlx").getBytes("UTF-8"));
 
-            new Thread(new ThreadProduct(channel, "dlx")).start();
+//            new Thread(new ThreadProduct(channel, "dlx")).start();
 
 
         }

@@ -19,6 +19,14 @@ public interface Maps {
         return entries(Entry.of(k1, v1), Entry.of(k2, v2), Entry.of(k3, v3));
     }
 
+    static <K, V> Map<K, V> of(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4) {
+        return entries(Entry.of(k1, v1), Entry.of(k2, v2), Entry.of(k3, v3), Entry.of(k4, v4));
+    }
+
+    static <K, V> Map<K, V> of(K k1, V v1, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5) {
+        return entries(Entry.of(k1, v1), Entry.of(k2, v2), Entry.of(k3, v3), Entry.of(k4, v4), Entry.of(k5, v5));
+    }
+
     static <K, V> Map<K, V> entries(Entry<K, V>... entries) {
         Map<K, V> linkedHashMap = new LinkedHashMap<>();
         for (Entry<K, V> entry : entries) {
