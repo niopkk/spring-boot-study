@@ -1,5 +1,8 @@
 package com.atomic;
 
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class AtomicIntegerMain {
@@ -17,6 +20,10 @@ public class AtomicIntegerMain {
     }
 
     public static void main(String[] args) throws InterruptedException {
+
+        List<String> list=new CopyOnWriteArrayList<>();
+        CopyOnWriteArraySet<String> set=new CopyOnWriteArraySet<>();
+        set.add("d");
 
         Thread[] ts=new Thread[10];
         for (int i = 0; i < 10; i++) {

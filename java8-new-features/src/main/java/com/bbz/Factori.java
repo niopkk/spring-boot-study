@@ -1,14 +1,8 @@
 package com.bbz;
 
-import com.bbz.util.Strings;
-import com.google.gson.internal.$Gson$Preconditions;
-
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * com.bbz
@@ -67,6 +61,8 @@ public class Factori {
 //            System.out.println("3333");
 //        }
 
+        List<String> list=new LinkedList<>();
+        List<String> list1=new ArrayList<>();
 
         System.out.println(String.format("%s", "3333"));
 

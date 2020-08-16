@@ -3,7 +3,10 @@ package com.bbz.arcitle;
 import com.bbz.util.Maps;
 import redis.clients.jedis.Jedis;
 
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class ArcitleMain {
 
@@ -16,7 +19,21 @@ public class ArcitleMain {
 //        String arcitle = storeArcitle(user);
 //        System.out.println(arcitle);
 
-        arcitleVote("arcitle:1", user);
+//        arcitleVote("arcitle:1", user);
+
+
+//        for (int i = 0; i < 1000; i++) {
+//            storeArcitle(String.valueOf(111111), String.valueOf(i));
+//        }
+
+        System.out.println(search());
+
+    }
+
+    public static List<Map<String, String>> search() {
+        Set<String> zrange = jedis.zrange("score:", 0, 9);
+
+        return zrange.stream().map(s -> jedis.hgetAll(s)).collect(Collectors.toList());
     }
 
 
@@ -35,8 +52,7 @@ public class ArcitleMain {
         }
     }
 
-    public static String storeArcitle(String user) {
-        String arcitleId = jedis.incr("arcitle:").toString();
+    public static String storeArcitle(String user, String arcitleId) {
 
         String voled = "voled:" + arcitleId;
 

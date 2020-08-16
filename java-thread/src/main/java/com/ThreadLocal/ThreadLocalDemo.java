@@ -1,8 +1,5 @@
 package com.ThreadLocal;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 
 /**
@@ -28,7 +25,7 @@ public class ThreadLocalDemo {
                 countDownLatch.countDown();
             }, "thread-" + i).start();
         }
-//        countDownLatch.wait();
+        countDownLatch.wait();
     }
 
     public static class InnerClass {

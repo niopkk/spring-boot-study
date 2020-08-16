@@ -5,6 +5,9 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class AtomicReferenceTest {
 
+    /**
+     * 解决对象cas问题
+     */
     static AtomicReference<String> str = new AtomicReference<>("abc");
 
 
