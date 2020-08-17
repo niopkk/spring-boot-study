@@ -26,7 +26,7 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public List<Map<String, Object>> search(int pageIndex, int pageSize, String key) {
-        Set<String> set = redisTemplate.opsForZSet().range(key, pageIndex * pageSize, pageSize);
+        Set<String> set = redisTemplate.opsForZSet().range(key, (pageIndex - 1) * pageSize, ((pageIndex - 1) * pageSize) + pageSize - 1);
         return Streams.of(set).map(item -> (Map<String, Object>) redisTemplate.opsForHash().entries(item)).collect(Collectors.toList());
     }
 
@@ -49,7 +49,9 @@ public class ArticleServiceImpl implements ArticleService {
         long now = System.currentTimeMillis();
         String article = "article:" + articleId;
 
-        redisTemplate.opsForHash().putAll(article, Maps.of("title", "测试文章111",
+        redisTemplate.opsForHash().putAll(article, Maps.of(
+                "articleId", articleId,
+                "title", "测试文章111",
                 "link", "www.baidu.com",
                 "poster", userId,
                 "time", now,

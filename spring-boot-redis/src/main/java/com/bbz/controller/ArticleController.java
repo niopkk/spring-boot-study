@@ -35,7 +35,7 @@ public class ArticleController extends BaseController {
 //
 //        return okResult("查询成功!", range.stream().map(s -> jedis.hgetAll(s)).collect(Collectors.toList()));
 
-        return okResult("查询成功!", articleService.search(0, 20, "score:"));
+        return okResult("查询成功!", articleService.search(2, 20, "score:"));
     }
 
     @GetMapping("/groupSearch")
