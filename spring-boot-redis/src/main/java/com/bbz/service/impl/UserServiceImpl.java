@@ -8,6 +8,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
@@ -22,8 +23,8 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public void checkToken(String token) {
-        redisTemplate.opsForHash().get("login:", token);
+    public Map<String,Object> checkToken(String token) {
+       return (Map<String, Object>) redisTemplate.opsForHash().get("login:", token);
     }
 
     @Override

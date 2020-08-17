@@ -1,8 +1,10 @@
 package com.bbz.service;
 
+import java.util.Map;
+
 public interface UserService {
 
-    void checkToken(String token);
+    Map<String, Object> checkToken(String token);
 
     /**
      * @param token
