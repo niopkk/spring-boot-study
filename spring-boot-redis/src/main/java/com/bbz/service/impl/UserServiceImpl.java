@@ -30,9 +30,9 @@ public class UserServiceImpl implements UserService {
     public void updateToken(String token, String userId, String item) {
         long now = System.currentTimeMillis();
         redisTemplate.opsForHash().put("login:", token, userId);
-        redisTemplate.opsForZSet().add("recent", token, now);
+        redisTemplate.opsForZSet().add("recent:", token, now);
         if (Strings.isNotBlank(item)) {
-            redisTemplate.opsForZSet().add("viewed" + token, item, now);
+            redisTemplate.opsForZSet().add("viewed:" + token, item, now);
             redisTemplate.opsForZSet().removeRangeByScore("viewed:" + token, 0, -26);
         }
     }
