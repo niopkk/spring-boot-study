@@ -3,13 +3,15 @@ package com.bbz.proskill;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
+import java.util.concurrent.TimeUnit;
+
 public class Service {
 
     private static JedisPool pool = null;
 
     private DistributedLock lock = new DistributedLock(pool);
 
-    private int n = 500;
+    private int n = 50;
 
     static {
         JedisPoolConfig config = new JedisPoolConfig();
@@ -22,22 +24,32 @@ public class Service {
         // 在borrow一个jedis实例时，是否需要验证，若为true，则所有jedis实例均是可用的
         config.setTestOnBorrow(true);
 
-        pool = new JedisPool(config, "127.0.0.1", 6379, 6000);
+
+        pool = new JedisPool(config, "127.0.0.1", 6379, 300);
     }
 
 
     public void seckill() {
-        // 返回锁的value值，供释放锁时候进行判断
-        String identifier = lock.lock("resource", 5000, 1000);
-        System.out.println(Thread.currentThread().getName() + "获得了锁");
-        System.out.println(--n);
-        lock.unLock("resource", identifier);
 
-        if (n == 0) {
-            System.out.println("秒杀以结束");
+
+        // 返回锁的value值，供释放锁时候进行判断
+        String uuid = "";
+        try {
+            uuid = lock.acquire(buildKey("resource"), 300);
+            --n;
+            TimeUnit.SECONDS.sleep(1);
+        } catch (Exception e) {
+
+        } finally {
+            lock.release(buildKey("resource"), uuid);
         }
+        System.out.println("dddddd");
+
 
     }
 
 
+    public String buildKey(String key) {
+        return String.format("lock:%s", key);
+    }
 }

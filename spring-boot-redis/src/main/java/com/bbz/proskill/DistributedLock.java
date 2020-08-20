@@ -1,5 +1,6 @@
 package com.bbz.proskill;
 
+import com.bbz.util.Strings;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.Transaction;
@@ -12,9 +13,11 @@ public class DistributedLock {
 
     private JedisPool jedisPool;
 
+
     public DistributedLock(JedisPool jedisPool) {
         this.jedisPool = jedisPool;
     }
+
 
     /**
      * 加锁
@@ -104,4 +107,45 @@ public class DistributedLock {
         }
         return retFlag;
     }
+
+    public String acquire(String key, int timeoutMills) {
+        System.out.println(Thread.currentThread().getName() + "获得了锁");
+        Jedis conn = null;
+        String uuid = UUID.randomUUID().toString();
+        try {
+            conn = jedisPool.getResource();
+            long ok = conn.setnx(key, uuid);
+            if (ok == 1) {
+                conn.expire(key, timeoutMills);
+            }
+            if (conn.ttl(key) == -1L) {
+                conn.expire(key, timeoutMills);
+            }
+            return uuid;
+        } catch (Exception e) {
+//            LOGGER.error("Acquire lock error is {}", e.toString());
+        }finally {
+            conn.close();
+        }
+        return null;
+    }
+
+    public void release(String key, String uuid) {
+        Jedis conn = null;
+        conn = jedisPool.getResource();
+        while (true) {
+            try {
+                conn.watch(key);
+                if (Strings.equals(uuid, conn.get(key))) {
+                    Transaction transaction = conn.multi();
+                    transaction.del(key);
+                    transaction.exec();
+                }
+            } catch (Exception e) {
+            } finally {
+                conn.close();
+            }
+        }
+    }
+
 }

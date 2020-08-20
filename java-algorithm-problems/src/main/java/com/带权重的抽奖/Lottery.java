@@ -17,7 +17,7 @@ public class Lottery {
                 new Pair("10元", 1),
         };
         WeightRandom weightRandom = new WeightRandom(pairs);
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 10; i++) {
             System.out.println(weightRandom.nextItem()+" ");
         }
         Map map=new LinkedHashMap();

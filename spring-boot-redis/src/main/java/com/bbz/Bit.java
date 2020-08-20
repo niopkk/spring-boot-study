@@ -4,6 +4,7 @@ import com.bbz.util.Dates;
 import redis.clients.jedis.Jedis;
 
 import java.time.LocalDate;
+import java.util.Optional;
 import java.util.Set;
 
 public class Bit {
@@ -48,8 +49,8 @@ public class Bit {
 
 //        jedis.setbit("sing:10000",20200820,true);
 
-        jedis.set("u:sing:10000:202008", "5");
-        System.out.println(jedis.get("u:sing:10000:202008"));
+//        jedis.set("u:sing:10000:202008", "5");
+//        System.out.println(jedis.get("u:sing:10000:202008"));
 
 //        System.out.println(jedis.getbit("u:sing:10000:202008", 5));
 //        System.out.println(jedis.bitcount("u:sing:10000:202008"));
@@ -64,25 +65,35 @@ public class Bit {
 
         System.out.println(LocalDate.now().getDayOfMonth());
 //        System.out.println(jedis.del("w"));
+
+//        System.out.println(checkSing("100000", "202008"));
+
+//
+        refuse("100000","202008",11);
+//        doSing("100000", "202008", 18);
+
+        System.out.println(checkSing("100000", "202008"));
     }
 
-    public void refuse(String userId, String month, int day) {
-        jedis.set(String.format("u:sing:%s:%s", userId, month), String.valueOf(day));
+    //记录上次拒绝时间，用于计算下次什么时候需要进行弹窗
+    public static void refuse(String userId, String month, int day) {
+        jedis.set(String.format("u:refuse:%s:%s", userId, month), String.valueOf(day));
     }
 
-    public void doSing(String userId, String month, int day) {
+    public static void doSing(String userId, String month, int day) {
         jedis.setbit(String.format("u:sing:%s:%s", userId, month), day, true);
     }
 
-    public boolean checkSing(String userId, String month) {
+    public static boolean checkSing(String userId, String month) {
         if (jedis.bitcount(String.format("u:sing:%s:%s", userId, month)) == 0) {
-            int endDay = Integer.parseInt(jedis.get(String.format("u:sing:%s:%s", userId, month)));
+            int endDay = Integer.parseInt(Optional.ofNullable(jedis.get(String.format("u:refuse:%s:%s", userId, month)))
+                    .orElse("1"));
             if (LocalDate.now().getDayOfMonth() - endDay >= 10) {
                 return true;
             } else {
                 return false;
             }
         }
-        return true;
+        return false;
     }
 }
