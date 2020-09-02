@@ -1,0 +1,58 @@
+
+
+
+ClassPathXmlApplicationContext
+    ->AbstractXmlApplicationContext
+       ->AbstractXmlApplicationContext
+         ->AbstractRefreshableApplicationContext
+
+            ->AbstractApplicationContext
+                refresh()方法
+                1) prepareRefresh(); 准备上下文的刷新，
+                2) ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();
+                     告诉子类去刷新bean工厂，此方法解析配置文件并将bean信息存储到beanDefinition中，
+                     注册到BeanFactory（但是未被初始化，仅将信息写到了beanDefination的map中）
+                    refreshBeanFactory(); 由子类 AbstractRefreshableApplicationContext 实现
+                      1) 销毁所有活动的bean
+                      2) 清空所有的装有bean的map集合
+                      3) 重新创建bean所需要的容器集合,并返回 DefaultListableBeanFactory 实例对象,此对象map存放各种bean
+                3)prepareBeanFactory(beanFactory);配置标准的beanFactory，设置ClassLoader，设置SpEL表达式解析器，添加忽略注入的接口，添加bean，添加bean后置处理器等
+
+                4)postProcessBeanFactory(beanFactory);
+                   模板方法，此时，所有的beanDefinition已经加载，但是还没有实例化。
+                   允许在子类中对beanFactory进行扩展处理。比如添加ware相关接口自动装配设置，添加后置处理器等，是子类扩展prepareBeanFactory(beanFactory)的方法
+
+                5)invokeBeanFactoryPostProcessors(beanFactory);
+                    实例化并调用所有注册的beanFactory后置处理器（实现接口BeanFactoryPostProcessor的bean，在beanFactory标准初始化之后执行）
+
+                6) registerBeanPostProcessors(beanFactory);
+                实例化和注册beanFactory中扩展了BeanPostProcessor的bean。
+                例如：
+                AutowiredAnnotationBeanPostProcessor(处理被@Autowired注解修饰的bean并注入)
+                RequiredAnnotationBeanPostProcessor(处理被@Required注解修饰的方法)
+                CommonAnnotationBeanPostProcessor(处理@PreDestroy、@PostConstruct、@Resource等多个注解的作用)等。
+
+                7）initMessageSource();初始化国际化工具类MessageSource
+
+                8）initApplicationEventMulticaster();初始化事件广播器
+
+                9）onRefresh();模板方法，在容器刷新的时候可以自定义逻辑，不同的Spring容器做不同的事情
+                10）registerListeners(); 注册监听器，广播early application events
+
+                11）finishBeanFactoryInitialization(beanFactory);
+                    实例化所有剩余的（非懒加载）单例
+                    比如invokeBeanFactoryPostProcessors方法中根据各种注解解析出来的类，在这个时候都会被初始化。
+                    实例化的过程各种BeanPostProcessor开始起作用。
+
+                12）finishRefresh();
+                refresh做完之后需要做的其他事情。
+                清除上下文资源缓存（如扫描中的ASM元数据）
+                初始化上下文的生命周期处理器，并刷新（找出Spring容器中实现了Lifecycle接口的bean并执行start()方法）。
+                发布ContextRefreshedEvent事件告知对应的ApplicationListener进行响应的操作
+
+
+
+
+
+        
+        
