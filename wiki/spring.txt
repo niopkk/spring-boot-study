@@ -1,6 +1,4 @@
 
-
-
 ClassPathXmlApplicationContext
     ->AbstractXmlApplicationContext
        ->AbstractXmlApplicationContext
@@ -16,6 +14,17 @@ ClassPathXmlApplicationContext
                       1) 销毁所有活动的bean
                       2) 清空所有的装有bean的map集合
                       3) 重新创建bean所需要的容器集合,并返回 DefaultListableBeanFactory 实例对象,此对象map存放各种bean
+                         
+                        ——> loadBeanDefinitions(beanFactory);加载xml文件 解析为BeanDefinition 步骤
+                             AbstractRefreshableApplicationContext 类中抽象loadBeanDefinitions(beanFactory)方法。
+                               -> AbstractXmlApplicationContext 类中类loadBeanDefinitions
+                                  实例化 XmlBeanDefinitionReader 类 
+                                XmlBeanDefinitionReader:xml的读取和转为resource
+                                DefaultBeanDefinitionDocumentReader类中实现xml读取解析转为BeanDefinition 并容器中 private final Map<String, BeanDefinition> beanDefinitionMap = new ConcurrentHashMap<>(256);
+                                   -> AbstractBeanDefinitionReader:环境变量，类的加载器 等等都在此类中实现或定义
+                                      -> BeanDefinitionReader中的 BeanDefinitionRegistry getRegistry();通过此方法将BeanDefinition注入到map中
+                                        
+
                 3)prepareBeanFactory(beanFactory);配置标准的beanFactory，设置ClassLoader，设置SpEL表达式解析器，添加忽略注入的接口，添加bean，添加bean后置处理器等
 
                 4)postProcessBeanFactory(beanFactory);
