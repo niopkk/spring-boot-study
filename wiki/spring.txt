@@ -64,4 +64,12 @@ ClassPathXmlApplicationContext
 
 
         
-        
+ClassPathXmlApplicationContext
+  -> AbstractApplicationContext
+    ----> refresh()
+        ----> finishBeanFactoryInitialization(beanFactory);初始化对象
+        <---------ConfigurableListableBeanFactory 
+                       preInstantiateSingletons()：所有非延迟初始化的对象
+                      ->DefaultListableBeanFactory
+                         	getBean(beanName);开始准备实例化
+                             
