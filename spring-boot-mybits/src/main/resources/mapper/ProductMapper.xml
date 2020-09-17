@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bbz.dao.ProductMapper">
+
+    <resultMap id="ResultMap" type="com.bbz.model.Product">
+        <id property="id" column="id"></id>
+        <result property="version" column="version"></result>
+        <result property="stock" column="stock"></result>
+    </resultMap>
+
+    <select id="findProductById" resultMap="ResultMap">
+          select id, `version`, `stock` from product where id=#{id}
+    </select>
+    <update id="updateStock">
+         update product set version=version+1,stock=stock-1 where version=#{version} and id=#{id}
+    </update>
+</mapper>
