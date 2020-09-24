@@ -12,8 +12,12 @@ public class MainTest {
                 new AnnotationConfigApplicationContext(Config.class);
 
 
-        Welcomer bean = annotationConfigApplicationContext.getBean(Welcomer.class);
+//        Welcomer bean = annotationConfigApplicationContext.getBean(Welcomer.class);
 
-        System.out.println(bean.getWelcomeText());
+//        System.out.println(bean.getWelcomeText());
+
+//        final Person bean = annotationConfigApplicationContext.getBean(Person.class);
+//        System.out.println(bean);
+
     }
 }
