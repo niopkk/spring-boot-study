@@ -44,3 +44,11 @@ fanout:它会把所有的发送到改交换器的消息路由到所有与改交�
 
 direct:的路由交换器路由规则也很简单，它会把消息路由到那些bingdingkey和routingkey完全匹配的队列中。
 
+topic:direct类型交换器路由规则是完全匹配bindingkey和routingkey,但是这种严格的匹配方式在很多情况下不能满足实际业务的需要,topic类型的交换器在匹配规则上进行了扩展，它与direct类型的交换器相似，也就将消息路由到bindingkey和routingkey相匹配的队列中，但是这里的匹配规则有些不同
+
+RoutingKey 为一个点号“.”分隔的字符串(被点号“.”分隔开的每一段独立的字符 串称为一个单词)，如“com.rabbitmq.client”、“java.util.concurrent”、“com.hidden.client”;
+
+BindingKey 和 RoutingKey 一样也是点号“.”分隔的字符串;
+
+BindingKey 中可以存在两种特殊字符串“*”和“#”，用于做模糊匹配，其中“#”用于匹配一个单词，“*”用于匹配多规格单词(可以是零个)
+
