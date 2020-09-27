@@ -24,6 +24,23 @@
 
 **异步通信:**很多时候应用不想也不需要立即处理消息。消息中间件提供了异步处理机制，允许应用把一些消息放入消息中间件中，但并不立即处理它，在之后需要的时候在慢慢处理。
 
-rabbitmq架构图
+#### rabbitmq相关概念和架构
 
-![image-20200927162022079](/Users/tianxin2/tianxin/spring-boot-study/wiki/img/rabbitmq/jiagou.png)
+**架构图**
+
+![jiagou](/Users/tianxin2/tianxin/spring-boot-study/wiki/img/rabbitmq/jiagou.png)
+
+**Queue(队列):**队列是rabbitmq的内部对象，用于存储消息，rabbitmq中的消息都只能存储在队列中，这一点和Kafka这种消息中间件相反。Kafka将消息存储在topic这个逻辑层面，而相对应的队列逻辑只是topic实际存储文件中的位移标识。
+
+**多个消费者可以订阅同一个队列，这时队列中的消息会被平均分摊(round-robid,轮询)给多个消费者进行处理，而不是每个消费者都收到所有的消息并处理。**
+
+**Exchange:**交换器，生产者将消息发送到exchange,由交换器将消息路由到一个或者多个队列中。如果路由不到，或许会返回给生产者，或许直接丢弃。
+
+**Routingkey:**路由键。生产者将消息发送给交换器的时候，一般会指定一个routingkey，用来指定这个消息的路由规则，而这个routingkey需要与交换器类型和绑定键(bindingkey)联和使用才能最终生效。
+
+**交换器类型:**
+
+fanout:它会把所有的发送到改交换器的消息路由到所有与改交换器绑定的队列中.
+
+direct:的路由交换器路由规则也很简单，它会把消息路由到那些bingdingkey和routingkey完全匹配的队列中。
+
