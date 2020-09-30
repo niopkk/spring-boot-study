@@ -52,3 +52,37 @@ BindingKey 和 RoutingKey 一样也是点号“.”分隔的字符串;
 
 BindingKey 中可以存在两种特殊字符串“*”和“#”，用于做模糊匹配，其中“#”用于匹配一个单词，“*”用于匹配多规格单词(可以是零个)
 
+#### 连接
+
+**Connection:**创建多个channel实例,但是channel实例不能在线程间共享,应用程序应该为每一个线程开辟一个channel。某些情况下channel可以并发运行，但是在其它情况下导致通讯帧交错，影响发送方确认，所以多个线程共享channel实例实非线程安全的。
+
+```java
+/**
+ exchange:交换器的名称。
+ type:交换器的类型，常见的如 fanout、direct、topic
+ durable:设置是否持久化。durable 设置为 true 表示持久化，反之是非持久化。持 久化可以将交换器存盘，在服务器重启的时候不会丢失相关信息
+ autoDelete:设置是否自动删除,当服务器不再使用该交换器的时候会自动删除，自动删除的前提是至少有一个队列或者交换器与这个交换器绑定，之     后所有与这个交换器绑定的队列或者交换器都与此解绑
+ internal:设置是否是内置的。如果设置为 true，则表示是内置的交换器，客户端程 序无法直接发送消息到这个交换器中，只能通过交换器路由到交换器这种方式
+ argument:其他一些结构化参数
+**/
+Exchange.DeclareOk exchangeDeclare(String exchange,
+                                          String type,
+                                          boolean durable,
+                                          boolean autoDelete,
+                                          boolean internal,
+                                          Map<String, Object> arguments) throws IOException;
+                               
+```
+
+```java
+/**
+queue:队列的名称
+durable:设置是否持久化。为 true 则设置队列为持久化。持久化的队列会存盘，在 服务器重启的时候可以保证不丢失相关信息
+exclusive:设置是否排他。为 true 则设置队列为排他的。如果一个队列被声明为排 他队列，该队列仅对首次声明它的连接可见，并在连接断开时自动删除。这里需要注意 三点:排他队列是基于连接(Connection)可见的，同一个连接的不同信道(Channel) 是可以同时访问同一连接创建的排他队列;“首次”是指如果一个连接已经声明了一个 排他队列，其他连接是不允许建立同名的排他队列的，这个与普通队列不同;即使该队 列是持久化的，一旦连接关闭或者客户端退出，该排他队列都会被自动删除，这种队列 适用于一个客户端同时发送和读取消息的应用场景.
+autoDelete:设置是否自动删除。为 true 则设置队列为自动删除。自动删除的前提是: 至少有一个消费者连接到这个队列，之后所有与这个队列连接的消费者都断开时，才会 自动删除.
+arguments:设置队列的其他一些参数，如 x-message-ttl、x-expires、 x-max-length、x-max-length-bytes、x-dead-letter-exchange、x-dead-
+letter-routing-key、x-max-priority 等
+**/
+Queue.DeclareOk queueDeclare(String queue, boolean durable, boolean exclusive, boolean autoDelete,
+                             Map<String, Object> arguments) throws IOException;
+```
