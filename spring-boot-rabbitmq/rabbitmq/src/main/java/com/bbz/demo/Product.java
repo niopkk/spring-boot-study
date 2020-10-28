@@ -17,7 +17,7 @@ public class Product {
 
     private final static String QUEUE_NAME = "queue_demo";
 
-    private final static String IP_ADDRESS = "104.225.153.147";
+    private final static String IP_ADDRESS = "74.120.175.100";
 
     private final static int PORT = 5672;//默认端口号
 
